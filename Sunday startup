@@ -1,0 +1,171 @@
+define Berkly = Character("Berkly", color="#FC74A9")
+define Dany = Character("Dany", color="#FC74A9")
+define Lola = Character("Lola", color="#FC74A9")
+define Mercie = Character("Mercie", color="#FC74A9")
+define Bella = Character("Bella", color="#FC74A9")
+define Christine = Character("Christine", color="#FC74A9")
+define Diana = Character("Diana", color="#FC74A9")
+define Ryver = Character("Ryver", color="#FC74A9")
+define Irene = Character("Irene", color="#FC74A9")
+define Mio = Character("Mio")
+define A = Character("Auntie")
+define U = Character("Uncle")
+define unknown = Character("???")
+
+# The game starts here.
+
+
+define narrator = Character("[name]", color="35B0D4", italics=True)
+define N = Character(None, italics=True)
+
+label start:
+python:
+    name = renpy.input("Before we start, what's your name?", default="Haru")
+    name.strip()
+
+if name == "Dio" or name == "dio" or name == "Mio" or name == "mio":
+    define dio = Character("[name]", color="F8B900")
+    dio "I'm sorry, but you cannot have that name."
+    jump start
+if name == "owo" or name == "uwu" or name == "0w0" or name == "OwO" or name == "OWO" or name == "UWU" or name == "uWu" or name == "UwU" or name == "oWo" or name == "0W0":
+    define owo = Character("[name]", color="9D00F9")
+    owo "Choose a different name you degenerate."
+    jump start
+
+if name == "Bulge" or name == "bulge":
+    define bulge = Character("[name]", color="9D00F9")
+    bulge "There's nothing to notice."
+    jump start
+
+if name == "Game Spawn" or name == "gamespawn" or name == "Gamespawn" or name == "GameSpawn" or name == "game spawn":
+    menu:
+        "The club that you should join."
+        "Yes":
+            jump sunday
+        "No":
+            jump start
+
+
+menu:
+    "Your name is [name], right?"
+    "Yes": 
+        jump sunday
+    "No":
+        jump start
+
+label sunday:
+# Show a background. This uses a placeholder by default, but you can
+    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # images directory to show it.
+#scene bubble bg
+
+N "I stepped out of the plane into the passenger boarding bridge, feeling the immediate difference between the dry California breeze and the warm Japan humidity."
+N "As I walked into passport control, I quickly texted my family friends that it would only take about 10 to 15 more minutes before I could go to the terminal where I should be exiting."
+N "Luckily I don't have too much luggage to pick up from the baggage claim."
+N "I prefer traveling light anyways."
+
+#scene fuwafuwa bubble bg
+
+N "I took a placement test against my classmates to earn an opportunity to come to the United States to visit a university of my choice there."
+N "I studied and worked really hard to get here... "
+N "I better take advantage of the opportunity when I can!"
+
+#scene bubble bg
+
+
+N "I stepped out of the International Airport, luggage dragging at my side."
+#show airport arrivals 
+N "I blinked and squinted under the sunlight."
+N "I don't know what'll happen in this foreign land, but I believe I'm going to make it!"
+
+
+    # This shows a character sprite. A placeholder is used, but you can
+    # replace it by adding a file named "eileen happy.png" to the images
+    # directory.
+#show eileen happy
+
+unknown "Hey, [name]! Over here!"
+
+N "My luggage chugged behind me as a lone figure waving enthusiastically came into view."
+N "I squinted and started a light jog towards their car."
+N "I waved to them as I got closer, shaking in excitement."
+
+"Hey Auntie! Uncle! Sorry I took a bit."
+
+A "Oh no worries, [name]. We're just glad you landed safely!"
+U "Here, let me put your luggage in the back. We gotta get out of this airport before the traffic makes me lose my mind."
+A "How was your flight, [name]? I hope you were able to get some sleep on the plane."
+menu:
+    "It was bearable":
+        "It was a little bumpy here and there, and there was the occasional crying child."
+        A "Oh my, were you able to sleep for a little?"
+        "Yeah, kind of."
+        A "Well, you can sleep in the car ride on the way to UCJJ, okay?"
+    "I had a nice time sleeping":
+        "I had my headphones, so the flight wasn't horrible."
+        A "So you were able to sleep on the plane?"
+        "Yeah, I got a bit of sleep, but I might rest in the car for a little bit."
+        A "Of course! Get as much energy as you can. We'll be here to help you move in too!"
+    "Well...":
+        "There was a child who could not stop crying. I felt really bad for their parents... they seemed like they were trying their best to deal with it."
+        A "Oh dear, poor thing."
+        U "Poor thing? More like poor passengers stuck in there for 15 hours listening to that."
+        A "That's so mean! I'm sure the child was trying their best to fit into that environment."
+        U "Which is exactly why I think toddlers and babies should be banned from planes."
+        A "Well, [name], you can sleep in the car ride on the way to UCJJ if you need to, okay?"
+
+label after_menu:
+    N "Finally leaving the airport, I leaned back the car seat and relaxed."
+    N "My eyes feel a bit heavy... maybe I should get some rest."
+    N "I closed my eyes..."
+
+#fade out to black screen
+
+U "Hey, [name]. Wake up! We're here now."
+U "Luckily the drive wasn't too bad as soon as we left the airport."
+N "Groggily, I stretched my arms out. Oh man, already at the school?"
+U "You can rest some more as soon as we move in."
+A "Take out your passport. It's your only piece of ID for your dorm keys right now."
+
+N "Getting the keys didn't take too long, but the moving in process felt like lifetimes."
+N "ESPECIALLY since I just got off the plane about an hour ago."
+N "But I am feeling a little more energized now though."
+N "I'm so excited!"
+
+unknown "Hey, you're [name], right?"
+
+N "I turned and saw a tall man by my doorway."
+N "He was wearing a shirt that shouted UCJJ pride all over it."
+
+"Hello! I'm afraid we haven't met yet."
+unknown "It's alright! I just got a notification that you moved in, so I wanted to introduce myself since we're likely going to seeing each other a lot."
+
+N "He sticks out his hand in greeting."
+N "As I return the gesture, I realize how strong his grip is. My hand kind of hurts..."
+
+Mio "The name's Mio."
+Mio "I'm your Resident Advisor, so if you need anything, just knock at my door!"
+N "He motions down the hall. There's a door with a big name-tag labeled: MIO Brandon."
+N "Mio straightens up, wide smile on his face."
+N "His smile is so bright it's blinding..."
+Mio "I didn't come over just to introduce myself though."
+Mio "I also came to remind you that I'll be taking you on campus tours during your orientation."
+Mio "You do remember, right?"
+"Ah, yes! I did know about the tours but I wasn't sure who I was supposed to meet."
+N "Well, NOW I know, anyways."
+#insert Mio smile
+Mio "Well, now you know!"
+Mio "I'll let you settle in and move in now. Meet me at the parking lot that you came in from at 10 AM."
+N "He backed out of the room waving."
+Mio "See you tomorrow! 10 AM, Parking lot!"
+"Ahaha, yeah! See you!"
+N "He leaves the room."
+A "He seems like a nice boy! I hope you two will get along."
+N "Yeah, he seems nice. I feel like I can trust him..."
+#time skip
+N "I slurped on my cup noodles tiredly, finally finished with settling in."
+N "Auntie and Uncle already left about 2 hours ago."
+"Well, I have to be a little more productive now so that I can just get some sleep."
+N "I cleaned up, muscles feeling a little stiff from all the sitting in the plane."
+N "I wonder what school here is... going to be like...zzz"
+"zzz..."
