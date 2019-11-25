@@ -15,8 +15,8 @@ define unknown = Character("???")
 # The game starts here.
 
 
-define narrator = Character(None, what_italics=True)
-define N = Character("name", color="35B0D4")
+define narrator = Character(None, what_italic=True)
+define N = Character("[name]", color="#228cc9")
 
 label start:
 python:
@@ -57,7 +57,9 @@ label sunday:
 # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-#scene bubble bg
+scene purple bubble bg
+with dissolve
+
 
 "I stepped out of the plane into the passenger boarding bridge, feeling the immediate difference between the dry California breeze and the warm Japan humidity."
 "As I walked into passport control, I quickly texted my family friends that it would only take about 10 to 15 more minutes before I could go to the terminal where I should be exiting."
