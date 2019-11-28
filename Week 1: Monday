@@ -1,4 +1,13 @@
-label Monday:
-    
+label Monday_One:
+
+show purple bubble bg
+with dissolve 
+
 "I woke to the sunlight streaming through the blinds and the loud sound of machinery outside the window."
-#MONDAY IS WHERE WE INTRODUCE AGENDA so like idk how it'll work
+"*Yawn*"
+"I stretched and peeked through the blinds. There was a man mowing the lawn, and another blowing leaves away."
+"I checked the time"
+"It's 8 AM! I woke up so early..."
+"Man, jet-lag is one hell of a sucker."
+
+#jump: Agenda
