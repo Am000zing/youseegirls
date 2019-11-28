@@ -21,17 +21,17 @@ menu Gifts:
         $ Berkly_LP += 1.5
     "Lola":
         $ Lola_LP += 1.5
-    "Dany"
+    "Dany":
         $ Dany_LP += 1.5
-    "Christine"
+    "Christine":
         $ Christine_LP += 1.5
-    "Diana"
+    "Diana":
         $ Diana_LP += 1.5
-    "Bella"
+    "Bella":
         $ Bella_LP += 1.5
-    "Irene"
+    "Irene":
         $ Irene_LP += 1.5
-    "Ryver"
+    "Ryver":
         $ Ryver_LP += 1.5
-    "Mercie"
+    "Mercie":
         $ Mercie_LP += 1.5
