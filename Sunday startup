@@ -1,22 +1,8 @@
-define Berkly = Character("Berkly", color="#FC74A9")
-define Dany = Character("Dany", color="#FC74A9")
-define Lola = Character("Lola", color="#FC74A9")
-define Mercie = Character("Mercie", color="#FC74A9")
-define Bella = Character("Bella", color="#FC74A9")
-define Christine = Character("Christine", color="#FC74A9")
-define Diana = Character("Diana", color="#FC74A9")
-define Ryver = Character("Ryver", color="#FC74A9")
-define Irene = Character("Irene", color="#FC74A9")
-define Mio = Character("Mio")
-define A = Character("Auntie")
-define U = Character("Uncle")
-define unknown = Character("???")
+# The script of the game goes in this file.
 
-# The game starts here.
+# Declare characters used by this game. The color argument colorizes the
+# name of the character.
 
-
-define narrator = Character(None, what_italic=True)
-define N = Character("[name]", color="#228cc9")
 
 label start:
 python:
@@ -29,12 +15,12 @@ if name == "Dio" or name == "dio" or name == "Mio" or name == "mio":
     jump start
 if name == "owo" or name == "uwu" or name == "0w0" or name == "OwO" or name == "OWO" or name == "UWU" or name == "uWu" or name == "UwU" or name == "oWo" or name == "0W0":
     define owo = Character("[name]", color="9D00F9")
-    owo "Choose a different name you degenerate."
+    owo "Choose a different name, you degenerate."
     jump start
 
 if name == "Bulge" or name == "bulge":
     define bulge = Character("[name]", color="9D00F9")
-    bulge "There's nothing to notice."
+    bulge "But there was nothing to notice."
     jump start
 
 if name == "Game Spawn" or name == "gamespawn" or name == "Gamespawn" or name == "GameSpawn" or name == "game spawn":
@@ -69,6 +55,9 @@ with dissolve
 #scene fuwafuwa bubble bg
 
 "I took a placement test against my classmates to earn an opportunity to come to the United States to visit a university of my choice there."
+"The school that stood out to me the most was The University of California: JJ, or UCJJ, for short."
+"The {b}JJ{/b} is supposed to be the initials of the founder of the school, but the founder chose to keep his name hidden from the world, as well as his face."
+"How admirable! He clearly values upholding the highest standards of education rather than chasing money or fame."
 "I studied and worked really hard to get here... "
 "I better take advantage of the opportunity when I can!"
 
@@ -94,40 +83,48 @@ unknown "Hey, [name]! Over here!"
 
 N "Hey Auntie! Uncle! Sorry I took a bit."
 
+show auntie neutral at right
+with dissolve
 A "Oh no worries, [name]. We're just glad you landed safely!"
 U "Here, let me put your luggage in the back. We gotta get out of this airport before the traffic makes me lose my mind."
 A "How was your flight, [name]? I hope you were able to get some sleep on the plane."
 menu:
-    "It was bearable":
-        N "It was a little bumpy here and there, and there was the occasional crying child."
+    "It was bearable.":
+        N "It was a little bumpy here and there, plus the occasional crying child."
         A "Oh my, were you able to sleep for a little?"
-        N "Yeah, kind of."
+        N "Yeah, kinda."
         A "Well, you can sleep in the car ride on the way to UCJJ, okay?"
-    "I had a nice time sleeping":
+    "I had a nice time sleeping.":
         N "I had my headphones, so the flight wasn't horrible."
         A "So you were able to sleep on the plane?"
         N "Yeah, I got a bit of sleep, but I might rest in the car for a little bit."
         A "Of course! Get as much energy as you can. We'll be here to help you move in too!"
     "Well...":
-        N "There was a child who could not stop crying. I felt really bad for their parents... they seemed like they were trying their best to deal with it."
+        N "There was a kid who could NOT stop crying. I felt really bad for their parents... they seemed like they were trying their best to deal with it."
         A "Oh dear, poor thing."
         U "Poor thing? More like poor passengers stuck in there for 15 hours listening to that."
-        A "That's so mean! I'm sure the child was trying their best to fit into that environment."
+        A "That's so rude! I'm sure the child and parents were trying their best."
         U "Which is exactly why I think toddlers and babies should be banned from planes."
         A "Well, [name], you can sleep in the car ride on the way to UCJJ if you need to, okay?"
-
 label after_menu:
+    hide auntie neutral
+    with dissolve
     "Finally leaving the airport, I leaned back the car seat and relaxed."
     "My eyes feel a bit heavy... maybe I should get some rest."
     "I closed my eyes..."
 
-#fade out to black screen
+scene black bg
+with dissolve
+with Pause(1)
 
 U "Hey, [name]. Wake up! We're here now."
 U "Luckily the drive wasn't too bad as soon as we left the airport."
 "Groggily, I stretched my arms out. Oh man, already at the school?"
 U "You can rest some more as soon as we move in."
 A "Take out your passport. It's your only piece of ID for your dorm keys right now."
+
+scene dorm inside
+with dissolve
 
 "Getting the keys didn't take too long, but the moving in process felt like lifetimes."
 "ESPECIALLY since I just got off the plane about an hour ago."
@@ -164,10 +161,14 @@ N "Ahaha, yeah! See you!"
 "He leaves the room."
 A "He seems like a nice boy! I hope you two will get along."
 "Yeah, he seems nice. I feel like I can trust him..."
-#time skip
+
+scene desk bg
+with Fade(0.5, 0.0, 0.5)
 "I slurped on my cup noodles tiredly, finally finished with settling in."
 "Auntie and Uncle already left about 2 hours ago."
 N "Well, I have to be a little more productive now so that I can just get some sleep."
 "I cleaned up, muscles feeling a little stiff from all the sitting in the plane."
 "I wonder what school here is... going to be like...zzz"
 N "zzz..."
+
+jump Monday_One
