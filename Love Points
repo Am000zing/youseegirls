@@ -7,6 +7,7 @@ default Christine_LP = 0
 default Diana_LP = 0
 default Ryver_LP = 0
 default Irene_LP = 0
+default Mio_LP = 0
 
 # +1: Standard choice to have dialogue w/ someone (every dialogue choice is +1 if there's no special effect)
 # +1.5: Sending a gift
