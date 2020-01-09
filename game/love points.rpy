@@ -36,3 +36,4 @@ menu Gifts:
         $ Ryver_LP += 1.5
     "Mercie":
         $ Mercie_LP += 1.5
+    
