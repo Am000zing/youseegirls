@@ -117,12 +117,12 @@ menu:
     "BBQ Pulled Pork Sliders":
         unknown "Ooh, that smells so good, what'd you get?"
         N "A-ah, I got a BBQ Pulled Pork Slider. It smelled so good, I couldn't resist."
-	    "She gave a long look at me and the slider on my plate."
-		"She had an intense stare, despite her lax and standoffish demeanor."
-		"It was like she was silently judging me..."
-		unknown "I guess I can't judge you for desiring it, considering that the aroma is absolutely divine."
-	    unknown "But just so you know, the American meat industry, especially when it comes to pork, can be especially cruel."
-		jump choice_ChristineIntroB
+        "She gave a long look at me and the slider on my plate."
+        "She had an intense stare, despite her lax and standoffish demeanor."
+        "It was like she was silently judging me..."
+        unknown "I guess I can't judge you for desiring it, considering that the aroma is absolutely divine."
+        unknown "But just so you know, the American meat industry, especially when it comes to pork, can be especially cruel."
+        jump choice_ChristineIntroB
 
 label choice_ChristineIntroA:
 menu:
@@ -146,11 +146,11 @@ menu:
         N "O-oh, I see. I wasn't aware of that." 
         $Christine_LP += 1
     "How does this apply to me.":
-	    N "How does this apply to me now though?"
+        N "How does this apply to me now though?"
         $Christine_LP -=1
-	    Christine "Ugh, by picking this item up at the buffet, you directly support the demand of dining hall pork, which in turn will cause more pigs to die."
-		N "I'm not directly killing them though..."
-		Christine "Whatever, I can explain this later."
+        Christine "Ugh, by picking this item up at the buffet, you directly support the demand of dining hall pork, which in turn will cause more pigs to die."
+        N "I'm not directly killing them though..."
+        Christine "Whatever, I can explain this later."
 
 Christine "Well, it's a pleasure to meet you."
 Christine "I'm sure we'll be seeing each other around often considering how few people attend this summer session."

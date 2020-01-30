@@ -42,7 +42,8 @@ N "Hey, are you alright?"
 N "Okay, this might hurt a bit, but I'll try to help you!"
 "I slapped her back with all my might-"
 
-# $ sshake = Shake((0, 0, 0, 0), 1.0, dist=15)
+$ sshake = Shake((0.5, 0.5, 0.5, 0.5), 5.0, dist=50)
+show dorm inside with sshake
 
 "-And out came a tapioca pearl!"
 "Her sunglasses nearly came off with how hard I slapped her back but god knows what would've happened if I didn't help though..."

@@ -13,23 +13,25 @@ if name == "Dio" or name == "dio" or name == "Mio" or name == "mio":
     define dio = Character("[name]", color="F8B900")
     dio "I'm sorry, but you cannot have that name."
     jump start
-if name == "owo" or name == "uwu" or name == "0w0" or name == "OwO" or name == "OWO" or name == "UWU" or name == "uWu" or name == "UwU" or name == "oWo" or name == "0W0":
+elif name == "owo" or name == "uwu" or name == "0w0" or name == "OwO" or name == "OWO" or name == "UWU" or name == "uWu" or name == "UwU" or name == "oWo" or name == "0W0":
     define owo = Character("[name]", color="9D00F9")
     owo "Choose a different name, you degenerate."
     jump start
-
-if name == "Bulge" or name == "bulge":
+elif name == "Bulge" or name == "bulge":
     define bulge = Character("[name]", color="9D00F9")
     bulge "But there was nothing to notice."
     jump start
-
-if name == "Game Spawn" or name == "gamespawn" or name == "Gamespawn" or name == "GameSpawn" or name == "game spawn":
+elif name == "Game Spawn" or name == "gamespawn" or name == "Gamespawn" or name == "GameSpawn" or name == "game spawn":
     menu:
         "The club that you should join."
         "Yes":
             jump sunday
         "No":
             jump start
+elif name == "agenda":
+    window hide
+    show screen agenda with dissolve
+    "hi"
 
 
 menu:
