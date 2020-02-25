@@ -399,3 +399,35 @@ label after_library_intro:
 "..."
 "Oh man, I didn't even think about messaging Mio this whole time to check on him!"
 "He did kind of just abandon me and left me to fend for myself, though."
+Mio "Hey, [name]!"
+"I turn around and see Mio rushing towards me."
+N "Well, took you long enough."
+Mio "Ah, sorry. It was a pretty urgent call."
+Mio "Were you able to get around?"
+menu:
+    "Yeah":
+        "Yeah, I was able to. I found some nice people who showed me around some places."
+        Mio "That's great! Sorry I wasn't able to help more."
+    "Yeah, no thanks to you":
+        $ Mio_LP -= 1.0
+        Mio "Dang, dude. I can't help it when I have emergencies."
+
+Mio "Anyways, let's head back if there's nothing else to do."
+N "Okay."
+
+scene dorm night with Fade(1.0, 0, 1.0)
+"I returned to my room that night and tidied up my bag for tomorrow."
+N "Huh?"
+"I picked up my cellphone and found a text message from Mio."
+"It says:"
+"Rest up, dude. You have a big day tomorrow!"
+"I checked the time and-"
+"Whoa! It's already this late???"
+"I shoot him a quick response."
+N "Thanks \(^ - ^)/!"
+"After sending it, I sat down on my bed."
+"I sighed and my mind drifted off."
+"I'm exhausted beyond belief, but I think i've made a lot of new friends."
+"I drifted off to sleep, wondering when I'd meet them again."
+
+jump Thursday_One
