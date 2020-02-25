@@ -82,7 +82,8 @@ Mio "You can probably ask someone to help you out in the places you're checking 
 N "Oh, uh-"
 "Before I could reason with him, he's already out the door."
 "Well..."
-"Where do should I go?"
+"Where should I go?"
+define up_down = False
 menu:
     "Downstairs to the Research Archives":
         "I head downstairs, curious about the various research the university has done."
@@ -201,9 +202,11 @@ N "Uh... yeah that'd be cool some time."
 N "Thanks for the info!"
 Berkly "Of course, it's no problem."
 "Before I can wave goodbye, she's out the door."
-jump after_upstairs
-
-
+if not up_down:
+    $ up_down = True
+    jump after_downstairs
+else:
+    jump after_library_intro
 
 label after_downstairs:
 "Well, I guess I should check out what's upstairs."
@@ -375,7 +378,7 @@ menu:
 "Diana left in a hurry, mumbling and quickly packing up her things."
 "She didn’t look back as she quickly exited the premise."
 "I turned to Ryver and she placed a hand at her hip and heaved a sigh."
-show ryver concerned #at the middle with move
+show ryver concerned at center with move
 Ryver "I’m sorry. She gets really anxious whenever it comes to strangers."
 "I mean, that sounds understandable..."
 show ryver neutral
@@ -386,11 +389,13 @@ N "If I ever have any questions, I hope I find a tour guide as cool as you."
 "Ryver laughed and punched my arm playfully."
 Ryver "See you around!"
 "She disappeared behind a row of bookcases and I was alone."
+if not up_down:
+    $ up_down = True
+    jump after_upstairs
+else:
+    jump after_library_intro
 
-
-
-
-
+label after_library_intro:
 "..."
 "Oh man, I didn't even think about messaging Mio this whole time to check on him!"
 "He did kind of just abandon me and left me to fend for myself, though."
