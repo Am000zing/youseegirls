@@ -57,31 +57,58 @@ menu:
 label leave_for_class:
 "I should probably leave him alone. It's pretty early."
 "As I near the exit, my phone buzzes. It's a text from Auntie."
-Auntie "Good morning sweetie!"
-Auntie "I was thinking that your Uncle and I might come to visit you for lunch."
-Auntie "How has your time been at UCJJ?"
+A "{i}Good morning sweetie!{/i}"
+A "{i}I was thinking that your Uncle and I might come to visit you for lunch.{/i}"
+A "{i}How has your time been at UCJJ?{/i}"
 menu:
     "It's been fun.":
         "I text her back:"
-        N "It's really fun! I've become good friends with the tour guide."
-        Auntie "That's great to hear!"
+        N "{i}It's really fun! I've become good friends with the tour guide.{/i}"
+        A "{i}That's great to hear!{/i}"
     "It's been great!":
         "I text her back:"
-        N "It's been great! The students here are interesting."
-        N "I've met a some new girls that I think I might get along with."
-        Auntie "Oh my! Well, make sure you stay focused on your studies."
+        N "{i}It's been great! The students here are interesting.{/i}"
+        N "{i}I've met a some new girls that I think I might get along with.{/i}"
+        A "{i}Oh my! Well, make sure you stay focused on your studies.{/i}"
     "It's been fine.":
-        N "It's been fine. I'm not sure that I've found anything I'm interested in yet."
-        Auntie "Oh, that's alright."
-        Auntie "You just need to spend more time getting to know things, and then you'll figure out what you like."
+        N "{i}It's been fine. I'm not sure that I've found anything I'm interested in yet.{/i}"
+        A "{i}Oh, that's alright.{/i}"
+        A "{i}You just need to spend more time getting to know things, and then you'll figure out what you like.{/i}"
 
-Auntie "Anyways, good luck with school! I'll talk to you more at lunchtime."
-N "Okay, Auntie. Thanks!"
+A "{i}Anyways, good luck with school! I'll talk to you more at lunchtime.{/i}"
+N "{i}Okay, Auntie. Thanks!{/i}"
 "Ahh, it's nice to know that I also have family here."
 "I should really call Mom though..."
 "Ah, I need to get to class! Shouldn't be late for my first day!"
 # time skip
-show dorm afternoon with dissolve
+show dorm afternoon with Fade(1.0,0,1.0)
 "Class wasn’t too bad. The teacher seems really nice and understanding, so I think I’ll have a good time here!"
 "Especially since I have Auntie taking care of me."
 "It was nice to see her for lunch."
+"Huh, now that I think about it, I wonder if Mio’s still in his room."
+"He was probably sleeping in the morning, but now it’s the afternoon."
+"He should be awake by now, right?"
+"He did give me his contact details. I could message him if I want to…"
+"Message Mio?"
+menu:
+    "Yes":
+        jump annoyMio_optionyes1
+    "No":
+        "He's probably not going to respond anyways."
+
+label annoyMio_optionyes1:
+N "Hey Mio, you awake?"
+"..."
+"No response."
+N "Sorry for bothering, but I just wanted to know if you wanted to hang out."
+"..."
+N "I'm bored."
+"..."
+"I think he’s sleeping."
+"Even though it’s well in the afternoon, he did mention that he enjoys napping after classes."
+"I decide to head back to the dorm. Maybe I could knock on his door when I get there…"
+scene dorm night with Fade(1.0,0,1.0)
+"I lay back in my chair, trying to relax."
+"I’m kind of tired now that I think about it."
+"Maybe I should take a nap with Mio too."
+"Or should I go knock on Mio’s door?"
