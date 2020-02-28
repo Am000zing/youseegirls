@@ -21,3 +21,17 @@ jump Friday_One_AfterClass
 
 label Friday_One_AfterClass:
 "After class, I walked back my dorm wearily."
+"Ah, this week has been quite the ride. I've met so many people, and all this social interaction has really tired me out."
+"What should I do now?"
+menu:
+    "Study":
+        "I should probably study for my classes."
+        "I can't afford to slack off, even if I'm no longer in high school!"
+        "Ah, I'm so worn out."
+        "I should probably shower and sleep..."
+        "zzz..."
+    "Go Sleep":
+        "I'm so worn out from this week and from classes."
+        "I should just get some rest."
+        "I should probably shower and sleep..."
+        "zzz..."

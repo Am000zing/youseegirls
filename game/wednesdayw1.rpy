@@ -1,4 +1,6 @@
 label Wednesday_One:
+define Upstairs = False
+define Downstairs = False
 
 scene dorm inside
 with Fade(1.0, 0.0, 1.0)
@@ -16,11 +18,12 @@ with Fade(1.0, 0.0, 1.0)
 "I wonder what today would bring me..."
 "Mio's been super helpful so far, not to mention, I've met so many people so far!"
 "Whatever life throws at me, I feel like I can take it!"
+show parking lot with Fade(1.0,1.0,2.0)
 "I made it to the parking lot. Now I have plenty of time to arrive earl-"
 #*SMACK*
 #bumping into someone sound
 $ sshake = Shake((0, 0, 0, 0), 0.5, dist=15)
-show dorm inside with sshake
+show parking lot with sshake
 "I toppled over, but barely caught my balance at the last second."
 unknown "Ow! Shoot, I'm so sorry. Are you okay?"
 N "Y-yeah, I'm fine...?"
@@ -28,19 +31,26 @@ N "Y-yeah, I'm fine...?"
 N "Huh? I swear I was bumped into."
 unknown "Ah, yeah, I'm so sorry, let me get out of your way."
 "I turned around."
+show mercie concern with dissolve
 "She had already brushed herself off and gathered herself ready to leave."
 N "W-wait!"
+show mercie concern blush
 "She halted, quietly staring at me with almost a worried look on her face."
 N "I'm sorry, I'm new to this school, so I'm trying to get to know people."
+show mercie concern
 N "May I ask what your name is?"
+show mercie happy
 unknown "Y-you want to know my name?"
 "She was aghast, almost amazed...for someone wanting to know who she is?"
 N "U-uh, yeah. I'm [name]."
+show mercie laugh
 unknown "Oh wow, that's so cool! It's so nice to meet you!!"
 Mercie "I'm Mercie!"
 N "I'm [name]. It's nice to meet you too!"
+show mercie neutral
 "Mercie quickly brushes her hair back, and exhales in relief."
 Mercie "Well, I'm off now! Hope to see you around, if you want to of course."
+hide mercie neutral with dissolve
 "Before I can respond, she's off in the distance."
 "She seems really hesitant in social encounters..."
 "I wonder if she's scared of me?"
@@ -70,6 +80,7 @@ Mio "Anyways, eat up! We still got a place to go to, and it's pretty big, so you
 N "Alright, got it!"
 
 #scene library
+show library_2 with Fade(1.0,0,2.0)
 
 "Mio stopped us by the library, which was absolutely huge."
 Mio "Downstairs is the research archives, while upstairs is the literature section."
@@ -83,22 +94,21 @@ N "Oh, uh-"
 "Before I could reason with him, he's already out the door."
 "Well..."
 "Where should I go?"
-define up_down = False
+
+
+label menu_library:
 menu:
     "Downstairs to the Research Archives":
-        "I head downstairs, curious about the various research the university has done."
-        "Wow, there's so many files and articles...how do I know what's good and what's not?"
-        "I notice that there's two others also perusing the archives."
-        jump choice_betweenBL
+        jump Downstairs
     "Upstairs to the Literature Section":
-        "I head upstairs, curious about the type of books the university has in inventory."
-        "Wow, these stairs are kind of treacherously steep. I better watch my step!"
-        "As I approached the top of the staircase, I noticed someone leaning over a mess of books and papers."
-        "She looks tired and erratic."
-        "Maybe I should help her..."
-        jump choice_helpRyver
+        jump Upstairs
 
-label choice_betweenBL:
+label Downstairs:
+$ Downstairs = True
+show library_1 with Fade(1.0,0,2.0)
+"I head downstairs, curious about the various research the university has done."
+"Wow, there's so many files and articles...how do I know what's good and what's not?"
+"I notice that there's two others also perusing the archives."
 menu:
     "Approach the one staring intently at the file she's going through.":
         jump choice_betweenBL_Berkly
@@ -108,51 +118,82 @@ menu:
 label choice_betweenBL_Berkly:
 N "Excuse me, I was-"
 unknown "Yes, you are excused."
-N "I need to-"
-unknown "Yes, what do you want?"
-N "I’m a transfer student here, and I wanted to ask if you could introduce me to how I could go through the archives."
-unknown "Ah, I see. It's nice to know that you are also in the pursuit of knowledge."
-"Uhh... yeah, pursuit of knowledge, I guess?"
-unknown "Well, I don't have much free time, but I'm willing to show you around."
+"Maybe I should ask someone else for help..."
+unknown "Ah, sorry. I'm a little stressed so I'm a bit on edge."
+"She doesn't look up from her file."
+N "I’m a transfer student here, and I wanted to ask if you could introduce me around the archives."
+"She's going to help me...right?"
+show berkly concerned with dissolve
+unknown "Oh, I see. I’ll help you, but my time is a bit limited."
 N "That's be great, thanks!"
 N "I'm [name], by the way."
+show berkly neutral
 Berkly "Berkly, good to meet you."
+Berkly "Well, let's get going then."
+hide berkly neutral with dissolve
 #TIME SKIP
-Berkly "--I mean isn’t it obvious that all organic coffee is better than non-organic?"
+show library_1 with Fade(1.0,1.0,1.0)
+show berkly neutral with dissolve
+Berkly "~I mean isn’t it obvious that all organic coffee is better than non-organic?"
 "I tiredly nod in agreement."
-Berkly "It’s nice having someone willing to listen to me."
-Berkly "Hey, [name], would you like to --"
-unknown "Hey, Berkly, mind keeping it down?"
-unknown "You've been talking really loudly for a while, so it's a bit hard to concentrate."
-Berkly "Oh, sorry about that."
+Berkly "If you need more help, I can introduce someone else to you."
+N "Oh, sure! That'd be cool."
+"She taps on the shoulder of the other girl in the room."
+Berkly "Could you help him, please?"
+show berkly concerned
 "Berkly looks up at the clock on the wall. Her eyes widen in shock, and quickly gathers her belongings."
+show berkly annoyed
 Berkly "Oh dear, I haven't been keeping track of time."
+show berkly neutral
 Berkly "I've gotta rush, so I'll see you around campus, probably."
 N "Oh, y-yeah, see you around!"
 "She was already out the door by the time I had waved bye."
+hide berkly neutral with dissolve
 "She's quite moody... pretty cool to talk to, but also very easy to annoy."
 "I sigh in both tiredness and relief."
 unknown "Yeah, she's a real charmer, isn't she?"
 N "Oh!"
 "I forgot there was still another person in the room."
+show lola neutral with dissolve
 Lola "I'm Lola! You're certainly a new face around here."
 N "Haha, yeah, I just wanted to check out the library and stuff."
 "Especially since Mio kinda ditched me..."
-Lola "Umm, want me to give you a quick tour? I mean I’m just as qualified as Berkly in my studies, so don’t count me out."
-"Why would grades matter when talking about being lost? "
-N "Uh, yeah, sure, I'd appreciate it."
-Lola "Really? Even though Berkly already helped you?"
-N "Yeah, I could get some extra advice to get around this area."
-Lola "You can count on me!"
-#TIME SKIP
+Lola "So I'm guessing Berkly went over things really quickly, yeah?"
+show lola laugh
+Lola "Don’t worry I’ll just go over everything that you need clarification on."
+N "Yeah, sure, I appreciate it."
+show lola neutral
+Lola "Hmm..."
+"She takes out a tin of Altoids."
+Lola "Here's a mint!"
+"Crap...did my breath smell bad?"
+N "Uh, thanks."
+show lola laugh
+Lola "Heh, your breath doesn't smell by the way. This is just my icebreaker."
+"The mint is an icebreaker..."
+show lola concern
+Lola "Don’t stare at me like I'm some alien! I swear these are just to lighten the mood!"
+N "Sorry, I just didn't expect-"
+show lola laugh
+Lola "The constant joking? Like I always say, don’t worry about it!"
+hide lola laugh with dissolve
+show library_1 with Fade(1.0,1.0,1.0)
+show lola neutral with dissolve
 Lola "~And this is the place where you can find the records specifically researched by our professors."
 N "Thanks for your help!"
+show lola laugh
 Lola "Remember if you need anything, I’m your gal."
+show lola neutral
 N "Of course, I’ll keep it in mind."
 "Lola waves goodbye, and leaves the archives."
+hide lola neutral with dissolve
+###
+jump if_else_updown
+###
 
 label choice_betweenBL_Lola:
 N "Excuse me, I was wondering if I could get a brief introduction to the archives?"
+show lola neutral with dissolve
 unknown "Sure, I don't see why not."
 N "Thank you!"
 unknown "You new around here?"
@@ -160,7 +201,8 @@ N "Yeah, I'm trying to get a feel of the library and the school right now."
 unknown "That's really cool!"
 Lola "Lola, by the way."
 N "I'm [name]. It's nice to meet you!"
-#TIME SKIP
+show library_1 with Fade(1.0,1.0,1.0)
+show lola neutral with dissolve
 Lola "-And this is the place where you can find the previous research done by JJ alumni."
 N "That's pretty cool."
 "It's kind of boring around here..."
@@ -172,61 +214,75 @@ menu:
     "Well, I guess.":
         Lola "Better some than none."
     "I don't really have a choice.":
+        show lola annoyed
         Lola "Well, you didn't have to ask me if you didn't want to."
         $Lola_LP -= 1
-unknown "Lola, you’ve been talking kind of loudly for a while. Other people can’t really concentrate in here."
-Lola "Sorry, Berkly. I just kinda got excited, you know."
-Berkly "Well, please be more quiet, okay?"
-Lola "Okay..."
+show lola neutral
 "Lola looked up at the clock on the wall. Her jaw dropped, and quickly gathered her belongings."
+show lola concern
 Lola "Hey, [name], I gotta blast."
-N "Ah, I see. Good luck!"
-Lola "Yeah, see you around!"
+Lola "If you need more help, you can ask Berkly over there."
+"She motions to the girl intently perusing files."
+N "The one with the glasses?"
+show lola neutral
+Lola "Yep, just make sure to mention that I recommended you to her or else she might ignore you."
+hide lola neutral with dissolve
 "She enthusiastically waved goodbye to me, and I returned the gesture."
-Berkly "So you're the new student, yeah?"
-N "Ah!"
-"I forgot there was still another person in the room."
-Berkly "You have any questions about this place? I'm sure I could help out too."
-N "Oh, yeah, that'd be great!"
+"I went over to the person she mentioned."
+N "Hi, could you give me a quick rundown of this place? Lola told me you could help me."
+show berkly neutral with dissolve
+Berkly "You're the new student, yeah?"
+N "Yeah, I am."
 Berkly "Alright then, let's get started."
-#TIME SKIP
+hide berkly neutral with dissolve
+show library_1 with Fade(1.0,1.0,1.0)
+show berkly neutral with dissolve
 Berkly "This is the area where you can access vinyl records and VCRs."
 N "It's pretty dusty here..."
+$ sshake = Shake((0, 0, 0, 0), 0.5, dist=15)
+show library_1 with sshake
 N "A-ACHOO!"
 "I sneezed hard, and dust particles flew up around me."
 Berkly "I should really go. I've got plans later, so I can't stay for much longer."
 N "Oh, don't worry about me! You've been really helpful."
+show berkly happy
 Berkly "It’s no problem. I know some secret places and hidden areas in the library too, if you're interested of course."
 N "Uh... yeah that'd be cool some time."
 "I guess that's cool?"
+show berkly neutral
 N "Thanks for the info!"
 Berkly "Of course, it's no problem."
+hide berkly neutral with dissolve
 "Before I can wave goodbye, she's out the door."
-if not up_down:
-    $ up_down = True
-    jump after_downstairs
+
+#########################
+label if_else_updown:
+if not Upstairs:
+    jump go_upstairs
 else:
     jump after_library_intro
 
-label after_downstairs:
+#########################
+
+label go_upstairs:
 "Well, I guess I should check out what's upstairs."
+jump Upstairs
+
+label go_downstairs:
+"Well, I guess I should check out what's downstairs."
+jump Downstairs
+
+
+######################
+
+label Upstairs:
+$ Upstairs = True
+show library_3 with Fade(1.0,0,2.0)
 "I head upstairs, curious about the type of books the university has in inventory."
 "Wow, these stairs are kind of treacherously steep. I better watch my step!"
 "As I approached the top of the staircase, I noticed someone leaning over a mess of books and papers."
 "She looks tired and erratic."
 "Maybe I should help her..."
-
-label after_upstairs:
-"Well, I guess I should check out what's downstairs."
-"I head downstairs, curious about the various research the university has done."
-"Wow, there's so many files and articles...how do I know what's good and what's not?"
-"I notice that there's two others also perusing the archives."
-
-
-
-jump choice_helpRyver
-
-label choice_helpRyver:
 menu:
     "Help her":
         jump choice_helpRyver_help
@@ -236,8 +292,7 @@ menu:
 label choice_helpRyver_help:
 "I walked over and picked up some strewn papers near the top of the steps."
 N "Here you go."
-show ryver neutral
-with dissolve
+show ryver neutral with dissolve
 unknown "Oh, thank you! I could've used an extra hand."
 N "No problem! I'm not really doing anything right now."
 unknown "Really? Are you new around here?"
@@ -250,10 +305,8 @@ N "S-Sorry!"
 show ryver laughing
 unknown "Haha, don't be so nervous. It's okay."
 "I suppose Americans make friends easily? She didn't seemed bothered about me intervening at all..."
-hide ryver laugh
-with dissolve
+hide ryver laugh with dissolve
 jump choice_helpRyver_after
-
 
 label choice_helpRyver_nohelp:
 "She seems like she's got it under control, so I continued making my way up."
@@ -273,17 +326,17 @@ unknown "I'll see you later then! Maybe ask someone for help."
 "I walked back down the steps. I stood hesitantly beside her."
 N "D-Do you need any help?"
 "The first girl, Ryver, took one look at me and moved aside with a big smile."
+show ryver laughing with dissolve
 unknown "Oh my god, yes. Please. Thank you so much."
 "I knelt on the floor next to her and helped pick up her papers."
+hide ryver laughing with dissolve
 jump choice_helpRyver_after
 
-
 label choice_helpRyver_after:
-scene purple bubble bg
-with dissolve
-show ryver neutral
-with dissolve
-"We gathered all her papers into a messy pile and shuffled them into a semi-neat stack. "
+scene library_3 with Fade(1.0,1.0,2.0)
+show ryver neutral with dissolve
+"We gathered all her papers into a messy pile and shuffled them into a semi-neat stack."
+show ryver concerned
 unknown "Phew, well that took forever. "
 unknown  "Hey, thank you sooo much for the help!"
 unknown "You're a lifesaver, errr...."
@@ -296,12 +349,11 @@ show ryver concerned
 show ryver neutral
 Ryver "Hey, do you mind coming along with me? I don't think I can carry all of these on my own without them like, flapping all over the place."
 N "Yeah! No problem!"
-hide ryver neutral
-with dissolve
+hide ryver neutral with dissolve
 "With a smile, she raced ahead of me and led me up the flight of stairs. "
 "She'd change topics so often that the conversation seemed erratic, yet I felt like she really wanted to know more about me."
 "I wonder if she's always this friendly with complete strangers."
-#timeskip
+show library_3 with Fade(2.0,0,1.0)
 show ryver laughing with dissolve
 Ryver "Here we are! You can put them next to the bag over there."
 "I walked to where she pointed, and I find a schoolbag and laptop laid on a table."
@@ -320,14 +372,15 @@ N "O-oh, no, it's okay! Really, I'm fine-"
 "She rolled her eyes and tugged me away."
 hide ryver neutral with dissolve
 "Next thing I knew, we were exploring the library together."
-#timeskip
 
+show library_3 with Fade(1.0,1.0,2.0)
 show ryver neutral with dissolve
 Ryver "... And this vending machine tends to eat your money."
 "I don't really eat a lot of snacks, but I suppose this is some useful information?"
 N "Haha, I'll keep that in mind if I ever need a quick snack."
 "I gripped the soda she bought me.  I felt weird just taking something."
 N "A-Again, I can pay you for the drink. All I did was pick up some papers."
+show ryver laughing
 Ryver "Don't sweat it. Anything to help a fellow student. We need to stick together, after all!"
 "Ryver’s words died out as a finger tapped her back. She quirked her brow and looked over her shoulder."
 show ryver neutral at left with move
@@ -342,8 +395,9 @@ Diana "I-I'm Diana. What's your name?"
 show ryver concerned at left
 Ryver "Jeez, Diana, you make introducing yourself seem like the most life-threatening thing in the world."
 #((Diana blushes))
-show diana annoyed blushing at right
+show diana neutral blushing at right
 N "I’m [name]. It's nice to meet you!"
+show diana annoyed blushing at right
 Diana "I-I'm only asking your name. N-No need to be so sudden..." #>///~///>
 "H-Huh? Did I say something she didn't like?"
 show ryver neutral at left
@@ -369,11 +423,16 @@ menu:
     "Pretend you didn't see anything.":
         N "Well, if you were catching up, it must've been very important."
         N "We need more dedicated people like you!"
+        show diana concerned blushing at right
         Diana "O-oh, um..."
+        show diana happy blushing at right
         Diana "Y-Yeah! More people like me! Of course! Definitely!"
         Ryver "Um, what are you on about?"
+        show diana happy at right
         Diana "A-Anyways, I-I-I have another class. I'll see you around, Ryver!"
+        show diana happy blushing at right
         Diana "A-And you- I'll see you! Yes! B-Bye!"
+        hide diana happy blushing at right
         Ryver "Uh, see ya!"
 "Diana left in a hurry, mumbling and quickly packing up her things."
 "She didn’t look back as she quickly exited the premise."
@@ -388,12 +447,15 @@ N "Well, thank you for the tour."
 N "If I ever have any questions, I hope I find a tour guide as cool as you."
 "Ryver laughed and punched my arm playfully."
 Ryver "See you around!"
+hide ryver neutral with dissolve
 "She disappeared behind a row of bookcases and I was alone."
-if not up_down:
-    $ up_down = True
-    jump after_upstairs
+
+############
+if not Downstairs:
+    jump go_downstairs
 else:
     jump after_library_intro
+############
 
 label after_library_intro:
 "..."
@@ -406,7 +468,8 @@ Mio "Ah, sorry. It was a pretty urgent call."
 Mio "Were you able to get around?"
 menu:
     "Yeah":
-        "Yeah, I was able to. I found some nice people who showed me around some places."
+        N "Yeah, I was able to. I found some nice people who showed me around some places."
+        $ Mio_LP += 0.5
         Mio "That's great! Sorry I wasn't able to help more."
     "Yeah, no thanks to you":
         $ Mio_LP -= 1.0
@@ -416,16 +479,20 @@ Mio "Anyways, let's head back if there's nothing else to do."
 N "Okay."
 
 scene dorm night with Fade(1.0, 0, 1.0)
+with Pause(2.0)
+
 "I returned to my room that night and tidied up my bag for tomorrow."
-N "Huh?"
-"I picked up my cellphone and found a text message from Mio."
-"It says:"
-"Rest up, dude. You have a big day tomorrow!"
+"I've got my first day of class, so I should try to prepare in advance."
+#N "Huh?"
+#"I picked up my cellphone and found a text message from Mio."
+#"It says:"
+#"Rest up, dude. You have a big day tomorrow!"
 "I checked the time and-"
 "Whoa! It's already this late???"
-"I shoot him a quick response."
-N "Thanks \(^ - ^)/!"
-"After sending it, I sat down on my bed."
+#"I shoot him a quick response."
+#N "Thanks \(^ - ^)/!"
+#"After sending it, I sat down on my bed."
+"I quickly set my bag on my chair, turned off the lights, and sat down on my bed."
 "I sighed and my mind drifted off."
 "I'm exhausted beyond belief, but I think i've made a lot of new friends."
 "I drifted off to sleep, wondering when I'd meet them again."
