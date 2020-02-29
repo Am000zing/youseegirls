@@ -1,4 +1,3 @@
-
 define Berkly = Character("Berkly", color="#FC74A9")
 define Dany = Character("Dany", color="#FC74A9")
 define Lola = Character("Lola", color="#FC74A9")
@@ -18,6 +17,7 @@ define student = Character("Student")
 define Chef = Character("Chef")
 define Mom = Character("Mom")
 
+define config.menu_include_disabled = True in your scripts
 # The game starts here.
 
 
@@ -32,3 +32,13 @@ init python:
 
     def bwImage(st,at,path):
         return im.MatrixColor(Image(path),im.matrix.saturation(saturation)),None
+
+define e_Berkly = 0
+define e_Dany = 0
+define e_Lola = 0
+define e_Mercie = 0
+define e_Bella = 0
+define e_Christine = 0
+define e_Diana = 0
+define e_Ryver = 0
+define e_Irene = 0

@@ -92,6 +92,8 @@ label Mio_LP_no:
 Mio "Well, if you ever want a refresher on anything, you can go into your agenda and check your notes!"
 N "Cool, I'll keep it in mind."
 
+#################################
+
 label after_Mio_LP:
 Mio "Anyways, I should let you get going."
 Mio "Good luck this week!"
@@ -104,18 +106,47 @@ show outdoor hall with Fade(1.0,0,2.0)
 "Hmm...what should I do?"
 jump menu_areas
 
+if AP == 0:
+    jump End_Monday
+else:
+    "Are you sure you want to end the day?"
+    menu:
+        "Yes":
+        "No":
+
+label End_Monday:
+"Well, I should get going."
+show dorm night with Fade(1.0,0,2.0)
+"Ah, what an eventful day."
+"I should get some sleep..."
+jump Tuesday_Two
+
 ############################
 
 label Tuesday_Two:
 $ AP = 3
 show dorm inside with Fade(2.0,0,2.0) 
-"Wow, I actually kind of woke up before my alarm."
+"Wow, I actually kinda woke up before my alarm."
 "I get up out of bed, and get ready for class..."
 
 show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
 jump menu_areas
+
+if AP == 0:
+    jump End_Tuesday
+else:
+    "Are you sure you want to end the day?"
+    menu:
+        "Yes":
+        "No":
+
+label End_Tuesday:
+"Well, I should get going."
+show dorm night with Fade(1.0,0,2.0)
+"Ah, what an eventful day."
+"I should get some sleep..."
 
 ############################
 
@@ -130,6 +161,20 @@ show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
 jump menu_areas
+
+if AP == 0:
+    jump End_Wednesday
+else:
+    "Are you sure you want to end the day?"
+    menu:
+        "Yes":
+        "No":
+
+label End_Wednesday:
+"Well, I should get going."
+show dorm night with Fade(1.0,0,2.0)
+"Ah, what an eventful day."
+"I should get some sleep..."
 
 ############################
 
@@ -148,6 +193,19 @@ show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
 jump menu_areas
+if AP == 0:
+    jump End_Thursday
+else:
+    "Are you sure you want to end the day?"
+    menu:
+        "Yes":
+        "No":
+
+label End_Thursday:
+"Well, I should get going."
+show dorm night with Fade(1.0,0,2.0)
+"Ah, what an eventful day."
+"I should get some sleep..."
 
 ############################
 
@@ -174,6 +232,9 @@ menu:
         "There's some people I recognize..."
         "Should I talk to them?"
         jump bookstore_people
+    "Go back to the dorm":
+        "I'm not really feeling it right now."
+        "I'll just head back."
 
 label quad_people:
 menu:
@@ -193,7 +254,7 @@ menu:
             jump e_Bella_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Mercie":
         $ AP -= 1
         if e_Mercie == 0:
@@ -210,7 +271,7 @@ menu:
             jump e_Mercie_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Ryver":
         $ AP -= 1
         if e_Ryver == 0:
@@ -227,7 +288,7 @@ menu:
             jump e_Ryver_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Go somewhere else.":
         jump menu_areas
         
@@ -249,7 +310,7 @@ menu:
             jump e_Berkly_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Dany":
         $ AP -= 1
         if e_Dany == 0:
@@ -266,7 +327,7 @@ menu:
             jump e_Dany_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Christine":
         $ AP -= 1
         if e_Christine == 0:
@@ -283,7 +344,7 @@ menu:
             jump e_Christine_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Go somewhere else.":
         jump menu_areas
 label bookstore_people:
@@ -304,7 +365,7 @@ menu:
             jump e_Diana_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Lola":
         $ AP -= 1
         if e_Lola == 0:
@@ -321,7 +382,7 @@ menu:
             jump e_Lola_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Irene":
         $ AP -= 1
         if e_Irene == 0:
@@ -338,6 +399,6 @@ menu:
             jump e_Irene_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump after_Mio_LP
+            jump menu_areas
     "Go somewhere else.":
         jump menu_areas
