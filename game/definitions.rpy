@@ -17,7 +17,7 @@ define student = Character("Student")
 define Chef = Character("Chef")
 define Mom = Character("Mom")
 
-define config.menu_include_disabled = True in your scripts
+define config.menu_include_disabled = True
 # The game starts here.
 
 

@@ -4,11 +4,13 @@ label quad_encounters:
 #RYVER ENCOUNTERS
 #RYVER ENCOUNTER ONE
 label e_Ryver_1:
+$ e_Ryver_1 = False
 #Ryver is outside in the Quad.
 "She’s sitting on the lawn with two library books lying open in front of her, scribbling in a notebook on her lap."
 menu:
     "Approach Ryver?"
     "Yes":
+        $ e_Ryver_1 = True
         jump e_Ryver_1_A
     "No":
         #return to the quad options
@@ -107,3 +109,16 @@ N "See you later!"
 hide ryver neutral with dissolve
 jump menu_areas
 
+label e_Ryver_2:
+$ e_Ryver_2 = False
+$ e_Ryver = False
+menu:
+    "Approach Ryver?"
+    "Yes":
+        $ e_Ryver_2 = True
+        "This is a test."
+    "No":
+        #return to the quad options
+        "She looks really busy. I shouldn't disturb her."
+        jump quad_people
+jump menu_areas

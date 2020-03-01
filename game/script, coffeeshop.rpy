@@ -107,7 +107,7 @@ menu:
         #Result: 2
 
 #[I’ll think about it.]
-label e_Berkly_1_A3
+label e_Berkly_1_A3:
 Berkly "Well, if you're able to, you are welcome to join us."
 N "Okay."
 Berkly "Later."
@@ -134,4 +134,5 @@ Berkly "I’m glad you decided to join us."
 N "I’m glad as well. I got a lot of work done."
 Berkly "Catch you later then."
 N "Let's meet up again"
-
+Berkly "Yeah!"
+jump menu_areas

@@ -106,13 +106,14 @@ show outdoor hall with Fade(1.0,0,2.0)
 "Hmm...what should I do?"
 jump menu_areas
 
-if AP == 0:
-    jump End_Monday
-else:
-    "Are you sure you want to end the day?"
-    menu:
-        "Yes":
-        "No":
+#f AP == 0:
+#    jump End_Monday
+#else:
+#    "Are you sure you want to end the day?"
+#    menu:
+#        "Yes":
+#        "No":
+
 
 label End_Monday:
 "Well, I should get going."
@@ -134,17 +135,17 @@ show outdoor hall with Fade(1.0,0,2.0)
 "Hmm...what should I do?"
 jump menu_areas
 
-if AP == 0:
-    jump End_Tuesday
-else:
-    "Are you sure you want to end the day?"
-    menu:
-        "Yes":
-        "No":
+#if AP == 0:
+#    jump End_Tuesday
+#else:
+#    "Are you sure you want to end the day?"
+#    menu:
+#        "Yes":
+#        "No":
 
 label End_Tuesday:
 "Well, I should get going."
-show dorm night with Fade(1.0,0,2.0)
+show dorm night with Fade(1.0, 0, 1.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
 
@@ -162,13 +163,13 @@ show outdoor hall with Fade(1.0,0,2.0)
 "Hmm...what should I do?"
 jump menu_areas
 
-if AP == 0:
-    jump End_Wednesday
-else:
-    "Are you sure you want to end the day?"
-    menu:
-        "Yes":
-        "No":
+#if AP == 0:
+#    jump End_Wednesday
+#else:
+#    "Are you sure you want to end the day?"
+#    menu:
+#        "Yes":
+#        "No":
 
 label End_Wednesday:
 "Well, I should get going."
@@ -193,13 +194,13 @@ show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
 jump menu_areas
-if AP == 0:
-    jump End_Thursday
-else:
-    "Are you sure you want to end the day?"
-    menu:
-        "Yes":
-        "No":
+#if AP == 0:
+#    jump End_Thursday
+#else:
+#    "Are you sure you want to end the day?"
+#    menu:
+#        "Yes":
+#        "No":
 
 label End_Thursday:
 "Well, I should get going."
@@ -233,46 +234,62 @@ menu:
         "Should I talk to them?"
         jump bookstore_people
     "Go back to the dorm":
+        $ ED = 0
         "I'm not really feeling it right now."
         "I'll just head back."
+        if ED == 0:
+            $ ED += 1
+            jump End_Monday
+        elif ED == 1:
+            $ ED += 1
+            jump End_Tuesday
+        elif ED == 2:
+            $ ED += 1
+            jump End_Wednesday
+        elif ED == 3:
+            $ ED += 1
+            jump End_Thursday
+        else:
+            "Hey, you shouldn't be seeing this. Give us a Bug Report!"
+            jump menu_areas
 
 label quad_people:
 menu:
     "Bella":
-        $ AP -= 1
-        if e_Bella == 0:
-            $ e_Bella += 1
-            jump e_Bella_1
-        elif e_Bella == 1:
-            $ e_Bella += 1
-            jump e_Bella_2
-        elif e_Bella == 2:
-            $ e_Bella += 1
-            jump e_Bella_3
-        elif e_Bella == 3
-            $ e_Bella += 1
-            jump e_Bella_4
-        else:
+        #$ AP -= 1
+        #if e_Bella == 0:
+        #    $ e_Bella += 1
+        #    jump e_Bella_1
+        #elif e_Bella == 1:
+        #    $ e_Bella += 1
+        #    jump e_Bella_2
+        #elif e_Bella == 2:
+        #    $ e_Bella += 1
+        #    jump e_Bella_3
+        #elif e_Bella == 3
+        #    $ e_Bella += 1
+        #    jump e_Bella_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Mercie":
-        $ AP -= 1
-        if e_Mercie == 0:
-            $ e_Mercie += 1
-            jump e_Mercie_1
-        elif e_Mercie == 1:
-            $ e_Mercie += 1
-            jump e_Mercie_2
-        elif e_Mercie == 2:
-            $ e_Mercie += 1
-            jump e_Mercie_3
-        elif e_Mercie == 3
-            $ e_Mercie += 1
-            jump e_Mercie_4
-        else:
+        #$ AP -= 1
+        #if e_Mercie == 0:
+        #    $ e_Mercie += 1
+        #    jump e_Mercie_1
+        #elif e_Mercie == 1:
+        #    $ e_Mercie += 1
+        #    jump e_Mercie_2
+        #elif e_Mercie == 2:
+        #    $ e_Mercie += 1
+        #    jump e_Mercie_3
+        #elif e_Mercie == 3
+        #    $ e_Mercie += 1
+        #    jump e_Mercie_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
-    "Ryver":
+    "Ryver" if e_Ryver == False:
         $ AP -= 1
         if e_Ryver == 0:
             $ e_Ryver += 1
@@ -280,12 +297,12 @@ menu:
         elif e_Ryver == 1:
             $ e_Ryver += 1
             jump e_Ryver_2
-        elif e_Ryver == 2:
-            $ e_Ryver += 1
-            jump e_Ryver_3
-        elif e_Ryver == 3
-            $ e_Ryver += 1
-            jump e_Ryver_4
+        #elif e_Ryver == 2:
+        #    $ e_Ryver += 1
+        #    jump e_Ryver_3
+        #elif e_Ryver == 3
+        #    $ e_Ryver += 1
+        #    jump e_Ryver_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
@@ -295,54 +312,54 @@ menu:
 label coffeeshop_people:
 menu:
     "Berkly":
-        $ AP -= 1
-        if e_Berkly == 0:
-            $ e_Berkly += 1
-            jump e_Berkly_1
-        elif e_Berkly == 1:
-            $ e_Berkly += 1
-            jump e_Berkly_2
-        elif e_Berkly == 2:
-            $ e_Berkly += 1
-            jump e_Berkly_3
-        elif e_Berkly == 3
-            $ e_Berkly += 1
-            jump e_Berkly_4
-        else:
+        #$ AP -= 1
+        #if e_Berkly == 0:
+        #    $ e_Berkly += 1
+        #    jump e_Berkly_1
+        #elif e_Berkly == 1:
+        #    $ e_Berkly += 1
+        #    jump e_Berkly_2
+        #elif e_Berkly == 2:
+        #    $ e_Berkly += 1
+        #    jump e_Berkly_3
+        #elif e_Berkly == 3
+        #    $ e_Berkly += 1
+        #    jump e_Berkly_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Dany":
-        $ AP -= 1
-        if e_Dany == 0:
-            $ e_Dany += 1
-            jump e_Dany_1
-        elif e_Dany == 1:
-            $ e_Dany += 1
-            jump e_Dany_2
-        elif e_Dany == 2:
-            $ e_Dany += 1
-            jump e_Dany_3
-        elif e_Dany == 3
-            $ e_Dany += 1
-            jump e_Dany_4
-        else:
+        #$ AP -= 1
+        #if e_Dany == 0:
+        #    $ e_Dany += 1
+        #    jump e_Dany_1
+        #elif e_Dany == 1:
+        #    $ e_Dany += 1
+        #    jump e_Dany_2
+        #elif e_Dany == 2:
+        #    $ e_Dany += 1
+        #    jump e_Dany_3
+        #elif e_Dany == 3
+        #    $ e_Dany += 1
+        #    jump e_Dany_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Christine":
-        $ AP -= 1
-        if e_Christine == 0:
-            $ e_Christine += 1
-            jump e_Christine_1
-        elif e_Christine == 1:
-            $ e_Christine += 1
-            jump e_Christine_2
-        elif e_Christine == 2:
-            $ e_Christine += 1
-            jump e_Christine_3
-        elif e_Christine == 3
-            $ e_Christine += 1
-            jump e_Christine_4
-        else:
+        #$ AP -= 1
+        #if e_Christine == 0:
+        #    $ e_Christine += 1
+        #    jump e_Christine_1
+        #elif e_Christine == 1:
+        #    $ e_Christine += 1
+        #    jump e_Christine_2
+        #elif e_Christine == 2:
+        #    $ e_Christine += 1
+        #    jump e_Christine_3
+        #elif e_Christine == 3
+        #    $ e_Christine += 1
+        #    jump e_Christine_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Go somewhere else.":
@@ -350,54 +367,54 @@ menu:
 label bookstore_people:
 menu:
     "Diana":
-        $ AP -= 1
-        if e_Diana == 0:
-            $ e_Diana += 1
-            jump e_Diana_1
-        elif e_Diana == 1:
-            $ e_Diana += 1
-            jump e_Diana_2
-        elif e_Diana == 2:
-            $ e_Diana += 1
-            jump e_Diana_3
-        elif e_Diana == 3
-            $ e_Diana += 1
-            jump e_Diana_4
-        else:
+        #$ AP -= 1
+        #if e_Diana == 0:
+        #    $ e_Diana += 1
+        #    jump e_Diana_1
+        #elif e_Diana == 1:
+        #    $ e_Diana += 1
+        #    jump e_Diana_2
+        #elif e_Diana == 2:
+        #    $ e_Diana += 1
+        #    jump e_Diana_3
+        #elif e_Diana == 3
+        #    $ e_Diana += 1
+        #    jump e_Diana_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Lola":
-        $ AP -= 1
-        if e_Lola == 0:
-            $ e_Lola += 1
-            jump e_Lola_1
-        elif e_Lola == 1:
-            $ e_Lola += 1
-            jump e_Lola_2
-        elif e_Lola == 2:
-            $ e_Lola += 1
-            jump e_Lola_3
-        elif e_Lola == 3
-            $ e_Lola += 1
-            jump e_Lola_4
-        else:
+        #$ AP -= 1
+        #if e_Lola == 0:
+        #    $ e_Lola += 1
+        #    jump e_Lola_1
+        #elif e_Lola == 1:
+        #    $ e_Lola += 1
+        #    jump e_Lola_2
+        #elif e_Lola == 2:
+        #    $ e_Lola += 1
+        #    jump e_Lola_3
+        #elif e_Lola == 3
+        #    $ e_Lola += 1
+        #    jump e_Lola_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Irene":
-        $ AP -= 1
-        if e_Irene == 0:
-            $ e_Irene += 1
-            jump e_Irene_1
-        elif e_Irene == 1:
-            $ e_Irene += 1
-            jump e_Irene_2
-        elif e_Irene == 2:
-            $ e_Irene += 1
-            jump e_Irene_3
-        elif e_Irene == 3
-            $ e_Irene += 1
-            jump e_Irene_4
-        else:
+        #$ AP -= 1
+        #if e_Irene == 0:
+        #    $ e_Irene += 1
+        #    jump e_Irene_1
+        #elif e_Irene == 1:
+        #    $ e_Irene += 1
+        #    jump e_Irene_2
+        #elif e_Irene == 2:
+        #    $ e_Irene += 1
+        #    jump e_Irene_3
+        #elif e_Irene == 3
+        #    $ e_Irene += 1
+        #    jump e_Irene_4
+        #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Go somewhere else.":
