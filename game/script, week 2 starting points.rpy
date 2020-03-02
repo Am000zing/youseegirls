@@ -117,7 +117,7 @@ jump menu_areas
 
 label End_Monday:
 "Well, I should get going."
-show dorm night with Fade(1.0,0,2.0)
+scene dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
 jump Tuesday_Two
@@ -126,6 +126,7 @@ jump Tuesday_Two
 
 label Tuesday_Two:
 $ AP = 3
+$ e_Ryver = False
 show dorm inside with Fade(2.0,0,2.0) 
 "Wow, I actually kinda woke up before my alarm."
 "I get up out of bed, and get ready for class..."
@@ -148,6 +149,7 @@ label End_Tuesday:
 show dorm night with Fade(1.0, 0, 1.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
+jump Wednesday_Two
 
 ############################
 
