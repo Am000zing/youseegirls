@@ -104,6 +104,15 @@ play sound door_close
 show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
+$ ryver_encounter = False
+$ bella_encounter = False
+$ mercie_encounter = False
+$ berkly_encounter = False
+$ dany_encounter = False
+$ christine_encounter = False
+$ lola_encounter = False
+$ irene_encounter = False
+$ diana_encounter = False
 jump menu_areas
 
 #f AP == 0:
@@ -126,7 +135,15 @@ jump Tuesday_Two
 
 label Tuesday_Two:
 $ AP = 3
-$ e_Ryver = False
+$ ryver_encounter = False
+$ bella_encounter = False
+$ mercie_encounter = False
+$ berkly_encounter = False
+$ dany_encounter = False
+$ christine_encounter = False
+$ lola_encounter = False
+$ irene_encounter = False
+$ diana_encounter = False
 show dorm inside with Fade(2.0,0,2.0) 
 "Wow, I actually kinda woke up before my alarm."
 "I get up out of bed, and get ready for class..."
@@ -136,9 +153,11 @@ show outdoor hall with Fade(1.0,0,2.0)
 "Hmm...what should I do?"
 jump menu_areas
 
-#if AP == 0:
-#    jump End_Tuesday
-#else:
+if AP == 0:
+    jump End_Tuesday
+else:
+    "Hey, you shouldn't be seeing this. Please give us a bug report!"
+#=else:
 #    "Are you sure you want to end the day?"
 #    menu:
 #        "Yes":
@@ -155,6 +174,15 @@ jump Wednesday_Two
 
 label Wednesday_Two:
 $ AP = 3
+$ ryver_encounter = False
+$ bella_encounter = False
+$ mercie_encounter = False
+$ berkly_encounter = False
+$ dany_encounter = False
+$ christine_encounter = False
+$ lola_encounter = False
+$ irene_encounter = False
+$ diana_encounter = False
 show dorm inside with Fade(2.0,0,2.0) 
 "Halfway through the week!"
 "Well, I know it is but it doesn't really feel like it."
@@ -182,7 +210,16 @@ show dorm night with Fade(1.0,0,2.0)
 ############################
 
 label Thursday_Two:
-$ AP = 2
+$ AP = 1
+$ ryver_encounter = False
+$ bella_encounter = False
+$ mercie_encounter = False
+$ berkly_encounter = False
+$ dany_encounter = False
+$ christine_encounter = False
+$ lola_encounter = False
+$ irene_encounter = False
+$ diana_encounter = False
 show dorm inside with Fade(2.0,0,2.0) 
 "..."
 "Ah, shoot."
@@ -193,8 +230,8 @@ show dorm inside with Fade(2.0,0,2.0)
 
 show outdoor hall with Fade(1.0,0,2.0)
 "Ugh, I'm so worn out..."
-"I'm done with classes, but walking back seems so far..."
-"Hmm...what should I do?"
+"I'm done with classes, but walking back seems so far."
+"I think I only have enough energy to talk to one person..."
 jump menu_areas
 #if AP == 0:
 #    jump End_Thursday
@@ -291,7 +328,7 @@ menu:
         #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
-    "Ryver" if e_Ryver == False:
+    "Ryver" if ryver_encounter == False:
         $ AP -= 1
         if e_Ryver == 0:
             $ e_Ryver += 1
