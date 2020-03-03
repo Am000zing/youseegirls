@@ -30,7 +30,7 @@ define gui.idle_color = '#e3e3e3'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#e3c46f'
+define gui.idle_small_color = '#0286eb'
 
 ## The color that is used for buttons and bars that are hovered.
 define gui.hover_color = '#001154'
@@ -48,8 +48,8 @@ define gui.muted_color = '#f5b3d4'
 define gui.hover_muted_color = '#db74a8'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#2e2d2d'
-define gui.interface_text_color = '#2e2d2d'
+define gui.text_color = '#272525'
+define gui.interface_text_color = '#272525'
 
 
 ## Fonts and Font Sizes ########################################################
@@ -85,8 +85,8 @@ define gui.title_text_size = 75
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
+define gui.main_menu_background = "gui/YSG_TITLE.png"
+define gui.game_menu_background = "gui/YSG_TITLE.png"
 
 
 ## Dialogue ####################################################################

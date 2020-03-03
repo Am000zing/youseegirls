@@ -4,6 +4,7 @@ show coffeeshop with Fade(1.0,0,1.0)
 #BERKLY ENCOUNTERS
 #BERKLY ENCOUNTER ONE
 label e_Berkly_1:
+$ berkly_encounter = True
 #Berkly is sitting with a cup of coffee beside her laptop.
 "She’s sitting at one of the tables with a couple other students who, like her, are all staring intensely at their screen typing away."
 menu:
@@ -136,3 +137,13 @@ Berkly "Catch you later then."
 N "Let's meet up again"
 Berkly "Yeah!"
 jump menu_areas
+
+##################################
+label e_Berkly_2:
+$ berkly_encounter = True
+menu:
+    "Approach Berkly?"
+    "Yes":
+        "This is a test."
+    "No":
+        jump coffeeshop_people
