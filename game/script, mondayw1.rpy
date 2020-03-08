@@ -86,12 +86,15 @@ N "Yeah, see you around!"
 "Ah, well, it's not up to me to judge."
 "I hear a voice from behind"
 Mio "Hey!"
+show mio neutral
 Mio "Wow, you were really on time. Sorry for being late."
 menu:
     "It's no problem.":
         Mio "No problem, huh?"
+        show mio teasing
         Mio "What, you met someone cool while I was gone? Without me?"
     "What held you up?":
+        show mio teasing
         Mio "I'll be honest, there was a really good book that I never thought about reading before that I ended up getting hooked on."
         menu:
             "What book were you reading?":
@@ -104,40 +107,43 @@ menu:
                 Mio "Indeed!"
     "How unprofessional.":
         $ Mio_LP -= 1
+        show mio upset
         Mio "Ah, man, cut me some slack."
         Mio "I'm a student, just like you."
 
+show mio neutral
 Mio "Anyways, let's get going!"
-
+hide mio neutral with dissolve
 #Time-Skip. prob just say something like the tour guide lasted up til lunch
 show parking lot with Fade (2.0,0,2.0)
 
+show mio neutral with dissolve
 Mio "~And that's it for today's tour!"
 Mio "Let's head over to the dining hall. You're probably starving!"
-
 "Huh, I didn't even realize that I hadn't eaten anything since the tour began."
 "But I don't want to stretch Mio's time more than I need to."
-
 N "Ah, I think I'll just head back to my room. I'm not that hungry."
-
 $ sshake = Shake((0, 0, 0, 0), 2.0, dist=15)
 show parking lot with sshake
 "GROOOOWWWLWLLLWWHWWH~"
-
 #probably have some sound effect for a very long stomach rumble
 "I gasped and I clutched my stomach in embarrassment."
-"Mio stopped and turned to me."
+#"Mio stopped and turned to me."
+show mio teasing
 Mio "Heeeey, don't lie to me now. I thought we were good buddies, yeah?"
 N "Haha, yeah..."
 "He motioned towards the dorm's dining hall."
+show mio laugh
 Mio "Then let's go get something to eat! Clearly your stomach has a mind of its own."
 "Meekly, I followed him."
+hide mio laugh with dissolve
 "Why do stomach growls always have to happen at the worst moment possible?!"
 label dininghall_introduction:
 show dining hall with Fade(2.0,0,2.0)
 cashier "Have a nice day!"
 N "Thank you!"
 "I pocketed my ID card as I caught up with Mio who was waiting in the walkway."
+show mio neutral with dissolve
 Mio "The dining hall here is like a buffet, so you can really pick and choose what you wanna eat!"
 Mio "The theme of the cuisine varies every other day as well so that there's as many options as possible."
 N "Ohh, that's pretty cool!"
@@ -145,6 +151,7 @@ Mio "I'll have you look around by yourself first."
 "He motions to the corner of the dining hall."
 Mio "Find me at one of the tables there when you're done!"
 N "Sounds good."
+hide mio neutral with dissolve
 "I stared at the onslaught of entrées and sides available to me."
 "Wow, there's so many options!"
 "I do feel a bit overwhelmed by everything, so I should narrow down what seems good."
@@ -210,11 +217,8 @@ Dany "Nice to meet you, [name]! Wanna eat with me?"
 "I see Mio waving at me from his table."
 N "Ah, no, sorry. I'm already sitting with someone."
 Dany "Alrighty. I'll see you later then, [name]!"
-hide dany happy
-with dissolve
-scene dorm afternoon
-with Fade(2.0, 0.0, 2.0)
-with Pause(1)
+hide dany happy with dissolve
+scene dorm afternoon with Fade(2.0, 0.0, 2.0) with Pause(1)
 
 "I laid back in my bed, still full from that heavy buffet."
 "I thought that I would be able to take it...but it's really hard to stop yourself when you know you could keep going!"

@@ -24,6 +24,7 @@ unknown "Are you okay?"
 "My heart nearly shot out of my mouth as someone straight out of a romance novel appeared in front of me. Her hair swept up against the breeze and I caught the faintest smell of vanilla."
 "Now this is a woman I can respect."
 #"I didn't know where she came from, but at this point, do I care?"
+show bella neutral with dissolve
 unknown "Are you not feeling good? I have something that can help..."
 "She stepped closer. She reached into her purse and rummaged through her bag."
 menu:
@@ -31,13 +32,16 @@ menu:
         "I stood up and puffed out my chest. I leaned against a tree, sniffing."
         N "Oh, this? This is nothing."
         N "I do this all the time. It's part of my morning. You know, running and stuff."
+        show bella neutral with dissolve
         "She smiled and crossed her arms as she looked at me up and down."
         "I don't think she's convinced."
     "Sorry. I don't do this often...":
         N "I, uhhh-"
-        N "I was just running too much is all! You don't have to do that. "
+        N "I was just running too much is all! You don't have to do that."
+        show bella smile with dissolve
         unknown "No, I insist!"
         N "No, really! I'm just not used to it."
+        show bella concern
         unknown "Are you sure? You look pale..."
         N "I'll get over it, don't worry."
     "No, it's okay!":
@@ -45,42 +49,53 @@ menu:
         "I stepped forward and sub-consciously reached for her wrist."
         N "!!!"
         "Immediately, my face got hot as realization set in."
+        show bella concern blush
         unknown "Um..."
         N "I-I'm so sorry."
         "I quickly let go of her wrist."
         "The first person who comes to help me and I grab them? What was I thinking?"
+        show bella neutral
         N "Oh, oh god, I'm sorry. I don't mean to be too forward or anything."
 
 N "I'm sorry, I'm afraid I haven't got your name?"
 unknown "Ah, I'm sorry too! I can't believe I just barged in like that."
+show bella laugh
 Bella "I'm Bella."
 N "It's good to meet you, Bella!"
+show bella neutral
 Bella "It seems like you don't really run much. I wouldn't mind giving you some pointers."
 menu:
     "I don't really know how to pace myself yet.":
         Bella "I could help you out!"
+        show bella smile
         Bella "We should run together some time! There's a beach I know we can run at!"
         N "Oh, really? That sounds cool."
         Bella "Yeah, let's run together! It's more fun with friends anyways, yeah?"
     "That'd be really nice, thanks!":
+        show bella smile
         Bella "Of course! Breathing is obviously important, so knowing how to breathe well when you run is number one."
         Bella "Number Two: Don't start off running too fast. You'll get too tired. Try keeping an even pace the whole distance."
         N "Should I be taking notes?"
+        show bella laugh
         Bella "Ahaha, if you want I guess!"
     "Is that a date?":
         $ Bella_LP -= 1
+        show bella annoyed
         Bella "Um...No? I just wanted to give you advice, that's all."
         "Oh."
         "Oops."
         "I swallowed the butterflies of embarrassment crawling up my throat and-"
 
+show bella neutral
 Mio "Hey, [name]!"
 "I turn around, and see Mio waving his arms at me."
+show bella neutral
 Bella "It looks like you're running just as late as I am. I should head to class too..."
 "She readjusted the strap of her purse and walked toward campus with a smile."
 N "O-oh, um-"
 Mio "[name]!"
 "She waved goodbye and disappeared into a crowd of students."
+hide bella neutral with dissolve
 N "Hope to see you around."
 "With a jump to my step, I jogged to Mio."
 Mio "You're late."

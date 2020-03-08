@@ -108,14 +108,178 @@ N "See you later!"
 hide ryver neutral with dissolve
 jump menu_areas
 
+###################################################
+#RYVER ENCOUNTERS
+#RYVER ENCOUNTER TWO
 label e_Ryver_2:
 $ ryver_encounter = True
+"Ryver is talking with a group of people in the Quad. I hear them saying goodbyes as they start to disperse."
 menu:
     "Approach Ryver?"
     "Yes":
-        "This is a test."
+        jump e_Ryver_2_A
     "No":
         #return to the quad options
-        "She looks really busy. I shouldn't disturb her."
+        "She’s still chatting with someone. I don’t want to interrupt them."
         jump quad_people
+#(A.)
+label e_Ryver_2_A:
+$ Ryver_LP += 1.0
+N "Hey Ryver!"
+show ryver laugh with dissolve
+Ryver "Oh, hey, [name]!"
+"She seems really bubbly after socializing with those people."
+N "What’re you up to?"
+show ryver neutral
+Ryver "I just got out of a club meeting."
+menu:
+    "Which club?":
+        jump e_Ryver_2_A1
+    "Does that mean you're free now?":
+        jump e_Ryver_2_A2
+    "How was it?":
+        jump e_Ryver_2_A3
+
+#[“Which club?”]
+label e_Ryver_2_A1:
+$ Ryver_LP += 0.5
+Ryver "Oh, the LGBTQ+ Club."
+menu:
+    "Oh, I didn't know you were...":
+        jump e_Ryver_2_A1a
+    "What do you do there?":
+        jump e_Ryver_2_A1b
+
+#["Oh, I didn't know you were..."]
+label e_Ryver_2_A1a:
+$ Ryver_LP += 0.5
+show ryver concerned
+Ryver "... Um, gay?"
+show ryver laugh blushing
+Ryver "Haha, no. I’m just an ally."
+menu:
+    "So, you still like guys?":
+        $ Ryver_LP -= 1.0
+        show ryver annoyed blushing
+        Ryver "Yeah. Well, actually, if I’m being honest, I’m bi. I just think that everyone deserves a chance, you know?"
+        #Relationship Result: 1.0
+        jump e_Ryver_2_End
+    "That’s really cool.":
+        $ Ryver_LP += 0.5
+        show ryver neutral blushing
+        Ryver "Yeah, it’s nice to be able to support others."
+        #Relationship Result: 2.5
+        jump e_Ryver_2_End
+
+#[“What do you do there?”]
+label e_Ryver_2_A1b:
+$ Ryver_LP += 0.5
+show ryver neutral
+Ryver "Mostly we just hang out and talk. Sometimes we plan movie or game nights. It’s chill."
+menu:
+    "Wow, sounds fun.":
+        $ Ryver_LP += 0.5
+        show ryver laughing
+        Ryver "Yeah. It is. You should join!"
+        N "I’ll think about it, for sure."
+        #Relationship Result: 2.5
+        jump e_Ryver_2_End
+    "Sounds like I should join.":
+        $ Ryver_LP += 1.0
+        show ryver laughing
+        Ryver "You totally should! It’ll be extra exciting with you there. The more the merrier!"
+        #Relationship Result: 3.0
+        jump e_Ryver_2_End
+
+#["Does that mean you're free now?"]
+label e_Ryver_2_A2:
+$ Ryver_LP += 0.5
+show ryver neutral
+Ryver "Just for a minute. I have plans with some friends."
+menu:
+    "How’s your Ethnic Studies paper?":
+        $ Ryver_LP += 0.5
+        show ryver neutral
+        Ryver "Done! I submitted it already."
+        Ryver "Too bad early turn-in extra credit isn’t a thing in college, otherwise I might actually get a good grade on that paper, ha."
+        #Relationship Result: 2.0
+        jump e_Ryver_2_End
+    "Where are you going?":
+        $ Ryver_LP -= 1.0
+        show ryver annoyed
+        Ryver "Nosy much?"
+        show ryver neutral
+        Ryver "We’re just gonna chill a friend’s house, that’s all."
+        #Relationship Result: 0.5
+        jump e_Ryver_2_End
+
+#["How was it?"]
+label e_Ryver_2_A3:
+$ Ryver_LP += 1.0
+show ryver neutral
+Ryver "It was good! A lot of people came. It’s nice to see everyone finding a place where they feel welcomed."
+menu:
+    "Wow, sounds fun.":
+        $ Ryver_LP += 0.5
+        show ryver laughing
+        Ryver "Yeah. It is. You should join!"
+        N "I’ll think about it, for sure."
+        #Relationship Result: 2.5
+        jump e_Ryver_2_End
+    "Sounds like I should join.":
+        $ Ryver_LP += 1.0
+        show ryver laughing
+        Ryver "You totally should! It’ll be extra exciting with you there. The more the merrier!"
+        #Relationship Result: 3.0
+        jump e_Ryver_2_End
+
+label e_Ryver_2_End:
+unknown "HEY RYVER! Are you coming?"
+#I see a girl beckoning Ryver over. She’s standing by a few other members of the LGBTQ+ club.
+show ryver concerned
+Ryver "Sorry. I gotta go. I promised I’d hang out with them."
+N "It’s no problem."
+Ryver "See you later?"
+N "Yeah! See you."
 jump menu_areas
+
+
+###################################################
+#RYVER ENCOUNTERS
+#RYVER ENCOUNTER THREE
+label e_Ryver_3:
+$ ryver_encounter = True
+"Ryver is laying on the lawn in the Quad."
+"She has earphones in and her eyes are closed. It looks like she’s relaxing or taking a nap."
+menu:
+    "Yes":
+        jump e_Ryver_3_A
+    "No":
+        "I think I just heard a little snore. I better let her relax in peace."
+        jump quad_people
+label e_Ryver_3_A:
+"As I come closer, I hear music faintly blaring from her earphones. She couldn’t be asleep with the volume that loud, could she?"
+N "Hey, Ryver?"
+"She doesn’t respond. Maybe a little louder…"
+N "Ryver!"
+"She still can’t hear me. I should..."
+menu:
+    "She still can't hear me. I should..."
+    "Pull an earphone out of her ear.":
+        jump e_Ryver_3_A1
+    "Yell at the top of my lungs.":
+        jump e_Ryver_3_A2
+    "Nudge her side with my foot.":
+        jump e_Ryver_3_A3
+
+#["Pull an earphone out of her ear."]
+label e_Ryver_3_A1:
+"She sits up suddenly and tries to yank the earphone from my hand."
+
+#["Yell at the top of my lungs."]
+label e_Ryver_3_A2:
+"I take a deep breath-"
+
+#["Nudge her side with my foot."]
+label e_Ryver_3_A3:
+"I gently kick the toe of my shoe against Ryver’s side."

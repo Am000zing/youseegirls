@@ -149,6 +149,7 @@ label dorm_movein:
 unknown "Hey, you're [name], right?"
 
 "I turned and saw a tall man by my doorway."
+show mio neutral with dissolve
 "He was wearing a shirt that shouted UCJJ pride all over it."
 
 N "Hello! I'm afraid we haven't met yet."
@@ -161,21 +162,26 @@ Mio "The name's Mio."
 Mio "I'm your Resident Advisor, so if you need anything, just knock at my door!"
 "He motions down the hall. There's a door with a big name-tag labeled: MIO Brandon."
 "Mio straightens up, wide smile on his face."
-"His smile is so bright it's blinding..."
+show mio smile
+#"His smile is so bright it's blinding..."
 Mio "I didn't come over just to introduce myself though."
 Mio "I also came to remind you that I'll be taking you on campus tours during your orientation."
+show mio teasing
 Mio "You do remember, right?"
 N "Ah, yes! I did know about the tours but I wasn't sure who I was supposed to meet."
 "Well, NOW I know, anyways."
-#insert Mio smile
+show mio smile
 Mio "Well, now you know!"
+show mio neutral
 Mio "I'll let you settle in and move in now. Meet me at the parking lot that you came in from at 10 AM."
 "He backed out of the room waving."
 Mio "See you tomorrow! 10 AM, Parking lot!"
 N "Ahaha, yeah! See you!"
-"He leaves the room."
+hide mio neutral with dissolve
+#"He leaves the room."
 A "He seems like a nice boy! I hope you two will get along."
-"Yeah, he seems nice. I feel like I can trust him..."
+"Yeah, he seems nice."
+#"I feel like I can trust him..."
 
 scene desk bg
 with Fade(0.5, 0.0, 0.5)

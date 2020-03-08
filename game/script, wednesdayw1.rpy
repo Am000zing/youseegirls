@@ -154,7 +154,7 @@ hide berkly neutral with dissolve
 unknown "Yeah, she's a real charmer, isn't she?"
 N "Oh!"
 "I forgot there was still another person in the room."
-show lola neutral with dissolve
+show lola laugh with dissolve
 Lola "I'm Lola! You're certainly a new face around here."
 N "Haha, yeah, I just wanted to check out the library and stuff."
 "Especially since Mio kinda ditched me..."
@@ -165,8 +165,10 @@ N "Yeah, sure, I appreciate it."
 show lola neutral
 Lola "Hmm..."
 "She takes out a tin of Altoids."
+show lola laugh
 Lola "Here's a mint!"
 "Crap...did my breath smell bad?"
+show lola neutral
 N "Uh, thanks."
 show lola laugh
 Lola "Heh, your breath doesn't smell by the way. This is just my icebreaker."
@@ -198,10 +200,12 @@ unknown "Sure, I don't see why not."
 N "Thank you!"
 unknown "You new around here?"
 N "Yeah, I'm trying to get a feel of the library and the school right now."
+show lola laugh
 unknown "That's really cool!"
+show lola neutral
 Lola "Lola, by the way."
 N "I'm [name]. It's nice to meet you!"
-show library_1 with Fade(1.0,1.0,1.0)
+show library_1 with Fade(1.0,1.0,2.0)
 show lola neutral with dissolve
 Lola "-And this is the place where you can find the previous research done by JJ alumni."
 N "That's pretty cool."
@@ -235,13 +239,13 @@ Berkly "You're the new student, yeah?"
 N "Yeah, I am."
 Berkly "Alright then, let's get started."
 hide berkly neutral with dissolve
-show library_1 with Fade(1.0,1.0,1.0)
+show library_1 with Fade(1.0,1.0,2.0)
 show berkly neutral with dissolve
 Berkly "This is the area where you can access vinyl records and VCRs."
 N "It's pretty dusty here..."
+N "A-ACHOO!"
 $ sshake = Shake((0, 0, 0, 0), 0.5, dist=15)
 show library_1 with sshake
-N "A-ACHOO!"
 "I sneezed hard, and dust particles flew up around me."
 Berkly "I should really go. I've got plans later, so I can't stay for much longer."
 N "Oh, don't worry about me! You've been really helpful."

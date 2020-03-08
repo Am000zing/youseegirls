@@ -76,6 +76,7 @@ NPCM "Any time you make a decision that is relatively neutral with a UC Girl, yo
 NPCM "If you make a bad decision, you will lose 1 LP, and there will be a sound indicating that she didn’t like what you said."
 NPCM "Lastly, if you make a good decision, you will gain 1 LP and there will be a sound indicating that she liked what you said."
 NPCM "There might be instances where either decision she will actually like, so sometimes you don’t even need to stress about what you want to say!"
+jump after_Mio_LP
 
 #(Yes)
 label Mio_LP_yes:
@@ -85,12 +86,13 @@ Mio "Any time you make a decision that is relatively neutral with a UC Girl, you
 Mio "If you make a bad decision, you will lose LP, and there will be a sound indicating that she didn’t like what you said."
 Mio "Lastly, if you make a good decision, you will gain LP and there will be a sound indicating that she liked what you said."
 Mio "There might be instances where either decision she will actually like, so sometimes you don’t even need to stress about what you want to say!"
-
+jump after_Mio_LP
 
 #(No)
 label Mio_LP_no:
 Mio "Well, if you ever want a refresher on anything, you can go into your agenda and check your notes!"
 N "Cool, I'll keep it in mind."
+jump after_Mio_LP
 
 #################################
 
