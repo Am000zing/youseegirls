@@ -1,0 +1,2 @@
+label confessions:
+"confessions page"

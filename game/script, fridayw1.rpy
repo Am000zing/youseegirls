@@ -35,3 +35,5 @@ menu:
         "I should just get some rest."
         "I should probably shower and sleep..."
         "zzz..."
+
+jump Monday_Two

@@ -1,7 +1,7 @@
 label Monday_One:
 
 show dorm inside
-with Fade(1.0, 0.0, 1.0) 
+with Fade(1.0, 1.0, 1.0) 
 
 "I woke to the sunlight streaming through the blinds and the loud sound of machinery outside the window."
 "*Yawn*"
@@ -14,6 +14,8 @@ with Fade(1.0, 0.0, 1.0)
 
 "I did my morning routine: brushing my teeth, washing my face, did my hair..."
 "I'm so excited what might happen today!"
+play audio audio/door_open.wav
+play audio audio/door_close.wav
 "I exited the dorms, and made my way to the parking lot where I supposed to meet up with Mio."
 show parking lot with Fade(2.0,0,2.0) 
 "Oh? He isn't here yet?"
@@ -55,15 +57,19 @@ show parking lot with sshake
 menu:
     "Apologize for hitting her.":
         N "Sorry about suddenly hitting you so hard."
+        show irene concern sunglasses with dissolve
         unknown "It's fine."
+        show irene annoyed sunglasses
         unknown "My back has a dull sting to it, but at least you tried to help me."
         "Tried to help her...?"
     "Ask if she's okay.":
         N "Are you okay?"
+        show irene concern sunglasses with dissolve
         unknown "Yeah, I'm fine."
         unknown "My back does have a dull sting to it though."
 label after_firstIrene:
 N "Well, I'm glad you're not choking anymore! I was really concerned when I saw you suddenly nearly fall over..."
+show irene concern sunglasses
 unknown "I'm sorry you had to see something so disgraceful... please don't speak of this to anyone else."
 N "Uh... okay?"
 "Not that I'd have anyone to talk about this to..."
@@ -72,6 +78,7 @@ unknown "Here."
 "..."
 "What?"
 N "W-why? It's fine I don't need it"
+show irene neutral with sunglasses
 unknown "No, I insist. It's for saving my life."
 "O-okay then."
 "I guess I just got $20...?"
@@ -79,14 +86,17 @@ unknown "By the way, what's your name?"
 unknown "There aren't many people attending the UCJJ summer school sessions, so it's easy to spot new faces."
 N "Ah, I'm [name]! It's very nice to meet you."
 unknown "I see."
+show irene smile sunglasses
 Irene "Well, I'm Irene. Hope to see you around sometime."
+show irene neutral sunglasses
 N "Yeah, see you around!"
 "She left the parking lot and walked into campus, sipping on her boba."
+hide irene neutral sunglasses with dissolve
 "How interesting. She seems like she means well, but she can't seem to express it in a...nice manner?"
 "Ah, well, it's not up to me to judge."
 "I hear a voice from behind"
 Mio "Hey!"
-show mio neutral
+show mio neutral with dissolve
 Mio "Wow, you were really on time. Sorry for being late."
 menu:
     "It's no problem.":
@@ -218,7 +228,8 @@ Dany "Nice to meet you, [name]! Wanna eat with me?"
 N "Ah, no, sorry. I'm already sitting with someone."
 Dany "Alrighty. I'll see you later then, [name]!"
 hide dany happy with dissolve
-scene dorm afternoon with Fade(2.0, 0.0, 2.0) with Pause(1)
+scene dorm afternoon with Fade(1.0, 1.0, 1.0)
+with Pause(1)
 
 "I laid back in my bed, still full from that heavy buffet."
 "I thought that I would be able to take it...but it's really hard to stop yourself when you know you could keep going!"

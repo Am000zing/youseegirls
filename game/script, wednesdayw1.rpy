@@ -55,16 +55,22 @@ hide mercie neutral with dissolve
 "She seems really hesitant in social encounters..."
 "I wonder if she's scared of me?"
 "My train of thought is abruptly cut by the sight of Mio fast-walking towards me."
+show mio teasing with dissolve
 Mio "Hey, [name]! I was more on time this time, wasn't I?"
+show mio neutral
 Mio "Well anyways, let's get going, shall we? There's not much left to show you around."
+hide mio neutral with dissolve
 
 scene purple bubble bg
 with Fade(1.0,0.0,1.0)
 "I started to get hungry as noontime came about."
 N "Hey, Mio, when are we going to the Dining Hall?"
+show mio neutral with dissolve
 Mio "Oh! I actually brought lunch for us to share. It's not as large of portions as the dining hall, but it should be better than dining hall food!"
 N "Wow, you can cook?"
+show mio teasing
 Mio "I do what I can."
+hide mio teasing with dissolve
 N "Woah, thanks, I-"
 "!!!"
 "In his hands, he held a decorated bento you'd purchase anywhere. But..."
@@ -83,18 +89,23 @@ N "Alright, got it!"
 show library_2 with Fade(1.0,0,2.0)
 
 "Mio stopped us by the library, which was absolutely huge."
+show mio neutral with dissolve
 Mio "Downstairs is the research archives, while upstairs is the literature section."
 Mio "Take your time to look around anywhere."
 "Mio's phone dings, and he takes his phone out and stares at the screen."
+show mio upset
 Mio "I'm gonna have to leave you here for a minute."
 N "Okay? What's up?"
+show mio neutral
 Mio "Nah, something just came up."
 Mio "You can probably ask someone to help you out in the places you're checking out."
 N "Oh, uh-"
+hide mio neutral with dissolve
 "Before I could reason with him, he's already out the door."
 "Well..."
 "Where should I go?"
 
+################################################
 
 label menu_library:
 menu:
@@ -463,24 +474,31 @@ else:
 
 label after_library_intro:
 "..."
-"Oh man, I didn't even think about messaging Mio this whole time to check on him!"
+"Oh man, I didn't even think about Mio this whole time!"
 "He did kind of just abandon me and left me to fend for myself, though."
 Mio "Hey, [name]!"
+show mio neutral with dissolve
 "I turn around and see Mio rushing towards me."
 N "Well, took you long enough."
+show mio upset
 Mio "Ah, sorry. It was a pretty urgent call."
+show mio neutral
 Mio "Were you able to get around?"
 menu:
     "Yeah":
         N "Yeah, I was able to. I found some nice people who showed me around some places."
         $ Mio_LP += 0.5
+        show mio laugh
         Mio "That's great! Sorry I wasn't able to help more."
     "Yeah, no thanks to you":
         $ Mio_LP -= 1.0
+        show mio upset
         Mio "Dang, dude. I can't help it when I have emergencies."
 
+show mio neutral
 Mio "Anyways, let's head back if there's nothing else to do."
 N "Okay."
+hide mio neutral with dissolve
 
 scene dorm night with Fade(1.0, 0, 1.0)
 with Pause(2.0)

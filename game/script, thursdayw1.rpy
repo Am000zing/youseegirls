@@ -103,8 +103,8 @@ N "Hey Mio, you awake?"
 "No response."
 N "Sorry for bothering, but I just wanted to know if you wanted to hang out."
 "..."
-N "I'm bored."
-"..."
+#N "I'm bored."
+#"..."
 "I think he’s sleeping."
 "Even though it’s well in the afternoon, he did mention that he enjoys napping after classes."
 "I decide to head back to the dorm. Maybe I could knock on his door when I get there…"
@@ -158,14 +158,13 @@ Mom "Okay, goodnight! Bye-bye!"
 N "Goodnight."
 jump Friday_One
 
+#################################
+
 label knock_MiosDoor:
-menu:
-    "Knock on Mio's Door?"
-    "Yes":
-        "..."
-        "No answer"
-    "No":
-        jump leave_Mioalone
+#sound door knock
+"..."
+"No answer"
+
 label knock_MiosDoor1:
 menu:
     "Knock on Mio's Door?"
@@ -185,33 +184,47 @@ menu:
 label knock_MiosDoor3:
 #sound: door opening
 N "Ah, Mio! You’re awake!"
+show mio neutral with dissolve
 Mio "Indeed I am. You’re quite the persistent one."
 Mio "So, what’s up?"
 N "I’m bored."
+show mio upset
 Mio "You interrupted my beauty sleep just cause you were bored?"
 N "Beauty sleep?"
+show mio teasing
 Mio "Am I not a thing of beauty?"
 N "Uhh..."
 "..."
+show mio upset
 Mio "Ah, uh, you don’t have to answer that."
+show mio neutral
 Mio "Well, come on in!"
+show mio teasing
 Mio "Wanna bang?"
 menu:
     "Uh, what do you mean?":
         $ Mio_LP += 0.5
+        show mio laugh
         Mio "Big Bang Fighterz! You know, the video game."
         N "Oh, right."
+        show mio teasing
         Mio "Haha, what did you think I was saying?"
         N "U-um, nothing. Anyways, which character do you like to play?"
     "Bang Fighterz? Sure, I'll play.":
         $ Mio_LP += 2.0
+        show mio laugh
         Mio "Awesome! I knew you were a cool gamer."
+        show mio neutral
         N "Who’s your main?"
     "I thought you'd never ask!":
         $ Mio_LP += 0.5
+        show mio teasing
         Mio "Ahaha, wow, you’re really excited."
         N "I mean, I'm really into-"
+        show mio laugh
         Mio "I really like Bang Fighterz too! It’s my favorite game."
+show mio neutral
 Mio "I play a really mean Powser. I just got the DLC too."
+hide mio neutral with dissolve
 show black bg with Fade(1.0,0,1.0)
 jump Friday_One_withMio

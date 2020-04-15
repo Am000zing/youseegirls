@@ -126,7 +126,7 @@ menu:
 label e_Ryver_2_A:
 $ Ryver_LP += 1.0
 N "Hey Ryver!"
-show ryver laugh with dissolve
+show ryver laughing with dissolve
 Ryver "Oh, hey, [name]!"
 "She seems really bubbly after socializing with those people."
 N "What’re you up to?"
@@ -155,7 +155,7 @@ label e_Ryver_2_A1a:
 $ Ryver_LP += 0.5
 show ryver concerned
 Ryver "... Um, gay?"
-show ryver laugh blushing
+show ryver laughing blushing
 Ryver "Haha, no. I’m just an ally."
 menu:
     "So, you still like guys?":
@@ -234,13 +234,14 @@ menu:
         jump e_Ryver_2_End
 
 label e_Ryver_2_End:
-unknown "HEY RYVER! Are you coming?"
+unknown "HEY, RYVER! Are you coming?"
 #I see a girl beckoning Ryver over. She’s standing by a few other members of the LGBTQ+ club.
 show ryver concerned
 Ryver "Sorry. I gotta go. I promised I’d hang out with them."
 N "It’s no problem."
 Ryver "See you later?"
 N "Yeah! See you."
+hide ryver concerned with dissolve
 jump menu_areas
 
 
@@ -275,6 +276,62 @@ menu:
 #["Pull an earphone out of her ear."]
 label e_Ryver_3_A1:
 "She sits up suddenly and tries to yank the earphone from my hand."
+show ryver annoyed with dissolve
+$ Ryver_LP -= 1.0
+Ryver "Hey! That’s not cool, bro."
+menu:
+    "Apologize.":
+        jump e_Ryver_3_A1a
+    "See what she's listening to.":
+        jump e_Ryver_3_A1b
+
+label e_Ryver_3_A1a:
+N "I’m sorry. I only wanted to get your attention."
+show ryver neutral
+$ Ryver_LP += 1.0
+Ryver "Oh, that’s alright. Sorry for snapping."
+N "You’re fine."
+menu:
+    "What're you listening to?":
+        $ Ryver_LP += 1.0
+        Ryver "This cool EDM artist, Skill-Rex. I listen to them a lot, especially at, uh, parties."
+        Ryver "I just went to one last night, so I’m trying to catch up on sleep out here between classes."
+        show ryver concerned
+        Ryver "So as much as I’d like to talk with you, I don’t have a lot of time..."
+        #Relationship Result: 1.0
+        jump e_Ryver_3_end
+    "How are you?":
+        $ Ryver_LP += 0.5
+        Ryver "Oh, I’m fine. I’m pretty tired though. I had an eventful night, so I’m just trying to catch up on sleep out here between classes."
+        Ryver "What’s new with you?"
+        N "I’ve been getting to know the people here more. I think I’m going to make some lasting relationships."
+        show ryver laughing
+        Ryver "Awesome!"
+        show ryver neutral blushing
+        Ryver "I hope I’m one of those people."
+        show ryver concerned
+        Ryver I hate to cut our bonding time short, but I’m really exhausted, so...”
+        #Relationship Result: 0.5
+        jump e_Ryver_3_end
+
+####
+label e_Ryver_3_A1b:
+$ Ryver_LP -= 1.0
+"I quickly put the earphone to my ear and hear the wub wubs of some hardcore dubstep."
+show ryver annoyed
+Ryver "Knock it off."
+menu:
+    "Start headbanging to the music."
+        show ryver laughing
+        Ryver "What are you doing?!"
+        N "Jammin’! Is this Skill-Rex?"
+        $ Ryver_LP += 3.0
+        show ryver neutral
+        Ryver "Heck yeah! I didn’t know you liked them. With those moves, I bet you’re fun at parties."
+        show ryver concerned
+        Ryver "But right now, I’m totally partied out and need a nap, so..."
+        #Relationship Result: 2.0
+
 
 #["Yell at the top of my lungs."]
 label e_Ryver_3_A2:
@@ -283,3 +340,12 @@ label e_Ryver_3_A2:
 #["Nudge her side with my foot."]
 label e_Ryver_3_A3:
 "I gently kick the toe of my shoe against Ryver’s side."
+
+######
+label e_Ryver_3_end:
+N "I see. I guess I’ll leave you to your nap, then. See you tomorrow?"
+"Ryver waves her hand in a silent goodbye as she lays back down, music loud in her ears."
+"Almost instantly she’s out."
+"I think I just heard her snort! It’s kind of endearing..."
+"Argh, I should stop being such a creeper, watching her sleep."
+jump quad_people

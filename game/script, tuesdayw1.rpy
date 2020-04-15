@@ -8,7 +8,7 @@ with Fade(1.0, 0.0, 1.0)
 "I wonder what today will bring me."
 "..."
 "Ah, I should get my head out the clouds and concentrate on getting ready."
-"I quickly brushed my teeth, showered and got dressed, I don't want to be late, so I ran out the door without any breakfast."
+"I quickly brushed my teeth, showered and got dressed. I don't want to be late, so I ran out the door without any breakfast."
 "Even though Mio said not to worry about being late, I didn't want to disappoint him."
 "I don't want all his kindness to go unnoticed!"
 
@@ -98,15 +98,19 @@ Mio "[name]!"
 hide bella neutral with dissolve
 N "Hope to see you around."
 "With a jump to my step, I jogged to Mio."
+show mio neutral with dissolve
 Mio "You're late."
 N "Y-yeah. I figured. Thanks for waiting."
+show mio teasing
 Mio "If this is a habit of yours, maybe I'll swing by your place and wake you up myself."
 "Blood rushed to my cheeks, but I tried to laugh it off."
 N "Haha. Please don't."
+hide mio teasing with dissolve
 
 show parking lot with Fade(1.0,0,2.0)
 "As students filed out of their evening classes, campus buzzed with small-talk."
 "I'm a little tired from today's events, but I think it's something I can get used to."
+show mio neutral with dissolve
 Mio "Man, it's already this late. How you holding up, [name]?"
 N "Uhhhh..."
 "My mind went blanks as a taco truck parked directly behind Mio."
@@ -114,9 +118,12 @@ N "Uhhhh..."
 "While trying to form an answer, I could feel my mouth watering."
 Mio "We'll take an hour break to recuperate from the tour. Feel free to eat anything from the Dining Hall."
 N "What about you?"
+show mio smile
 Mio "Don't worry about it. I already grabbed a snack before I left."
+show mio neutral
 Mio "You should head over there before rush hour."
 N "Thanks!"
+hide mio neutral with dissolve
 show dining hall with Fade(1.0,0,1.0)
 "I looked around in the Dining Hall, trying to narrow down what kind of foods I wanted..."
 menu:
@@ -124,22 +131,29 @@ menu:
         "I scooped up some good looking Tofu and Veggies."
         unknown "Hey, that looks good, whatcha getting?"
         "I jerked my head, a sudden breathy voice by my ears."
+        show christine neutral with dissolve
         N "O-oh just some stir fried tofu and veggies. Planning to get some rice with it too."
         unknown "That sounds really good. I'll probably get a scoop of that too."
+        show christine happy
         Christine "Sorry for surprising you like that. I'm Christine, by the way."
         N "Oh, uh, I'm [name]."
+        show christine neutral
         "On her plate was an entire mountain of fries."
         "Her lax and standoffish demeanor contrasted with her sharp eyes."
         "It was like she was silently judging me..."
         jump choice_ChristineIntroA
     "BBQ Pulled Pork Sliders":
         unknown "Ooh, that smells so good, what'd you get?"
+        "I jerked my head, a sudden breathy voice by my ears."
+        show christine neutral with dissolve
         N "A-ah, I got a BBQ Pulled Pork Slider. It smelled so good, I couldn't resist."
         "She gave a long look at me and the slider on my plate."
         "She had an intense stare, despite her lax and standoffish demeanor."
         "It was like she was silently judging me..."
+        show christine happy
         Christine "Sorry for surprising you like that. I'm Christine, by the way."
         N "Oh, uh, I'm [name]."
+        show christine neutral
         unknown "I guess I can't judge you for desiring it, considering that the aroma is absolutely divine."
         unknown "But just so you know, the American meat industry, especially when it comes to pork, can be especially cruel."
         jump choice_ChristineIntroB
@@ -147,19 +161,24 @@ menu:
 label choice_ChristineIntroA:
 menu:
     "Are you going to eat all of those fries?":
+        show christine annoyed
         Christine "How dare you assume I'd be able to finish all of these fries by myself! Who do you think I am?"
         jump choice_ChristineIntroA1
     "Where'd you get those fries?":
+        show christine happy
         Christine "They're on the rightmost side of the dining hall. Can't miss 'em."
         jump choice_ChristineIntroFinal
 
 label choice_ChristineIntroA1:              
 menu: 
     "A self-loathing university student":
+        show christine annoyed
         Christine "..."
+        show christine neutral
         Christine "Well, you're not wrong."
         jump choice_ChristineIntroFinal
     "Your name is Christine, so I assume Christine.":
+        show christine annoyed
         Christine "Ugh, you think you're so funny and snarky, huh."
         jump choice_ChristineIntroFinal
 
@@ -172,16 +191,19 @@ menu:
     "How does this apply to me.":
         N "How does this apply to me now though?"
         $Christine_LP -=1
+        show christine annoyed
         Christine "Ugh, by picking this item up at the buffet, you directly support the demand of dining hall pork, which in turn will cause more pigs to die."
         N "I'm not directly killing them though..."
-        Christine "Whatever, I can explain this later."
+        Christine "Whatever, I can explain this some other time."
         jump choice_ChristineIntroFinal
 
 label choice_ChristineIntroFinal:
+show christine neutral
 Christine "Well, it's a pleasure to meet you."
 Christine "I'm sure we'll be seeing each other around often considering how few people attend this summer session."
 Christine "Well, I'm gonna go. My friends are nearly done with their food, so I should finish mine too."
 N "Uhh, yeah! Hope to see you around!"
+hide christine neutral with dissolve
 
 scene dorm afternoon
 with Fade(1.0,0,2.0)
@@ -189,14 +211,19 @@ with Fade(1.0,0,2.0)
 "The day ended with Mio walking me back to my room."
 "He answered a lot of my questions, and we realized we had a lot in common."
 "I wonder if all guys are as cool and chill as Mio."
+show mio neutral with dissolve
 N "Ugh, my feet are sore."
 Mio "Hm? Was the pace today a bit rough?"
 N "Just a little."
+show mio teasing
 Mio "I'll keep that in mind tomorrow, then.... Unless you decide to be late for that too."
 N "Um, yeah, it won't happen again."
+show mio neutral
 Mio "Whatever you say, dude. Just know I'll be here if you need help getting out of bed."
 N "Haha. Thanks, man. Have a good night!"
+show mio smile
 Mio "Good night, [name]!"
+hide mio smile with dissolve
 scene dorm night with dissolve
 with Pause(2.0)
 #"I closed my door as he waved goodbye."
