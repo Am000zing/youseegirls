@@ -129,12 +129,12 @@ with Pause(1)
 U "Hey, [name]. Wake up! We're here now."
 U "Luckily the drive wasn't too bad as soon as we left the airport."
 "Groggily, I stretched my arms out. Oh man, already at the school?"
-scene dorm front with dissolve
+scene dorm front with Fade(1.0,0,2.0)
 U "You can rest some more as soon as we move in."
 A "Take out your passport. It's your only piece of ID for your dorm keys right now."
 
 label dorm_movein:
-scene dorm inside with dissolve
+scene dorm inside with Fade(2.0,0,2.0)
 play audio "audio/door_open.wav"
 "Getting the keys didn't take too long, but the moving in process felt like lifetimes."
 "ESPECIALLY since I just got off the plane about an hour ago."

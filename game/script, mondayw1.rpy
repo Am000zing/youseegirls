@@ -14,8 +14,8 @@ with Fade(1.0, 1.0, 1.0)
 
 "I did my morning routine: brushing my teeth, washing my face, did my hair..."
 "I'm so excited what might happen today!"
-play audio audio/door_open.wav
-play audio audio/door_close.wav
+play audio "audio/door_open.wav"
+play audio "audio/door_close.wav"
 "I exited the dorms, and made my way to the parking lot where I supposed to meet up with Mio."
 show parking lot with Fade(2.0,0,2.0) 
 "Oh? He isn't here yet?"
@@ -125,7 +125,7 @@ show mio neutral
 Mio "Anyways, let's get going!"
 hide mio neutral with dissolve
 #Time-Skip. prob just say something like the tour guide lasted up til lunch
-show parking lot with Fade (2.0,0,2.0)
+show dorm front with Fade (2.0,0,2.0)
 
 show mio neutral with dissolve
 Mio "~And that's it for today's tour!"
@@ -134,7 +134,7 @@ Mio "Let's head over to the dining hall. You're probably starving!"
 "But I don't want to stretch Mio's time more than I need to."
 N "Ah, I think I'll just head back to my room. I'm not that hungry."
 $ sshake = Shake((0, 0, 0, 0), 2.0, dist=15)
-show parking lot with sshake
+show dorm front with sshake
 "GROOOOWWWLWLLLWWHWWH~"
 #probably have some sound effect for a very long stomach rumble
 "I gasped and I clutched my stomach in embarrassment."

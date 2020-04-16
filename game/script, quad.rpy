@@ -1,5 +1,5 @@
 label quad_encounters:
-#show quad
+scene Quad with dissolve
 
 #RYVER ENCOUNTERS
 #RYVER ENCOUNTER ONE
@@ -286,6 +286,7 @@ menu:
         jump e_Ryver_3_A1b
 
 label e_Ryver_3_A1a:
+#[Apologize]
 N "I’m sorry. I only wanted to get your attention."
 show ryver neutral
 $ Ryver_LP += 1.0
@@ -316,6 +317,7 @@ menu:
 
 ####
 label e_Ryver_3_A1b:
+#[See what she's listening to.]
 $ Ryver_LP -= 1.0
 "I quickly put the earphone to my ear and hear the wub wubs of some hardcore dubstep."
 show ryver annoyed
@@ -330,16 +332,130 @@ menu:
         Ryver "Heck yeah! I didn’t know you liked them. With those moves, I bet you’re fun at parties."
         show ryver concerned
         Ryver "But right now, I’m totally partied out and need a nap, so..."
+        jump e_Ryver_3_end
         #Relationship Result: 2.0
-
+    "Give her the earphone back."
+        N "Here."
+        $ Ryver_LP += 0.5
+        Ryver "Thanks, [name]."
+        show ryver concerned
+        Ryver "Listen, I’d like to chat, but I’m really tired right now. Another time, maybe?"
+        jump e_Ryver_3_end
+        #Relationship Result: -1.5
 
 #["Yell at the top of my lungs."]
 label e_Ryver_3_A2:
 "I take a deep breath-"
+N “"RYVER!!!"”
+"Some students walking by give me weird looks."
+"Well, at least Ryver woke up. She looks both annoyed and confused."
+show ryver annoyed
+Ryver "[name]?"
+"She suddenly sits up and the earphones fall out of her ears. She looks around, noticing the people staring and whispering."
+$ Ryver_LP -= 1.0
+show ryver annoyed blushing
+Ryver "Why did you do that?"
+N "I thought it was the best way to get your attention."
+Ryver "Well, you really shouldn’t have."
+menu:
+    "I'm sorry.":
+        $ Ryver_LP += 1.0
+        Ryver "You should be. That was really embarrassing."
+        Ryver "I don’t like that kind of attention. I just prefer to... stay out of the spotlight."
+        jump e_Ryver_3_A21
+    "What's your problem?":
+        $ Ryver_LP -= 1.0
+        Ryver "What’s my problem?"
+        Ryver "You, at the moment."
+        "She stuffs her earphones back in her ears and crosses her arms, refusing to look at me."
+        "I guess I should go..."
+        jump e_Ryver_3_end
+        #Relationship Result: -2.0
+
+
+label e_Ryver_3_A21:
+menu:
+    "So you're introverted?":
+        show ryver annoyed
+        Ryver "Well, if you have to put a label on it, I suppose I am introverted."
+        show ryver concerned
+        Ryver "Sometimes it feels like people forget I’m there... but I still like hanging out with them."
+        Ryver "Anyways, right now I’d like to be alone and get a nap in before class. Nothing personal, [name]."
+        jump e_Ryver_3_end
+        #Relationship Result: 0.0
+    "Really? You seem so sociable.":
+        $ Ryver_LP += 0.5
+        Ryver "I do try to be sociable, but I’m not exactly extroverted."
+        show ryver concerned
+        Ryver "Like, I still enjoy being around people, but, I wonder, do they like being around me?"
+        "Ryver shakes her head."
+        Ryver "That’s just the sleep-deprivation talking..."
+        jump e_Ryver_3_end
+        #Relationship Result: 0.5
 
 #["Nudge her side with my foot."]
 label e_Ryver_3_A3:
 "I gently kick the toe of my shoe against Ryver’s side."
+"She starts to wake up and blinks groggily at me."
+"With a yawn, she sits up and takes the earphones out."
+show ryver neutral
+Ryver "Hey, [name]."
+N "Good morning."
+Ryver "Yeah, yeah."
+menu:
+    "What're you listening to?":
+        Ryver "This cool EDM artist, Skill-Rex. I listen to them a lot, especially at, uh, parties."
+        jump e_Ryver_3_A31
+    "Rought night?":
+        Ryver "You could say that."
+        jump e_Ryver_3_A32
+
+label e_Ryver_3_A31:
+menu:
+    "What kind of parties do you go to?":
+        $ Ryver_LP += 2.0
+        Ryver "Oh, a lot of college house parties, cool concerts with friends, and-"
+        show ryver neutral blushing
+        "She pauses to lean in closer, as if to tell a secret."
+        Ryver "... my favorite are those raves that go hardcore, you know? The kind that ends up getting shut down because it gets too out of hand. They’re so much fun!"
+        show ryver neutral
+        Ryver "I may or may not have gone to one last night, so I’m super exhausted right now."
+        jump e_Ryver_3_end
+        #Relationship Result: 2.0
+    "We should party sometime.":
+        show ryver concerned
+        Ryver "Oh yeah? I dunno. I think I’d have to see your dance moves first. I go pretty hard sometimes."
+        "I focus on the faint music coming out from the earphones and start bobbing my head and grooving, showing off some of my best moves."
+        show ryver laughing blushing
+        $ Ryver_LP += 3.0
+        Ryver "Woah, [name]! That’s cool stuff."
+        show ryver neutral blushing
+        Ryver "Alright, maybe we can vibe. I’ll think about it."
+        Ryver "But I’m all partied out for now and need a big nap. I’ll be down to talk to you tomorrow, ‘kay?"
+        jump e_Ryver_3_end
+        #Relationship Result: 3.0
+
+label e_Ryver_3_A32:
+menu:
+    "Is everything alright?":
+        $ Ryver_LP += 1.0
+        Ryver "Oh, yeah, totally. Nothing bad happened; don’t worry."
+        Ryver "It’s just that I may have partied a little too hard last night and my head still hurts."
+        N "Do you need anything?"
+        Ryver "No, I think I just need to rest up. Thanks for asking, though."
+        jump e_Ryver_3_end
+        #Relationship Result: 1.0
+    "More schoolwork?":
+        $ Ryver_LP += 0.5
+        Ryver "No..."
+        N "No more ethnic studies papers?"
+        Ryver "Not yet, but that one paper I worked on earlier was so that I could go to a party last night."
+        N "A party? Oh, cool."
+        Ryver "Yep. Maybe if you’re free next time we can go together."
+        show ryver concerned
+        Ryver "Ooh... My head is still kind of pounding. I should lay back down..."
+        jump e_Ryver_3_end
+        #Relationship Result: 0.5
 
 ######
 label e_Ryver_3_end:
@@ -349,3 +465,71 @@ N "I see. I guess I’ll leave you to your nap, then. See you tomorrow?"
 "I think I just heard her snort! It’s kind of endearing..."
 "Argh, I should stop being such a creeper, watching her sleep."
 jump quad_people
+
+
+
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#MERCIE ENCOUNTERS
+#MERCIE ENCOUNTER ONE
+label e_Mercie_1:
+$ mercie_encounter = True
+"Mercie is sitting alone at a table, aimlessly staring at her phone. She doesn't look very busy. If anything, she looks bored."
+menu:
+    "Approach Mercie?"
+    "Yes":
+        jump e_Mercie_1_A
+    "No":
+        "I shouldn't bother her."
+        jump quad_people
+
+label e_Mercie_1_A:
+N "Hey, Mercie! Can I sit with you?"
+show mercie concern with dissolve
+"She looks up and blinks like I spoke gibberish to her."
+Mercie "... Y-You want to sit? With {i}me{/i}?"
+"Huh? That's a silly question. I just wanted to talk to her."
+N "Well, I don't have any other plans. And you're fun to talk to."
+N "Why?"
+show mercie concern blush
+Mercie "Ah!"
+Mercie "N-No reason. I'm just..."
+Mercie "..."
+show mercie neutral
+Mercie: "Um, thanks."
+"What's she thanking me for?"
+"She moved her things aside and we chatted for a bit..."
+hide mercie neutral with dissolve
+scene quad with Fade(1.0,0,2.0)
+show mercie happy with dissolve
+Mercie "Well, I should get going. I've got class in a couple of minutes."
+N "Okay! It was nice talking to you."
+show mercie concern
+Mercie "Yeah! I'll...see you later?"
+show mercie happy
+N "Yeah, see you!"
+"She scurries away, a bounce in her step."
+hide mercie happy with dissolve
+jump menu_areas
+
+#######################################################
+#MERCIE ENCOUNTER TWO
+label e_Mercie_2:
+$ mercie_encounter = True
+"She's sitting alone, this time twiddling her thumbs, almost as if she's expecting someone."
+menu:
+    "Approach Mercie?"
+    "Yes":
+        jump e_Mercie_2_A
+    "No":
+        "She's probably waiting for someone else."
+        jump quad_people
+
+label e_Mercie_2_A:
+N "Hey, Mercie!"
+show mercie happy
+Mercie "Hey, [name]! Come here, I saved you a seat!"
