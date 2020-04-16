@@ -310,7 +310,7 @@ menu:
         show ryver neutral blushing
         Ryver "I hope I’m one of those people."
         show ryver concerned
-        Ryver I hate to cut our bonding time short, but I’m really exhausted, so...”
+        Ryver "I hate to cut our bonding time short, but I’m really exhausted, so..."
         #Relationship Result: 0.5
         jump e_Ryver_3_end
 
@@ -321,7 +321,7 @@ $ Ryver_LP -= 1.0
 show ryver annoyed
 Ryver "Knock it off."
 menu:
-    "Start headbanging to the music."
+    "Start headbanging to the music.":
         show ryver laughing
         Ryver "What are you doing?!"
         N "Jammin’! Is this Skill-Rex?"

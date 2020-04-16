@@ -1,5 +1,5 @@
 label coffeeshop_encounters:
-show coffeeshop with Fade(1.0,0,1.0)
+scene coffeeshop with Fade(1.0,0,1.0)
 
 #BERKLY ENCOUNTERS
 #BERKLY ENCOUNTER ONE
@@ -138,12 +138,213 @@ N "Let's meet up again"
 Berkly "Yeah!"
 jump menu_areas
 
-##################################
+
+
+######################################################################################################
+######################################################################################################
+#BERKLY ENCOUNTERS
+#BERKLY ENCOUNTER ONE
+######################################################################################################
 label e_Berkly_2:
 $ berkly_encounter = True
+"Berkly's sitting alone this time. She’s typing with one hand and sipping on coffee with the other."
 menu:
     "Approach Berkly?"
     "Yes":
-        "This is a test."
+        N "Is it just you this time?"
+        Berkly "You sound like you have a problem with that."
+        N "No, but none of your other friends are here."
+        Berkly "I think they’re just busy with their own stuff."
+        N "I see."
+        "Nice to see she’s warming up to me."
+        Berkly "Wanna join me for a short walk? Taking a short break from studying is always good."
+        jump e_Berkly_2_A
     "No":
         jump coffeeshop_people
+
+label e_Berkly_2_A:
+menu:
+    "Nah, I'm good.":
+        jump e_Berkly_2_A1
+    "Sure, I could use some exercise.":
+        jump e_Berkly_2_A2
+
+label e_Berkly_2_A1:
+$ Berkly_LP += 0.5
+Berkly "Really? I have reason to doubt your health."
+N "I don’t know what you’re talking about. I’m perfectly healthy!"
+Berkly "You say that after that extra sweetened coffee you just bought."
+N "Haha, way to put me on the spot."
+Berkly "Also I’m trying to help you. Come on, we can go for a quick walk."
+menu:
+    "Alright.":
+        jump e_Berkly_2_A11
+    "Sorry, no.":
+        jump e_Berkly_2_A12
+
+label e_Berkly_2_A11:
+$ Berkly_LP += 1.0
+#[Alright]
+N "So we’re just going to take a walk around campus?"
+Berkly "No, that’s too long. We’ll just take a short one around the perimeter of the coffeeshop."
+"Oh, thank God."
+Berkly "So…wanna play 20 questions?"
+N "Um, sure."
+"Her phone rings."
+#Ring Ring Ring
+Berkly "Sorry, I gotta take this call."
+N "Go ahead."
+Berkly "Sorry about that. Do you wanna ask the first question?"
+N "You can go first."
+Berkly "Okay, what are your thoughts on President X?"
+"This isn’t what I had in mind when I agreed to this…"
+menu:
+    "I don’t really have an opinion":
+        jump e_Berkly_2_A111
+    "Can we do different questions?":
+        jump e_Berkly_2_A112
+    "Sorry, I don’t really follow politics.":
+        jump e_Berkly_2_A113
+
+
+##############################################################
+label e_Berkly_2_A12:
+$ Berkly_LP -= 1.0
+#[Sorry, no.]
+Berkly "I see."
+Berkly "...Wanna play 20 questions?"
+N "Yeah, sure. Let me finish this coffee first."
+"Her phone rings."
+#Ring Ring Ring
+B "Sorry, I gotta take this."
+N "It's fine, go ahead."
+#pause
+B "Sorry about that."
+N "It's fine. Besides, I finished."
+B "You already finished?! Didn’t you just buy it?"
+N "It was pretty good."
+N "Alright, let’s start."
+B "Hmm...What do you think about President X?"
+"This isn’t what I had in mind when I agreed to this…"
+menu:
+    "I don’t really have an opinion":
+        jump e_Berkly_2_A111
+    "Can we do different questions?":
+        jump e_Berkly_2_A112
+    "Sorry, I don’t really follow politics.":
+        jump e_Berkly_2_A113
+
+
+#####################################################################
+label e_Berkly_2_A2:
+$ Berkly_LP += 1.0
+#[Sure, I could use some exercise]
+B "Great, let’s go!"
+N "Gimme a sec, just need to finish this coffee."
+B "Didn't you just get it? Wouldn’t-"
+N "-Done."
+"I can’t tell if she’s amazed with disgust or interest."
+B "Wow."
+B "You just downed like a million calories in an instant."
+N "That much?"
+B "You wanna hit the gym and do some exercising later?"
+menu:
+    "Sure.":
+        jump e_Berkly_2_A21
+    "Sorry, I have plans later.":
+        jump e_Berkly_2_A22
+
+label e_Berkly_2_A21:
+$ Berkly_LP += 1.0
+#[Sure]
+Berkly "Sweet. Do you have any exercises in mind?"
+"Her phone rings."
+#Ring Ring Ring
+Berkly "Sorry, gotta take this call."
+"She walks out briefly."
+"Must be important."
+Berkly "Sorry, there’s been a change in plans. Looks like we aren’t gonna workout together today."
+N "It's fine. I think I could start using the student recreation center without a guide."
+Berkly "So, do you want to ask first?"
+N "You can go ahead."
+Berkly "Hmm...So what do you think about President X?"
+"This isn’t what I had in mind when I agreed to this…"
+menu:
+    "I don’t really have an opinion":
+        jump e_Berkly_2_A111
+    "Can we do different questions?":
+        jump e_Berkly_2_A112
+    "Sorry, I don’t really follow politics.":
+        jump e_Berkly_2_A113
+
+label e_Berkly_2_A22:
+$ Berkly_LP += 0.5
+#[Sorry, I have plans for later today.]
+B “No problem.”
+"Her phone rings."
+#Ring Ring Ring
+Berkly "Sorry, gotta take this call."
+"She walks out briefly."
+"Must be important."
+B "Sorry about that. Looks like even if we were going to workout together today, we wouldn’t have been able to."
+N "It's fine. I think I could start using the student recreation center without a guide."
+Berkly "So, do you want to ask first?"
+N "You can go ahead."
+Berkly "Hmm...So what do you think about President X?"
+"This isn’t what I had in mind when I agreed to this…"
+menu:
+    "I don’t really have an opinion":
+        jump e_Berkly_2_A111
+    "Can we do different questions?":
+        jump e_Berkly_2_A112
+    "Sorry, I don’t really follow politics.":
+        jump e_Berkly_2_A113
+
+############################################################
+label e_Berkly_2_A111:
+$ Berkly_LP -= 1.0
+#[I don’t really have an opinion]
+Berkly "Wanna try asking me a question then?"
+N "Well, I guess why ask about politics? It seems like a pretty intimidating topic to ask about with someone you barely know?"
+Berkly "Huh, really? Sorry, I didn’t mean to put you on the spot like that."
+Berkly "I just really enjoy discussing lots of different topics and putting my opinion out there, you know."
+"She wasn't very talkative when we first met...so this is nice."
+jump e_Berkly_2_end
+
+label e_Berkly_2_A112:
+$ Berkly_LP += 0.5
+#[Can we do different questions?]
+Berkly "Sure. What kind of coffee do you enjoy? Without all the extra sweeteners."
+N "Uhh, new question?"
+Berkly "So as long as it’s sweetened, you’d like any coffee?"
+"Oh man, put on the spot twice in a day about my coffee habits."
+N "Okay, fine. As long as it is sweetened coffee, I’ll drink it."
+Berkly "Seems like we might have to do a couple extra laps."
+"Ah, jeez."
+Berkly "Haha, just kidding! I’m just teasing."
+N "Well, now it’s my turn. I won’t hold back, you know."
+Berkly "I could critique your eating habits more, you know."
+N "Okay, okay, I’ll hold back."
+jump e_Berkly_2_end
+
+label e_Berkly_2_A113:
+$ Berkly_LP -= 1.0
+#[Sorry, I don’t really follow politics.]
+Berkly "Don’t you think that we should be keeping track of politics?"
+N "Well, since I’m from Japan, I don’t know if you should expect me to understand American politics as well."
+Berkly "Ugh, I guess."
+Berkly "Do you have any questions for me?"
+N "Do you only follow American politics?"
+Berkly "Mostly just here. I think it's important to be informed on a general level for most things. For politics, I think it’s important to be able to express your opinions, especially for the country you live in."
+jump e_Berkly_2_end
+
+
+
+######################################################################################################
+label e_Berkly_2_end:
+show coffeeshop with fade
+B "Thanks for waiting while I pack up."
+N "It's no biggie."
+B "Later."
+N "Bye."
+jump menu_areas
