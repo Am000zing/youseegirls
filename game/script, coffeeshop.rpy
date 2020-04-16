@@ -50,7 +50,7 @@ menu:
         $ Berkly_LP += 0.5
         jump e_Berkly_1_A3
 
-#########################
+########################
 
 #[No thanks.]
 label e_Berkly_1_A1:
