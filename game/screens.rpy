@@ -252,15 +252,33 @@ screen quick_menu():
 
             xalign 0.5
             yalign 1.0
+            spacing 100
 
             textbutton _("Back") action Rollback()
+            textbutton _("Journal") action ShowMenu('journal')
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            # textbutton _("Save") action ShowMenu('save')
+            # textbutton _("Q.Save") action QuickSave()
+            # textbutton _("Q.Load") action QuickLoad()
+            # textbutton _("Prefs") action ShowMenu('preferences')
+            
+        vbox:
+            xalign .98
+            yalign 0.005
+            
+            textbutton _("Menu"):
+                action SetScreenVariable("corner_menu", not corner_menu)
+                text_size 48
+                xalign 1.0
+            if corner_menu:
+                style_prefix "corner_menu"
+                textbutton _("Save") action ShowMenu('save')
+                textbutton _("Q.Save") action QuickSave()
+                textbutton _("Q.Load") action QuickLoad()
+                textbutton _("Prefs") action ShowMenu('preferences')
+        
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -269,9 +287,15 @@ init python:
     config.overlay_screens.append("quick_menu")
 
 default quick_menu = True
+default corner_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
+
+style corner_menu_button:
+    xalign 1.0
+
+style corner_menu_button_text is button_text
 
 style quick_button:
     properties gui.button_properties("quick_button")
@@ -365,18 +389,47 @@ screen main_menu():
     frame:
         pass
 
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
+    ## The primary menu buttons, front and center
+    vbox:
+        xalign 0.5
+        yalign 0.5
+        spacing gui.navigation_spacing
 
-    if gui.show_name:
+        textbutton _("Start") action Start()
+        textbutton _("Load") action ShowMenu("load")
+        textbutton _("Preferences") action ShowMenu("preferences")
 
-        vbox:
-            text "[config.name!t]":
-                style "main_menu_title"
+    #The extra buttons, in the bottom left corner
+    vbox:
+        style_prefix "extra"
+        xalign 0.03
+        yalign 0.95
+        spacing 5
+        textbutton _("About") action ShowMenu("about")
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            text "[config.version]":
-                style "main_menu_version"
+            ## Help isn't necessary or relevant to mobile devices.
+            textbutton _("Help") action ShowMenu("help")
+
+        if renpy.variant("pc"):
+
+            ## The quit button is banned on iOS and unnecessary on Android and
+            ## Web.
+            textbutton _("Quit") action Quit(confirm=not main_menu)
+    
+    vbox:
+        xalign 0.7
+        yalign 0.98
+        textbutton "[config.version]"      
+
+    # if gui.show_name:
+
+    #     vbox:
+    #         text "[config.name!t]":
+    #             style "main_menu_title"
+
+    #         text "[config.version]":
+    #             style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -385,21 +438,21 @@ style main_menu_text is gui_text
 style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
 
-style main_menu_frame:
-    xsize 420
-    yfill True
-
-    background "gui/overlay/main_menu.png"
-
-style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
-
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
+
+style main_menu_button:
+    xalign 0.5
+
+style extra_button:
+    xalign 0.0
+
+style main_menu_button_text:
+    outlines [ (2,"#000",0,0) ]
+    text_align 0.5
+
+style extra_button_text:
+    outlines [ (1,"#000",0,0) ]
 
 style main_menu_title:
     properties gui.text_properties("title")
@@ -1124,23 +1177,6 @@ style help_label_text:
     xalign 1.0
     text_align 1.0
 
-
-
-################################################################################
-## Additional screens
-################################################################################
-
-screen agenda():
-
-    add "images/agenda.png"
-
-screen notes():
-
-    grid 1 1:
-        vbox:
-            xalign 0.5
-            yalign 0.5
-
 ## Confirm screen ##############################################################
 ##
 ## The confirm screen is called when Ren'Py wants to ask the player a yes or no
@@ -1416,6 +1452,72 @@ style nvl_button:
 style nvl_button_text:
     properties gui.button_text_properties("nvl_button")
 
+
+## Journal screen ###############################################################
+##
+## Shows each girl's descriptions and any info the player has unlocked over the 
+## course of the game.
+
+screen journal():
+
+    style_prefix "journal"
+    # The tabs for each character
+    hbox:
+        xfill True
+        yalign 0.02
+        textbutton _("Bella") action SetScreenVariable("journal_tab", "Bella")
+        textbutton _("Berkly") action SetScreenVariable("journal_tab", "Berkly")
+        textbutton _("Christine") action SetScreenVariable("journal_tab", "Christine")
+        textbutton _("Dany") action SetScreenVariable("journal_tab", "Dany")
+        textbutton _("Diana") action SetScreenVariable("journal_tab", "Diana")
+        textbutton _("Irene") action SetScreenVariable("journal_tab", "Irene")
+        textbutton _("Lola") action SetScreenVariable("journal_tab", "Lola")
+        textbutton _("Mercie") action SetScreenVariable("journal_tab", "Mercie")
+        textbutton _("Mio") action SetScreenVariable("journal_tab", "Mio")
+        textbutton _("Return") action Return()
+    
+    # Profile picture of the character
+    window:
+        xsize 400
+        ysize 400
+        xalign 0.1
+        yalign 0.25
+        background "#006"
+
+    # Basic Bio that doesn't need to be unlocked
+    vbox:
+        xalign 0.5
+        yalign 0.3
+        spacing 75
+        text "Name: [journal_tab]"
+        text "Hometown: here"
+        text "Favorite Animal: pikachu"
+    
+    # Bio that does need to be unlocked
+    vbox:
+        xalign 0.2
+        yalign 0.9
+        spacing 60
+        text "Bio 1: at age six she was born without a face. poor girl."
+        text "Bio 2: she joined gamespawn, probably"
+        text "Bio 3: don't believe her lies. don't believe her lies. don't believe her lies."
+        text "Bio 4: you are already dead."
+
+    
+
+
+default journal_tab = "Bella"
+
+style journal_text:
+    size 32
+    color "#f0f5fc"
+
+style journal_button:
+    xalign 0.5
+
+style journal_button_text:
+    outlines [ (1,"#000",0,0) ]
+    xalign 0.5
 
 
 ################################################################################
