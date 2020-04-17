@@ -334,7 +334,7 @@ menu:
         Ryver "But right now, I’m totally partied out and need a nap, so..."
         jump e_Ryver_3_end
         #Relationship Result: 2.0
-    "Give her the earphone back."
+    "Give her the earphone back.":
         N "Here."
         $ Ryver_LP += 0.5
         Ryver "Thanks, [name]."
@@ -346,7 +346,7 @@ menu:
 #["Yell at the top of my lungs."]
 label e_Ryver_3_A2:
 "I take a deep breath-"
-N “"RYVER!!!"”
+N "RYVER!!!"
 "Some students walking by give me weird looks."
 "Well, at least Ryver woke up. She looks both annoyed and confused."
 show ryver annoyed
@@ -500,7 +500,7 @@ Mercie "Ah!"
 Mercie "N-No reason. I'm just..."
 Mercie "..."
 show mercie neutral
-Mercie: "Um, thanks."
+Mercie "Um, thanks."
 "What's she thanking me for?"
 "She moved her things aside and we chatted for a bit..."
 hide mercie neutral with dissolve

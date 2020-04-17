@@ -8,6 +8,7 @@ default Diana_LP = 0
 default Ryver_LP = 0
 default Irene_LP = 0
 default Mio_LP = 0
+default danyrng = 0
 
 # +1: Standard choice to have dialogue w/ someone (every dialogue choice is +1 if there's no special effect)
 # +1.5: Sending a gift
@@ -24,6 +25,7 @@ menu Gifts:
         $ Lola_LP += 1.5
     "Dany":
         $ Dany_LP += 1.5
+        jump danygift
     "Christine":
         $ Christine_LP += 1.5
     "Diana":
@@ -36,4 +38,16 @@ menu Gifts:
         $ Ryver_LP += 1.5
     "Mercie":
         $ Mercie_LP += 1.5
-    
+
+label danygift:
+    if Dany_LP >= 3:
+        $ danyrng = renpy.random.randint (1,3)
+
+        if danyrng == 3:
+            "wow, thanks!"
+
+        else:
+            "uh...."
+    else:
+        Dany "wow, thanks!"
+jump aftergiftgiving
