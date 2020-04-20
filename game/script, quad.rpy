@@ -482,6 +482,7 @@ $ mercie_encounter = True
 menu:
     "Approach Mercie?"
     "Yes":
+        $ Mercie_LP += 1.0
         jump e_Mercie_1_A
     "No":
         "I shouldn't bother her."
@@ -533,3 +534,158 @@ label e_Mercie_2_A:
 N "Hey, Mercie!"
 show mercie happy
 Mercie "Hey, [name]! Come here, I saved you a seat!"
+"As I made my way over, I noticed she had notes out on her lap. Is she studying?"
+menu:
+    "Observe her work.":
+        $ Mercie_LP += 1.0
+        "I point to her lap."
+        N "Is this for a class?"
+        Mercie "Oh! This? It's for my breadth requirement."
+        Mercie "But I...I kind of like the class though."
+        "Wow. She looks super passionate about this type of stuff. Maybe I should ask her-"
+    "Ask her what she's studying for.":
+        $ Mercie_LP += 0.5
+        N "Are you studying for something?"
+        Mercie "H-Huh? Oh, um- Yeah."
+        Mercie "I sit all the way in the back. And this really tall guy sits in front of me... "
+        Mercie "I-I tend to fall behind..."
+        N "I can try to help you if you want. What class is this for?"
+        Mercie "R-Really? You don't have to."
+
+Mercie "Wait- I just remembered."
+Mercie "I-I have a meeting in five minutes!"
+Mercie "{i}Ugh, why am I always so forgetful!{/i}"
+N "O-Oh, okay! Good luck!"
+Mercie "Thanks! See ya!"
+N "See you later too..."
+"Well, that was abrupt."
+jump menu_areas
+
+#######################################################
+#MERCIE ENCOUNTER THREE
+label e_Mercie_3:
+if Mercie_LP >= 2:
+    jump e_Mercie_3_alt
+else: 
+    jump e_Mercie_3_start
+
+label e_Mercie_3_alt:
+$ mercie_encounter = True
+"I feel someone poke my arm."
+Mercie "Hey, are you busy? If not, do you want to chat for a bit?"
+menu:
+    "Chat with Mercie?"
+    "Yes":
+        N "Yeah, I've got time to spare."
+        "We ended up walking around the Quad aimlessly and complained about our classes..."
+        scene Quad with Fade (2.0,0,2.0)
+        "It sounds like she's really into plants and wildlife. It's the total opposite of what I expected...but also somehow not surprising."
+        "Eventually, we got tired and decided to sit down."
+        jump e_Mercie_3_A
+    "No":
+        $ Mercie_LP -= 1.0
+        N "Sorry, not now."
+        Mercie "Oh, um, okay. I'll see you around then."
+	    "She seems disappointed."
+        jump menu_areas
+
+label e_Mercie_3_start:
+$ mercie_encounter = True
+"She's leaning against a wall, toeing the ground aimlessly."
+"She looks like she's expecting someone."
+menu:
+    "Approach Mercie?"
+    "Yes":
+        N "Hey, Mercie."
+        show mercie happy with dissolve
+        Mercie "Hi, [name]!! How has your day been?"
+        N "It's been good. You seem excited."
+        show mercie neutral
+        Mercie "Haha, yeah..."
+        show mercie concern
+        Mercie "Hey, do you want to walk a little with me a bit?"
+        N "I don't see why not."
+        "I'm already here anyways."
+        show mercie laugh
+        Mercie "Cool!"
+        hide mercie laugh with dissolve
+        "We ended up walking around the Quad aimlessly and complained about our classes..."
+        scene Quad with Fade (2.0,0,2.0)
+        show mercie laugh with dissolve
+        "It sounds like she's really into plants and wildlife. It's the total opposite of what I expected...but also somehow not surprising."
+        "Eventually, we got tired and decided to sit down."
+        jump e_Mercie_3_A
+    "No":
+        jump menu_areas
+
+label e_Mercie_3_A:
+menu:
+    "Where should we sit?"
+    "On the grass.":
+        $ Mercie_LP += 2.0
+        show mercie neutral
+        N "You don't mind sitting on the grass, right?"
+        Mercie "Not at all! I love the smell of fresh-cut grass!"
+    "At a table.":
+        $ Mercie_LP += 1.0
+        show mercie neutral
+        N "Let's go find a table."
+        Mercie "Let's just hope it's clean, haha."
+        N "Clean?"
+        show mercie happy
+        Mercie "Oh, yeah. Some people just don't clean after themselves. So, careful where you sit, newbie."
+
+"We found a spot and settled down. We laid out our textbooks."
+show mercie annoyed
+Mercie "Ugh! It's always crowded this time of year. I can't wait 'til break!"
+menu:
+    "What are your plans for break?":
+        $ Mercie_LP += 0.5
+        show mercie concern
+        "She sighs."
+        Mercie "Probably go home and help my family."
+        "Oh, your family owns a business?"
+        Mercie "It's not exactly like that. Just kind of have a lot of cows."
+    "God, I can't wait either.":
+        $ Mercie_LP += 1.0
+        show mercie neutral
+        Mercie "Dude, you JUST started. Haha."
+        N "I mean- I could always catch up on some games I bought."
+        show mercie laugh
+        Mercie "Pft- NERD."
+        show mercie concern
+        Mercie "I guess compared to you though, my break would be kind of boring."
+"Huh? She doesn't look really happy..."
+"Should I say something?"
+menu:
+    "Should I say something?"
+    "You don't look so psyched.":
+        $ Mercie_LP += 0.5
+        N "Is there a reason?"
+        Mercie "Well... It's remote, covered in fields. And every so often, you see a stray horse walking around."
+        show mercie neutral
+        Mercie "It's reaaally boring... But you know, it's home."
+    "I'm sure you'll have fun!":
+        $ Mercie_LP += 1.0
+        N "Plus, you have a lot of cool friends to hang out with!"
+        show mercie neutral
+        Mercie "I guess you're right. I just wished I didn't live so far away from everything."
+
+menu:
+    "Well, if it's any consolation, I would definitely talk to you if you ever get bored.":
+        show mercie neutral blush
+        Mercie "..."
+        show mericie happy
+        Mercie "Thanks. I appreciate it."
+
+show mercie neutral
+"My phone rings."
+##Ring Ring
+"Oh, this phone call looks important."
+N "O-Oh, sorry, Mercie. I really have to take this."
+Mercie "Don't worry about it. I'm just about to run home anyway."
+N "Ah, I see. I'll see you around then!"
+Mercie "Bye!"
+N "See you later!"
+hide mercie neutral with dissolve
+jump menu_areas

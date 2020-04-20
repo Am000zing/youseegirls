@@ -313,21 +313,24 @@ menu:
         #else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
-    "Mercie":
-        #$ AP -= 1
-        #if e_Mercie == 0:
-        #    $ e_Mercie += 1
-        #    jump e_Mercie_1
-        #elif e_Mercie == 1:
-        #    $ e_Mercie += 1
-        #    jump e_Mercie_2
-        #elif e_Mercie == 2:
-        #    $ e_Mercie += 1
-        #    jump e_Mercie_3
-        #elif e_Mercie == 3
-        #    $ e_Mercie += 1
-        #    jump e_Mercie_4
-        #else:
+    "Mercie" if mercie_encounter == False:
+        $ AP -= 1
+        if e_Mercie == 0:
+            $ e_Mercie += 1
+            jump e_Mercie_1
+        elif e_Mercie == 1:
+            $ e_Mercie += 1
+            jump e_Mercie_2
+        elif e_Mercie == 2:
+            $ e_Mercie += 1
+            jump e_Mercie_3
+        elif e_Mercie == 3
+            $ e_Mercie += 1
+            jump e_Mercie_4
+        elif e_Mercie == 4
+            $ e_Mercie += 1
+            jump e_Mercie_CFS
+        else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Ryver" if ryver_encounter == False:
@@ -338,9 +341,9 @@ menu:
         elif e_Ryver == 1:
             $ e_Ryver += 1
             jump e_Ryver_2
-        #elif e_Ryver == 2:
-        #    $ e_Ryver += 1
-        #    jump e_Ryver_3
+        elif e_Ryver == 2:
+            $ e_Ryver += 1
+            jump e_Ryver_3
         #elif e_Ryver == 3
         #    $ e_Ryver += 1
         #    jump e_Ryver_4
