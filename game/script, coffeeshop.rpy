@@ -280,7 +280,7 @@ menu:
 label e_Berkly_2_A22:
 $ Berkly_LP += 0.5
 #[Sorry, I have plans for later today.]
-B “No problem.”
+B "No problem."
 "Her phone rings."
 #Ring Ring Ring
 Berkly "Sorry, gotta take this call."
