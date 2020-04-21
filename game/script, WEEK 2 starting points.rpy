@@ -324,10 +324,10 @@ menu:
         elif e_Mercie == 2:
             $ e_Mercie += 1
             jump e_Mercie_3
-        elif e_Mercie == 3
+        elif e_Mercie == 3:
             $ e_Mercie += 1
             jump e_Mercie_4
-        elif e_Mercie == 4
+        elif e_Mercie == 4:
             $ e_Mercie += 1
             jump e_Mercie_CFS
         else:

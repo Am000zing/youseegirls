@@ -586,7 +586,7 @@ menu:
         $ Mercie_LP -= 1.0
         N "Sorry, not now."
         Mercie "Oh, um, okay. I'll see you around then."
-	    "She seems disappointed."
+        "She seems disappointed."
         jump menu_areas
 
 label e_Mercie_3_start:
