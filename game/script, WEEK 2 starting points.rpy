@@ -9,7 +9,7 @@ $ AP = 3
 Mio "Open up [name], I’ve got an important announcement for you!"
 N "Alright, alright."
 play sound door_open
-scene dorm inside with dissolve
+scene dorm morning with dissolve
 show mio laugh with dissolve
 Mio "Thanks for letting me in. Check this out!"
 "In shining letters on the screen of his phone was the title {b}UC Girls{/b}."
@@ -40,11 +40,12 @@ NPCM "There is a system in the game called “Activity Points.” Activity Point
 NPCM "You have a set amount of AP per day, but there might be instances where you might have more or less."
 NPCM "It really depends on how you, our protagonist, is feeling for the day."
 NPCM "AP is only impacted when you decide to talk to someone. Going to an area will {b}not{/b} change how much AP you have."
-NPCM "You are not required to use up all of your AP for the day."
-NPCM "You can end the day without using up all your AP."
-NPCM "Lastly, the amount of days you decide to talk to someone will help you move along in your bond with them."
-NPCM "Would you like me to explain the Love Point system?"
-"Would you like to know about the Love Point System?"
+NPCM "You are not required to use up all of your AP for the day. You can end the day without using up all your AP."
+NPCM "Each day you decide to talk to the same person will help your bond progress."
+#show NPCM_tease
+NPCM "Maybe you'll even get a lucky surprise."
+#NPCM "Would you like me to explain the Love Point system?"
+#"Would you like to know about the Love Point System?"
 menu:
     "Yes":
         jump Mio_LP_NPC_yes
@@ -60,43 +61,44 @@ Mio "So in the game UC Girls, there’s a system called “Activity Points.” A
 Mio "You have a set amount of AP per day, but there might be instances where you might have more or less."
 Mio "It really depends on how you’re feeling for the day."
 Mio "AP is only impacted when you decide to talk to someone. Going to an area will {b}not{/b} change how much AP you have."
-Mio "You are not required to use up all of your AP for the day."
-Mio "You can end the day without using up all your AP."
-Mio "Lastly, the amount of days you decide to talk to someone will help you move along in your bond with them."
-Mio "Would you like me to explain the Love Point system?"
-"Would you like to know about the Love Point System?"
-menu:
-    "Yes":
-        jump Mio_LP_yes
-    "No":
-        jump Mio_LP_no
+Mio "You are not required to use up all of your AP for the day. You can end the day without using up all your AP."
+Mio "Each day you decide to talk to the same person will help your bond progress."
+show Mio teasing
+Mio "Maybe you'll even get a lucky surprise."
+#Mio "Would you like me to explain the Love Point system?"
+#"Would you like to know about the Love Point System?"
+#menu:
+#    "Yes":
+#        jump Mio_LP_yes
+#    "No":
+#        jump Mio_LP_no
 
 #(Yes)
-label Mio_LP_NPC_yes:
+#label Mio_LP_NPC_yes:
 # show Mio at left with move
 # show LP tutorial slide 1 at right with dissolve
-NPCM "There is a system in this game called Love Points (LP) and Love Points will be referred to as LP."
-NPCM "LP can be gained or lost with any of the UC Girls you interact with"
-NPCM "Any time you make a decision that is relatively neutral with a UC Girl, you will gain a little LP and there will be no sound."
-NPCM "If you make a bad decision, you will lose LP, along with a sound indicating that she didn’t like what you said."
-NPCM "Lastly, if you make a good decision, you will gain LP, along with a sound indicating that she liked what you said."
-NPCM "There might be instances where either decision she will actually like, so sometimes you don’t even need to stress about what you want to say!"
-jump after_Mio_LP
+#NPCM "There is a system in this game called Love Points (LP) and Love Points will be referred to as LP."
+#NPCM "LP can be gained or lost with any of the UC Girls you interact with"
+#NPCM "Any time you make a decision that is relatively neutral with a UC Girl, you will gain a little LP and there will be no sound."
+#NPCM "If you make a bad decision, you will lose LP, along with a sound indicating that she didn’t like what you said."
+#NPCM "Lastly, if you make a good decision, you will gain LP, along with a sound indicating that she liked what you said."
+#NPCM "There might be instances where either decision she will actually like, so sometimes you don’t even need to stress about what you want to say!"
+#jump after_Mio_LP
 
 #(Yes)
-label Mio_LP_yes:
-Mio "So in the game UC Girls, there is a system called Love Points (LP) and Love Points will be referred to as LP."
-Mio "LP can be gained or lost with any of the UC Girls you interact with."
-Mio "Any time you make a decision that is relatively neutral with a UC Girl, you will gain a little LP and there will be no sound."
-Mio "If you make a bad decision, you will lose LP, along with a sound indicating that she didn’t like what you said."
-Mio "Lastly, if you make a good decision, you will gain LP, along with a sound indicating that she liked what you said."
-Mio "There might be instances where either decision she will actually like, so sometimes you don’t even need to stress about what you want to say!"
-jump after_Mio_LP
+#label Mio_LP_yes:
+#Mio "So in the game UC Girls, there is a system called Love Points (LP) and Love Points will be referred to as LP."
+#Mio "LP can be gained or lost with any of the UC Girls you interact with."
+#Mio "Any time you make a decision that is relatively neutral with a UC Girl, you will gain a little LP and there will be no sound."
+#Mio "If you make a bad decision, you will lose LP, along with a sound indicating that she didn’t like what you said."
+#Mio "Lastly, if you make a good decision, you will gain LP, along with a sound indicating that she liked what you said."
+#Mio "There might be instances where either decision she will actually like, so sometimes you don’t even need to stress about what you want to say!"
+#jump after_Mio_LP
 
 #(No)
-label Mio_LP_no:
-show mio neutral
-Mio "Well, if you ever want a refresher on anything, you can go into your agenda and check your notes!"
+#label Mio_LP_no:
+show mio neutral with dissolve
+Mio "If you ever need a refresher on anything, you can go into your agenda and check your notes!"
 N "Cool, I'll keep it in mind."
 jump after_Mio_LP
 
@@ -112,6 +114,10 @@ play sound door_close
 "Alright, let's get ready and get going as soon as we can..."
 
 show outdoor hall with Fade(1.0,0,2.0)
+#show screen ap_screen
+"{b}Activity points are now activated.{/b}"
+"{b}Activity points will vary day to day.{/b}"
+
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
 $ ryver_encounter = False
@@ -146,7 +152,7 @@ $ christine_encounter = False
 $ lola_encounter = False
 $ irene_encounter = False
 $ diana_encounter = False
-show dorm inside with Fade(2.0,0,2.0) 
+show dorm morning with Fade(2.0,0,2.0) 
 "Wow, I actually kinda woke up before my alarm."
 "I get up out of bed, and get ready for class..."
 
@@ -185,7 +191,7 @@ $ christine_encounter = False
 $ lola_encounter = False
 $ irene_encounter = False
 $ diana_encounter = False
-show dorm inside with Fade(2.0,0,2.0) 
+show dorm morning with Fade(2.0,0,2.0) 
 "Halfway through the week!"
 "Well, I know it is but it doesn't really feel like it."
 "Whatever, I should get ready to go to class..."
@@ -195,13 +201,10 @@ show outdoor hall with Fade(1.0,0,2.0)
 "Hmm...what should I do?"
 jump menu_areas
 
-#if AP == 0:
-#    jump End_Wednesday
-#else:
-#    "Are you sure you want to end the day?"
-#    menu:
-#        "Yes":
-#        "No":
+if AP == 0:
+    jump End_Wednesday
+else:
+    "Hey, you shouldn't be seeing this. Please give us a bug report!"
 
 label End_Wednesday:
 "Well, I should get going."
@@ -222,7 +225,7 @@ $ christine_encounter = False
 $ lola_encounter = False
 $ irene_encounter = False
 $ diana_encounter = False
-show dorm inside with Fade(2.0,0,2.0) 
+show dorm morning with Fade(2.0,0,2.0) 
 "..."
 "Ah, shoot."
 "My alarm went off like 20 minutes ago but I hit the wrong button."
@@ -235,10 +238,10 @@ show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far."
 "I think I only have enough energy to talk to one person..."
 jump menu_areas
-#if AP == 0:
-#    jump End_Thursday
-#else:
-#    "Are you sure you want to end the day?"
+if AP == 0:
+    jump End_Thursday
+else:
+    "Hey, you shouldn't be seeing this. Please give us a bug report!"
 #    menu:
 #        "Yes":
 #        "No":
@@ -249,20 +252,22 @@ show dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
 
+jump Friday_2
+
 ############################
 
 label menu_areas:
 menu:
     "Go to the Quad":
         "Maybe I can just chill for a little in the Quad before I head back."
-        #show quad with Fade(1.0,0,1.0)
+        scene qquad with Fade(1.0,0,2.0)
         "Oh?"
         "There's some people I recognize..."
         "Should I talk to them?"
         jump quad_people
     "Go to the Coffeeshop":
         "Maybe I can get something at the coffeeshop before I head back."
-        show coffeeshop with Fade(1.0,0,1.0)
+        scene coffeeshop with Fade(1.0,0,2.0)
         "Oh?"
         "There's some people I recognize..."
         "Should I talk to them?"
@@ -324,12 +329,9 @@ menu:
         elif e_Mercie == 2:
             $ e_Mercie += 1
             jump e_Mercie_3
-        elif e_Mercie == 3
+        elif e_Mercie == 3:
             $ e_Mercie += 1
             jump e_Mercie_4
-        elif e_Mercie == 4
-            $ e_Mercie += 1
-            jump e_Mercie_CFS
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
