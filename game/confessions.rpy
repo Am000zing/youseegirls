@@ -76,17 +76,37 @@ N "Yeah! Here. Put your number in my phone and I’ll text you."
 Mercie  "..."
 N "Haha, now that I think about it… You’ll be the first American contact I have!"
 "Apart from the family here, at least."
-#show mercie cg1 with fade
+show mercie cg with Fade(2.0,0,2.0)
 Mercie "{i}I’ve never really been the first for anything...{/i}"
 #Mercie (smiles while blushing)
-"You’re a really weird guy, [name]."
+show mercie cg blush with dissolve
+Mercie "You’re a really weird guy, [name]."
 #I’ve obtained Mercie’s number!
-#jump Credits
-
-
+show black bg with Fade(2.0,0,2.0)
+"You've unlocked special images in your Journal."
+jump Credits
 
 #label e_Ryver_CSF:
-#label e_Berkly_CSF:
+
+label e_Berkly_CSF:
+"I turn around and spot a familiar face. Except instead of being alone, she was with a couple others."
+"She spots me and walks over to me."
+Berkly "[name], good to see you again."
+N "Yeah, good to see you too."
+B "Listen, I was thinking over some things...and I realized theres areas I can really improve myself on."
+"I opened my mouth to speak-"
+#show berkly cg
+"-but Berkly quickly shushed me."
+B "Sorry, I just want to get all this off my chest at once."
+B "I know that you were right, but improving on my own is difficult. Which is why I wondered if you were open to the possibility of hanging out- no."
+B "I wanted to know if you would like to go on a date on the weekend of the last week of the month."
+N "I, uh."
+B "You don’t have to decide right now. I’ll be waiting for your response."
+show black bg with Fade(2.0,0,2.0)
+"You've unlocked special images in your Journal."
+jump Credits
+
+
 #label e_Bella_CSF:
 #label e_Dany_CSF:
 #label e_Christine_CSF:
@@ -121,3 +141,10 @@ menu:
         N "No, I never said that! I just-"
         Mio "Just what?"
         "Mio suddenly leans in really close."
+
+
+
+label Credits:
+scene ysg with Fade(2.0,0,2.0)
+"Thank you so much for playing!"
+"It's incomplete right now, but I hope you'll look forward to seeing what we continue to develop!"

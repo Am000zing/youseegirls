@@ -1,6 +1,5 @@
 label coffeeshop_encounters:
 scene coffeeshop with Fade(1.0,0,1.0)
-play music "audio/coffee shoppe jazz.mp3" fadein 6.0
 #BERKLY ENCOUNTERS
 #BERKLY ENCOUNTER ONE
 label e_Berkly_1:
@@ -12,7 +11,7 @@ menu:
     "Yes":
         $ Berkly_LP += 0.5
         N "Hey, Berkly! How’s your studying going?"
-        Berkly "Oh! Hey, [Name]. It’s going well. Did you want any study tips?"
+        Berkly "Oh! Hey, [name]. It’s going well. Would you like some studying tips?"
         jump e_Berkly_1_A
     "No":
         "Berkly seems busy. I better not interrupt her studying."
@@ -63,7 +62,7 @@ menu:
         "The other people studying glance over at Berkly and nod tersely before continuing their own work."
         "Maybe this is why she wasn’t very communicative during the library. She’s exactly like the people studying at this table. Might as well utilize this time to ask for help..."
         N "Berkly, could I get some advice for my classes?"
-        "Berkly Sure! What do you need help on?"
+        Berkly "Sure! What do you need help on?"
         "I stayed in the coffee shop for a while until Berkly had to head to wherever she needed to go."
         jump e_Berkly_1_A_End
         #Result: 1
@@ -143,8 +142,7 @@ jump menu_areas
 ######################################################################################################
 ######################################################################################################
 #BERKLY ENCOUNTERS
-#BERKLY ENCOUNTER ONE
-######################################################################################################
+#BERKLY ENCOUNTER TWO
 label e_Berkly_2:
 $ berkly_encounter = True
 "Berkly's sitting alone this time. She’s typing with one hand and sipping on coffee with the other."
@@ -348,3 +346,268 @@ N "It's no biggie."
 B "Later."
 N "Bye."
 jump menu_areas
+
+
+######################################################################################################
+######################################################################################################
+#BERKLY ENCOUNTERS
+#BERKLY ENCOUNTER THREE
+label e_Berkly_3:
+$ berkly_encounter = True
+"Berkly is sitting alone again. She’s reading a book and relaxed. Steam rises from the cup of coffee beside her."
+menu:
+    "Approach Berkly?"
+    "Yes":
+        jump e_Berkly_3A
+    "No":
+        jump menu_areas
+label e_Berkly_3A:
+N "I’m sorry if I come off as rude, but shouldn’t your other friends be here by now?"
+Berkly "Did you have the impression that they were here on a daily basis?"
+N "Yea, I thought that this was going to be a study group."
+Berkly "This {i}is{/i} a study group though?"
+N "What?"
+N "Isn’t a study group a group that meets on a daily basis and helps each other with work?"
+Berkly "Well for us, this is a study group."
+Berkly "We usually meet up once a week."
+N "Oh, sorry."
+N "Was I being a bother showing up everyday?"
+Berkly "No, it's fine. I appreciate the company."
+Berkly "That wouldn’t happen to be another extra sweetened coffee, would it?"
+N "Uh..."
+menu:
+    "I can't help it.":
+        $ Berkly_LP -= 1.0
+        jump e_Berkly_3A1
+    "Maybe...":
+        $ Berkly_LP += 0.5
+        jump e_Berkly_3A2
+    "You want some?"
+        $ Berkly_LP += 0.5
+        jump e_Berkly_3A3
+
+label e_Berkly_3A1:
+B "Really? I thought I already told you about how it isn’t healthy to drink something like that so often."
+N "I might have a slight appreciation for the taste of it."
+B "You should say that after you buy one that isn’t extra sweetened."
+"Not this again."
+N "Alright, next time I’ll get one that isn’t extra sweetened."
+B "Good."
+B "I don’t have much to do for homework today what about you?"
+menu:
+    "I don’t have much to do either.":
+        $ Berkly_LP += 1.0
+        jump e_Berkly_3A11
+    "I think I have a test to study for.":
+        $ Berkly_LP += 0.5
+        jump e_Berkly_3A12
+
+###
+label e_Berkly_3A2:
+B "Really? I thought I already told you about how it isn’t healthy to drink something like that so often?"
+N "I might have a slight appreciation for the taste of it."
+B "You should say that after you buy one that isn’t extra sweetened."
+"Not this again."
+N "I think next time I’ll buy one that isn’t extra sweetened"
+B "Good."
+B "I don’t have much to do today. What about you?"
+menu:
+    "I don’t have much to do either.":
+        $ Berkly_LP += 1.0
+        jump e_Berkly_3A11
+    "I think I have a test to study for.":
+        $ Berkly_LP += 0.5
+        jump e_Berkly_3A12
+
+
+###
+label e_Berkly_3A3:
+B "I’m not going to be bribed. I thought I already told you about how it isn’t healthy to drink something like that so often?"
+N "I might have a slight appreciation for the taste of it."
+B "You should say that after you buy one that isn’t extra sweetened."
+"Not this again."
+N "Alright, next time I’ll get one that isn’t extra sweetened"
+B "Good."
+B "I don’t have much to do for homework today. What about you?"
+menu:
+    "I don’t have much to do either.":
+        $ Berkly_LP += 1.0
+        jump e_Berkly_3A11
+    "I think I have a test to study for.":
+        $ Berkly_LP += 0.5
+        jump e_Berkly_3A12
+
+
+label e_Berkly_3A11:
+Berkly "Great! Is there anything that you want to do then?"
+N "Well, I don’t really want to do anything too academically intensive."
+Berkly "Hmmm..."
+Berkly "Ah, do I have your number?"
+N "No."
+Berkly "Okay, let’s exchange then."
+"The phone she pulls out looks like a much older model."
+N "Have you ever thought about upgrading your phone?"
+Berkly "No, I only use my phone for simple communication."
+N "What about games or watching videos?"
+B "I can do that on my laptop or some other computer."
+jump e_Berkly_3A1end
+
+label e_Berkly_3A12:
+Berkly "Let me help you study then. For what class?"
+N "Actually, I changed my mind. I don’t really want to do anything too academically intensive right now."
+Berkly "Too tired?"
+N "Yeah."
+Berkly "Hmmm..."
+Berkly "Ah, do I have your number?"
+N "No."
+Berkly "Okay, let’s exchange then."
+"The phone she pulls out looks like a much older model."
+N "Have you ever thought about upgrading your phone?"
+Berkly "No, I only use my phone for simple communication."
+N "What about games or watching videos?"
+B "I can do that on my laptop or some other computer."
+jump e_Berkly_3A1end
+
+label e_Berkly_3A1end:
+menu:
+    "Wanna watch a movie together then?":
+        $ Berkly_LP -= 1.0
+        Berkly "Um, no thanks. Going to a movie theater is a bit out of the way."
+        N "Sorry, I meant just right now on my phone or laptop."
+        Berkly "..."
+        "She seems speechless. I better change the subject."
+        N "I also have a snack if you want any?"
+        Berkly "No, I’m good..."
+        Berkly "I’m sorry, I must have misunderstood what you meant."
+        "Does that mean she wanted to watch something...?"
+        N "So...you wanna watch something?"
+        Berkly "Well, you were the one who asked."
+        Berkly "What movie did you have in mind?"
+        N "An old romcom."
+        B "Oh, yeah, I’m in."
+        Berkly "Hey, I’m still curious about your interest in politics, by the way. Don’t you think you should keep track of what’s going on here?"
+        N "Well, I don’t really see how it’s necessary to keep track of the politics here since I’m not really from here."
+        Berkly "I guess."
+        scene coffeeshop with Fade(2.0,0,2.0)
+        B "That was a fun movie."
+        N "That scene with the stone mask always gets me."
+
+    "Let me introduce you to this game I play on my phone!":
+        $ Berkly_LP += 0.5
+        Berkly "What kind of game is it?"
+        N "It’s a rhythm game. You try and press the key at the right time in order to progress further in the song."
+        Berkly "I see."
+        N "Not interested?"
+        Berkly "Not really. I thought you meant like chess or some board game that could be played on the phone."
+        N "Sorry. I’m not interested in those games. Do you have a deck on you then?"
+        Berkly "Yeah. Do you like Uno?"
+        N "Yeah, I do."
+        "Huh, she conveniently has an Uno deck on her?"
+        Berkly "Hey, I’m still curious about your interest in politics, by the way. Don’t you think you should keep track of what’s going on here?"
+        N "Well, I don’t really see how it’s necessary to keep track of the politics here since I’m not really from here."
+        Berkly "I guess."
+        scene coffeeshop with Fade(2.0,0,2.0)
+        B "That was a fun!"
+        N "Yeah!"
+
+    "We never talked about music. What is your favorite?":
+        $ Berkly_LP -= 1.0
+        Berkly "Um, where did that come from?"
+        Berkly "Hey, I’m still curious about your interest in politics, by the way. Don’t you think you should keep track of what’s going on here?"
+        N "Well, uh, I don’t really see how it’s necessary to keep track of the politics here since I’m not really from here."
+        Berkly "I guess."
+
+Berkly "Are you coming by tomorrow as well?"
+N "If I don’t have any other plans, then sure."
+Berkly "I see. Well, catch you later?"
+N "Yeah, Later!"
+
+jump menu_areas
+
+
+######################################################################################################
+######################################################################################################
+#BERKLY ENCOUNTERS
+#BERKLY ENCOUNTER FOUR
+label e_Berkly_4:
+$ berkly_encounter = True
+"She's sitting at the same table and same spot. She seems busy."
+"Ah, man. I had nothing to do so I came here. Maybe I shouldn’t have come."
+"Berkly looks up and waves to me. She gestures towards the seat that I usually sit at."
+menu:
+    "Approach Berkly?"
+    "Yes":
+        jump e_Berkly_4A
+    "No":
+        "I wave back, but turn around. I shouldn't bother her..."
+        jump menu_areas
+label e_Berkly_4A:
+N "Sorry for bothering you. I didn't really have anything else to do and..."
+"Where was I going with this?"
+Berkly "Wanna keep me company then?"
+N "Sure."
+Berkly "Thanks, [name]."
+N "Just think of this as a repayment for all the times you let me hang around."
+Berkly "Are you perhaps thinking of leaving?"
+N "Well, kinda. I was actually thinking that I would be bothering you if I stuck around too much."
+Berkly "No, no! You’re not bothersome at all."
+Berkly "{i}I actually really appreciate it.{/i}"
+Berkly "..."
+"She suddenly seems really...down?"
+N "Everything alright?"
+Berkly "I..."
+Berkly "The study group is done. It’s just you and me."
+menu:
+    "What happened?":
+        Berkly "The other group members I guess decided that this wasn’t really their thing. I tried convincing them, but they just left with lame excuses."
+        "She looks particularly frustrated about this."
+        N "You seem like you care a lot about this study group."
+    "I see.":
+        N "Do you want to talk about it?"
+        Berkly "I guess."
+        Berkly "I tried convincing them, but they just left with lame excuses."
+        N "..."
+        "I feel like butting in, but I think I should let her keep talking."
+
+Berkly "This isn’t the first study group I tried to create. The first one started off great, but there was no meaningful relationship."
+Berkly "It’s like everyone disappeared once it no longer became convenient."
+Berkly "This time, it was basically over in just a week. I don’t know when it all went wrong."
+N "Did you try asking them why they didn’t feel like going?"
+Berkly "Yes, of course I tried! I asked, but they never respond!"
+N "Did you ask them why they don’t go or were you trying to convince them to go?"
+Berkly "Well… I did both."
+jump e_Berkly_4A1
+
+label e_Berkly_4A1:
+menu:
+    "Give her constructive criticism.":
+        $ Berkly_LP += 1.0
+        N "I’m not sure how to say this nicely, but you’re way too fixated on small things."
+        Berkly "Huh?!"
+        N "You mentioned politics even when I said I wasn’t interested in it earlier?"
+        Berkly "Yea..."
+        N "People usually don’t appreciate it when you keep on bringing up things that they don’t want to talk about."
+        Berkly "Okay. But was it really that often?"
+        N "You also mentioned me liking extra sweetened coffee a lot of times."
+        Berkly "But that’s because-"
+        N "-You care. I know. You do this because you care."
+        N "It’s just that not everyone thinks the same way you do. Your overbearing kindness can be misunderstood by others."
+        N "You also really love to talk, but let the people you’re with talk as well."
+        Berkly "..."
+    "Give her shallow advice.":
+        $ Berkly_LP -= 1.0
+        N "I’m not sure what you did wrong. I thought that all the actions you did were pretty reasonable for others."
+        Berkly "You...nevermind."
+
+Berkly "The study group is officially disbanded. I don’t want to be a leader of something when I can’t even be a good one."
+Berkly "Thanks for listening to me, [name]."
+N "Of course."
+Berkly "I'm gonna get going. See you later, maybe."
+N "Yeah, see you."
+jump menu_areas
+
+
+############################################################################################################################################################################################################
+############################################################################################################################################################################################################
+############################################################################################################################################################################################################
+#CHRISTINE ENCOUNTERS
