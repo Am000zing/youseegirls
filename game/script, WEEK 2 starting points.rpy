@@ -44,26 +44,29 @@ NPCM "You are not required to use up all of your AP for the day. You can end the
 NPCM "Each day you decide to talk to the same person will help your bond progress."
 #show NPCM_tease
 NPCM "Maybe you'll even get a lucky surprise."
+Mio "If you ever need a refresher on anything, you can go into your agenda and check your notes!"
+N "Cool, I'll keep it in mind."
+jump after_Mio_LP
 #NPCM "Would you like me to explain the Love Point system?"
 #"Would you like to know about the Love Point System?"
-menu:
-    "Yes":
-        jump Mio_LP_NPC_yes
-    "No":
-        jump Mio_LP_no
+#menu:
+#    "Yes":
+#        jump Mio_LP_NPC_yes
+#    "No":
+#        jump Mio_LP_no
 
 #(No)
 label Mio_AP_NPC_no:
 # show Mio at left with move
 # show AP tutorial slide 1 at right with dissolve
-
+show mio neutral
 Mio "So in the game UC Girls, there’s a system called “Activity Points.” Activity Points is referred to as AP."
 Mio "You have a set amount of AP per day, but there might be instances where you might have more or less."
 Mio "It really depends on how you’re feeling for the day."
 Mio "AP is only impacted when you decide to talk to someone. Going to an area will {b}not{/b} change how much AP you have."
 Mio "You are not required to use up all of your AP for the day. You can end the day without using up all your AP."
 Mio "Each day you decide to talk to the same person will help your bond progress."
-show Mio teasing
+show mio teasing
 Mio "Maybe you'll even get a lucky surprise."
 #Mio "Would you like me to explain the Love Point system?"
 #"Would you like to know about the Love Point System?"
@@ -97,7 +100,7 @@ Mio "Maybe you'll even get a lucky surprise."
 
 #(No)
 #label Mio_LP_no:
-show mio neutral with dissolve
+show mio neutral
 Mio "If you ever need a refresher on anything, you can go into your agenda and check your notes!"
 N "Cool, I'll keep it in mind."
 jump after_Mio_LP
@@ -115,8 +118,8 @@ play sound door_close
 
 show outdoor hall with Fade(1.0,0,2.0)
 #show screen ap_screen
-"{b}Activity points are now activated.{/b}"
-"{b}Activity points will vary day to day.{/b}"
+"{b}Activity points are now functional.{/b}"
+#"{b}Keep in mind that your points will vary day to day.{/b}"
 
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
@@ -131,6 +134,10 @@ $ irene_encounter = False
 $ diana_encounter = False
 jump menu_areas
 
+if AP == 0:
+    jump End_Monday
+else:
+    "Hey, you shouldn't be seeing this. Please give us a bug report!"
 
 label End_Monday:
 "Well, I should get going."
@@ -268,6 +275,7 @@ menu:
     "Go to the Coffeeshop":
         "Maybe I can get something at the coffeeshop before I head back."
         scene coffeeshop with Fade(1.0,0,2.0)
+        play music "audio/coffee shoppe jazz.mp3" fadein 6.0
         "Oh?"
         "There's some people I recognize..."
         "Should I talk to them?"
@@ -281,6 +289,7 @@ menu:
         jump bookstore_people
     "Go back to the dorm":
         $ ED = 0
+        stop music fadeout 6.0
         "I'm not really feeling it right now."
         "I'll just head back."
         if ED == 0:
@@ -358,10 +367,10 @@ menu:
 label coffeeshop_people:
 menu:
     "Berkly":
-        #$ AP -= 1
-        #if e_Berkly == 0:
-        #    $ e_Berkly += 1
-        #    jump e_Berkly_1
+        $ AP -= 1
+        if e_Berkly == 0:
+            $ e_Berkly += 1
+            jump e_Berkly_1
         #elif e_Berkly == 1:
         #    $ e_Berkly += 1
         #    jump e_Berkly_2

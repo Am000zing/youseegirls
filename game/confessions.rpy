@@ -95,3 +95,29 @@ Mercie "{i}I’ve never really been the first for anything...{/i}"
 #label e_Irene_CSF:
 label e_Mio:
 "u got that"
+Mio "[name]?"
+N "Huh?"
+show mio neutral with dissolve
+Mio "You alright? You kinda seemed spaced out."
+N "Oh, uh, yeah. I'm fine."
+Mio "If you say so."
+Mio "Don't make me worry about you."
+N "Haha, you? Worry about me?"
+show mio upset
+Mio "Hey, that's kinda rude. Why can't I?"
+show mio neutral
+menu:
+    "I just seem just out of your league.":
+        Mio "Haha, what do you mean?"
+        show mio teasing
+        Mio "You sayin' you interested?"
+        N "Huh? N-no, that's not what I'm-"
+        "Mio suddenly leans in really close."
+        #show Mio cg1
+    "I don't think I should be worried about.":
+        show mio upset
+        Mio "What do you mean?"
+        Mio "Am I not allowed to care for a dear friend?"
+        N "No, I never said that! I just-"
+        Mio "Just what?"
+        "Mio suddenly leans in really close."

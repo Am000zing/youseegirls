@@ -60,9 +60,7 @@ label sunday:
 # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-scene purple bubble bg
-with dissolve
-
+scene purple bubble bg with dissolve
 "I stepped out of the plane into the passenger boarding bridge, feeling the immediate difference between the dry California breeze and the warm Japan humidity."
 "As I walked into passport control, I quickly texted my family friends that it would only take about 10 to 15 more minutes before I could go to the terminal where I should be exiting."
 "Luckily I don't have too much luggage to pick up from the baggage claim."
@@ -121,7 +119,6 @@ with dissolve
 "Finally leaving the airport, I leaned back the car seat and relaxed."
 "My eyes feel a bit heavy... maybe I should get some rest."
 "I closed my eyes..."
-
 scene black bg
 with dissolve
 with Pause(1)
@@ -142,7 +139,7 @@ play audio "audio/door_open.wav"
 "I'm so excited!"
 
 unknown "Hey, you're [name], right?"
-
+play music "audio/Casual.mp3" fadein 5.0
 "I turned and saw a tall man by my doorway."
 show mio neutral with dissolve
 "He was wearing a shirt that shouted UCJJ pride all over it."
@@ -176,7 +173,7 @@ play audio "audio/door_close.wav"
 A "He seems like a nice boy! I hope you two will get along."
 "Yeah, he seems nice."
 #"I feel like I can trust him..."
-
+stop music fadeout 5.0
 scene desk bg
 with Fade(0.5, 0.0, 0.5)
 "I slurped on my cup noodles tiredly, finally finished with settling in."

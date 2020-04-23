@@ -1,6 +1,6 @@
 label Monday_One:
 
-show dorm inside
+show dorm morning
 with Fade(1.0, 1.0, 1.0) 
 
 "I woke to the sunlight streaming through the blinds and the loud sound of machinery outside the window."
@@ -17,12 +17,14 @@ with Fade(1.0, 1.0, 1.0)
 play audio "audio/door_open.wav"
 play audio "audio/door_close.wav"
 "I exited the dorms, and made my way to the parking lot where I supposed to meet up with Mio."
-show parking lot with Fade(2.0,0,2.0) 
+show parking lot with Fade(2.0,0,2.0)
+play music "audio/Casual.mp3" fadein 10.0
 "Oh? He isn't here yet?"
 "I checked the time..."
 "It's 9:50AM."
 "Maybe he's running a bit late. I'll just wait around for him."
 
+play audio "audio/car_arrive_stop.wav"
 "Close by, a car screeched into a parking space."
 "Wow! It's so glossy-looking..."
 "And a Mercedes? S-Class? I didn't realize people enjoyed their wealth on their sleeve, not that it's up to me to decide."
@@ -67,7 +69,7 @@ menu:
         show irene concern sunglasses with dissolve
         unknown "Yeah, I'm fine."
         unknown "My back does have a dull sting to it though."
-label after_firstIrene:
+
 N "Well, I'm glad you're not choking anymore! I was really concerned when I saw you suddenly nearly fall over..."
 show irene concern sunglasses
 unknown "I'm sorry you had to see something so disgraceful... please don't speak of this to anyone else."
@@ -78,7 +80,7 @@ unknown "Here."
 "..."
 "What?"
 N "W-why? It's fine I don't need it"
-show irene neutral with sunglasses
+show irene neutral sunglasses
 unknown "No, I insist. It's for saving my life."
 "O-okay then."
 "I guess I just got $20...?"
@@ -94,7 +96,7 @@ N "Yeah, see you around!"
 hide irene neutral sunglasses with dissolve
 "How interesting. She seems like she means well, but she can't seem to express it in a...nice manner?"
 "Ah, well, it's not up to me to judge."
-"I hear a voice from behind"
+"I hear a voice from behind-"
 Mio "Hey!"
 show mio neutral with dissolve
 Mio "Wow, you were really on time. Sorry for being late."
@@ -125,8 +127,8 @@ show mio neutral
 Mio "Anyways, let's get going!"
 hide mio neutral with dissolve
 #Time-Skip. prob just say something like the tour guide lasted up til lunch
-show dorm front with Fade (2.0,0,2.0)
 
+scene dorm front with Fade (2.0,0,2.0)
 show mio neutral with dissolve
 Mio "~And that's it for today's tour!"
 Mio "Let's head over to the dining hall. You're probably starving!"
@@ -228,14 +230,13 @@ Dany "Nice to meet you, [name]! Wanna eat with me?"
 N "Ah, no, sorry. I'm already sitting with someone."
 Dany "Alrighty. I'll see you later then, [name]!"
 hide dany happy with dissolve
+stop music fadeout 6.0
 scene dorm afternoon with Fade(1.0, 1.0, 1.0)
 with Pause(1)
-
 "I laid back in my bed, still full from that heavy buffet."
 "I thought that I would be able to take it...but it's really hard to stop yourself when you know you could keep going!"
 "I yawned loudly, physical and mental fatigue setting in."
 "I'm so tired...I haven't had some solid sleep since coming back."
 "I'll just...close my eyes...for a bit..."
 "zzz..."
-
 jump Tuesday_One

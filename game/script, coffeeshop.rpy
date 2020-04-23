@@ -1,6 +1,6 @@
 label coffeeshop_encounters:
 scene coffeeshop with Fade(1.0,0,1.0)
-
+play music "audio/coffee shoppe jazz.mp3" fadein 6.0
 #BERKLY ENCOUNTERS
 #BERKLY ENCOUNTER ONE
 label e_Berkly_1:
