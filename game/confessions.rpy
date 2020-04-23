@@ -43,7 +43,7 @@ else:
 
 label e_Mercie_CSF:
 "at age 6 she was born without a face"
-Mercie "H-Hey, MC. I wanted to talk to you. If that’s okay."
+Mercie "H-Hey, [name]. I wanted to talk to you. If that’s okay."
 N "Huh?"
 N "Oh, yeah. That’s fine."
 #Mercie (blush)
