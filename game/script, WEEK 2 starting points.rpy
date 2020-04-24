@@ -9,7 +9,7 @@ $ AP = 3
 "Strange. I wonder who’s knocking on the door?"
 Mio "Open up [name], I’ve got an important announcement for you!"
 N "Alright, alright."
-play sound door_open
+play sound "audio/door open.mp3"
 scene dorm morning with dissolve
 show mio laugh with dissolve
 Mio "Thanks for letting me in. Check this out!"
@@ -120,6 +120,7 @@ play sound door_close
 show outdoor hall with Fade(1.0,0,2.0)
 #show screen ap_screen
 "{b}Activity points are now functional.{/b}"
+"{b}Current available routes: Bella, Mercie, Ryver, Berkly, Dany.{b/}"
 #"{b}Keep in mind that your points will vary day to day.{/b}"
 
 "I'm done with classes, but walking back seems so far..."
@@ -391,7 +392,7 @@ menu:
         elif e_Ryver == 2:
             $ e_Ryver += 1
             jump e_Ryver_3
-        #elif e_Ryver == 3
+        #elif e_Ryver == 3:
         #    $ e_Ryver += 1
         #    jump e_Ryver_4
         else:
@@ -407,33 +408,33 @@ menu:
         if e_Berkly == 0:
             $ e_Berkly += 1
             jump e_Berkly_1
-        #elif e_Berkly == 1:
-        #    $ e_Berkly += 1
-        #    jump e_Berkly_2
-        #elif e_Berkly == 2:
-        #    $ e_Berkly += 1
-        #    jump e_Berkly_3
-        #elif e_Berkly == 3
-        #    $ e_Berkly += 1
-        #    jump e_Berkly_4
-        #else:
+        elif e_Berkly == 1:
+            $ e_Berkly += 1
+            jump e_Berkly_2
+        elif e_Berkly == 2:
+            $ e_Berkly += 1
+            jump e_Berkly_3
+        elif e_Berkly == 3:
+            $ e_Berkly += 1
+            jump e_Berkly_4
+        else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Dany":
-        #$ AP -= 1
-        #if e_Dany == 0:
-        #    $ e_Dany += 1
-        #    jump e_Dany_1
-        #elif e_Dany == 1:
-        #    $ e_Dany += 1
-        #    jump e_Dany_2
-        #elif e_Dany == 2:
-        #    $ e_Dany += 1
-        #    jump e_Dany_3
-        #elif e_Dany == 3
-        #    $ e_Dany += 1
-        #    jump e_Dany_4
-        #else:
+        $ AP -= 1
+        if e_Dany == 0:
+            $ e_Dany += 1
+            jump e_Dany_1
+        elif e_Dany == 1:
+            $ e_Dany += 1
+            jump e_Dany_2
+        elif e_Dany == 2:
+            $ e_Dany += 1
+            jump e_Dany_3
+        elif e_Dany == 3:
+            $ e_Dany += 1
+            jump e_Dany_4
+        else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Christine":
@@ -451,13 +452,16 @@ menu:
         #    $ e_Christine += 1
         #    jump e_Christine_4
         #else:
-            "Hey, you shouldn't be seeing this. Give us a Bug Report!"
+        #    "Hey, you shouldn't be seeing this. Give us a Bug Report!"
+            "Sorry, this isn't available yet!"
             jump menu_areas
     "Go somewhere else.":
         jump menu_areas
 label bookstore_people:
-menu:
-    "Diana":
+"Sorry, but this route isn't available yet!"
+jump menu_areas
+#menu:
+    #"Diana":
         #$ AP -= 1
         #if e_Diana == 0:
         #    $ e_Diana += 1
@@ -468,13 +472,13 @@ menu:
         #elif e_Diana == 2:
         #    $ e_Diana += 1
         #    jump e_Diana_3
-        #elif e_Diana == 3
+        #elif e_Diana == 3:
         #    $ e_Diana += 1
         #    jump e_Diana_4
         #else:
-            "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump menu_areas
-    "Lola":
+            #"Hey, you shouldn't be seeing this. Give us a Bug Report!"
+            #jump menu_areas
+    #"Lola":
         #$ AP -= 1
         #if e_Lola == 0:
         #    $ e_Lola += 1
@@ -485,13 +489,13 @@ menu:
         #elif e_Lola == 2:
         #    $ e_Lola += 1
         #    jump e_Lola_3
-        #elif e_Lola == 3
+        #elif e_Lola == 3:
         #    $ e_Lola += 1
         #    jump e_Lola_4
         #else:
-            "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump menu_areas
-    "Irene":
+            #"Hey, you shouldn't be seeing this. Give us a Bug Report!"
+            #jump menu_areas
+    #"Irene":
         #$ AP -= 1
         #if e_Irene == 0:
         #    $ e_Irene += 1
@@ -502,11 +506,11 @@ menu:
         #elif e_Irene == 2:
         #    $ e_Irene += 1
         #    jump e_Irene_3
-        #elif e_Irene == 3
+        #elif e_Irene == 3:
         #    $ e_Irene += 1
         #    jump e_Irene_4
         #else:
-            "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            jump menu_areas
-    "Go somewhere else.":
-        jump menu_areas
+            #"Hey, you shouldn't be seeing this. Give us a Bug Report!"
+            #jump menu_areas
+    #"Go somewhere else.":
+        #jump menu_areas

@@ -521,7 +521,10 @@ show mercie happy
 N "Yeah, see you!"
 "She scurries away, a bounce in her step."
 hide mercie happy with dissolve
-jump menu_areas
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 #######################################################
 #MERCIE ENCOUNTER TWO
@@ -1030,7 +1033,7 @@ menu:
         N "Errr, I don’t know, I can’t really-"
         Bella "You have Uno."
         N "I don’t have-"
-        $ sshake = Shake((0, 0, 0, 0), 3.0, dist=15)
+        define sshake = { "master" : Shake((0, 0, 0, 0), 3.0, dist=15)}
         show bella annoyed with sshake
         Bella "YOU HAVE UNO."
         show bella annoyed
@@ -1147,7 +1150,7 @@ menu:
         "Her face lights up with a smile as she pulls out her phone."
         Bella "I have a bunch of photos of my neighborhood raccoon. Here, I’ll show you."
         jump e_Bella4end
-        
+
 label e_Bella4A2:
 $ Bella_LP += 0.5
 Bella "Oh, let me move these for you."

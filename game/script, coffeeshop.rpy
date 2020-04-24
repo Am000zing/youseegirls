@@ -617,4 +617,406 @@ else:
 ############################################################################################################################################################################################################
 ############################################################################################################################################################################################################
 ############################################################################################################################################################################################################
-#CHRISTINE ENCOUNTERS
+#DANY ENCOUNTERS
+#DANY ENCOUNTER ONE
+label e_Dany_1:
+$ dany_encounter = True
+"Dany is sitting in the coffee shop."
+"She’s sitting next to the window, seemingly staring off into space."
+menu:
+    "Approach Dany?"
+    "Yes":
+        jump e_Dany1
+    "No":
+        "I should probably leave her alone."
+        jump menu_areas
+
+label e_Dany1:
+$ Dany_LP +=1.0
+#When I walk up to her, Dany doesn’t seem to hear me coming.
+N "Uh...Hello?"
+show dany concerned
+Dany "O-Oh! Hey, there, [name]!"
+"Oh, it seems like she didn’t hear me."
+N "Hey, Dany! I just wanted to chat."
+show dany neutral
+Dany "Sounds good to me. How’re you adjustin’?"
+N "I think I’m doing alright. Mind if I sit with you?"
+Dany "By all means!"
+"Huh...The table’s kind of empty."
+N "Working on anything important?"
+Dany "Nah. I got a little burnt out, so I’m just daydreamin’."
+menu:
+    "Do you have a lot of work?":
+        $ Dany_LP +=0.5
+        jump e_Dany1a
+    "What were you daydreaming about?":
+        $ Dany_LP += 1.0
+        jump e_Dany1b
+
+label e_Dany1a:
+Dany "Not a whole lot! I just...don’t even wanna think about it, y’know?"
+N "Yeah, I get that."
+Dany "..."
+N "..."
+Dany "Do you have any stuff to do?"
+menu:
+    "Yeah":
+        N "I’ve gotta figure out where everything is. There’s just... {i}so much.{i/}"
+        Dany "No kiddin’."
+        Dany "I think you’ll get the hang of it pretty quick, though!"
+        N "Haha, thanks."
+        "*ring ring*"
+        #ring ring
+        Dany "Oh, shoot! It’s already this late?"
+        Dany "I forgot I was supposed to meet up with someone... but how ‘bout this? Come see me again, and I’ll tell ya all about it!"
+        N "Sounds like a dat- I mean plan!"
+        "Did I almost call it a...nevermind."
+        jump e_Danyend
+    "No":
+        N "I got everything figured out ahead of time, so I’m good for now."
+        Dany "Well, lookit you. Might wanna relax now before the burnout gets to ya!"
+        N "B-burnout...?"
+        Dany "Jeez, don’t be so serious! I’m just joshin’ ya."
+        N "R-right..."
+        "*ring ring*"
+        #ring ring
+        Dany "Oh, shoot! I forgot I was supposed to meet up with my friend today!"
+        Dany "Okay, let’s hang out again soon. Next time I see you, I’ll tell you all about it!"
+        jump e_Danyend
+
+label e_Dany1b:
+Dany "Ah, nothin’ too special. I wouldn’t wanna bore you with all that fluff."
+Dany "Besides, you’ve probably got your own stuff to think on!"
+N "What, you think I can’t think about different things?"
+Dany "No, nothin’ like that! It’s just...It’s silly."
+menu:
+    "Aw, come on! Just a bit?":
+        N "I promise I won’t tell anyone."
+        Dany "Aw, you’ve just got such an honest face... Alright, fine!"
+        "Her face is red right now! What could it be...?"
+        Dany "I was daydreamin’ about..."
+        #-ring ring-!
+        Dany "Oh, shoot! It’s already this late?"
+        Dany "I forgot I was supposed to meet up with someone... but how ‘bout this? Come see me again, and I’ll tell ya all about it!"
+        N "Sounds like a dat- I mean plan!"
+        "Did I almost call it a...nevermind."
+        jump e_Danyend
+    "It can’t be that bad.":
+        Dany "I mean, it ain’t bad, but..."
+        Dany "Tell ya what. If you promise not to tell anybody, I’ll tell you. Deal?"
+        N "Deal!"
+        Dany "Alright! So, ever since I-"
+        #-ring ring-!
+        Dany "Oh, shoot! I forgot I was supposed to meet up with my friend today!"
+        Dany "Okay, let’s hang out again soon. Next time I see you, I’ll tell you all about it!"
+        jump e_Danyend
+
+label e_Danyend:
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+
+######################################################################################################
+######################################################################################################
+#DANY ENCOUNTERS
+#DANY ENCOUNTER TWO
+label e_Dany_2:
+$ dany_encounter = True
+"Dany is sitting in the cafe, daydreaming again. She seems pretty into it."
+menu:
+    "Approach Dany?"
+    "Yes":
+        jump e_Dany2
+    "No":
+        "I should probably leave her alone."
+        jump menu_areas
+
+label e_Dany2:
+N "Hey, Dany."
+Dany "Hey, there!"
+"That’s a complete 180 from last time."
+Dany "How’s it goin’, partner?"
+N "It’s going well, thanks. You?"
+Dany "Can’t complain a lick, myself."
+Dany "Wanna sit down?"
+menu:
+    "Sure!":
+        $ Dany_LP += 1.0
+        jump e_Dany2a
+    "I'm good.":
+        $ Dany_LP += 0.5
+        jump e_Dany2b
+
+label e_Dany2a:
+"I take a seat next to her. The more I look, the more I notice she seems a bit down."
+"Dany turns her eyes to the window. They kind of get stuck there, as if she’s daydreaming again."
+N "Daydreaming again?"
+Dany "Yeah, just a little bit."
+"I then remember that we were supposed to follow up on that from the last time we talked."
+menu:
+    "What were you daydreaming about?":
+        $ Dany_LP += 0.5
+        jump e_Dany2aa
+    "Talk about something else.":
+        $ Dany_LP += 0.5
+        jump e_Dany2ab
+
+label e_Dany2aa:
+Dany "Right! We were supposed to talk about my daydream."
+Dany "Okay, so... I’m just daydreamin’ about feedin’ the animals back on the farm."
+N "You grew up on a farm?"
+Dany "Sure did! Chickens, cows, pigs... I know each one of ‘em by name."
+Dany "The oldest cow, Cat, was like a best friend to me before college. A couple of months ago, though..."
+"...Oh."
+menu:
+    "I'm really sorry to hear that.":
+        $ Dany_LP += 1.0
+        Dany "I appreciate it."
+        Dany "Still kind of gets to me sometimes, y’know?"
+        N "Yeah..."
+        "Dany’s wiping her eyes."
+        Dany "Enough of that."
+        Dany "Sorry you had to see that! Honestly, I’m still kind of a softie."
+    "You can get another cow, right?":
+        $ Dany_LP -= 1.0
+        show dany annoyed
+        Dany "..."
+        Dany "Pardon?"
+        "Uh...whoops."
+        Dany "Look, I know you’re still gettin’ used to things around here, but that’s definitely uncool."
+        N "I’m sorry. Where I’m from, it’s just uncommon to have cows as pets."
+        N "Though, we treat them with great respect."
+        Dany "I’d sure hope so."
+        Dany "Sorry, I think I just need some time to myself."
+        N "No worries. I’ll catch you later."
+        Dany "See ya!"
+
+label e_Dany2ab:
+$ Dany_LP += 0.5
+"Whatever’s bothering Dany, I don’t want her to dwell on it if she doesn’t have to."
+N "How’re classes?"
+Dany "Well, ain’t you the charmer."
+N "Huh?"
+Dany "Never mind. They’re okay. Nothin’ special."
+menu:
+    "You see really out of it today.":
+        $ Dany_LP += 0.5
+        Dany "Honestly, I am."
+        N "Wanna talk about it?"
+        Dany "Not really. It’s kind of a heavy subject."
+        N "No problem."
+        Dany "Thanks for being so understanding. I think I’ll take the day for myself, if you don’t mind."
+        N "No worries. I’ll catch you later."
+        Dany "See ya!"
+    "Why so moody?":
+        $ Dany_LP -= 1.0
+        Dany "That’s really dismissive of you."
+        N "Sorry. You just seem like you’re in a bad mood."
+        Dany "You’re certainly not helpin’ that."
+        Dany "Look. I’m going to take the rest of the day for myself. I’ll catch you another time."
+        N "Alright."
+
+label e_Dany2b:
+"Dany shrugs her shoulders, then looks out the window. She seems really down today."
+"Whatever’s bothering Dany, I don’t want her to dwell on it if she doesn’t have to."
+N "How’re classes?"
+Dany "Well, ain’t you the charmer."
+N "Huh?"
+Dany "Never mind. They’re okay. Nothin’ special."
+menu:
+    "You see really out of it today.":
+        $ Dany_LP += 0.5
+        Dany "Honestly, I am."
+        N "Wanna talk about it?"
+        Dany "Not really. It’s kind of a heavy subject."
+        N "No problem."
+        Dany "Thanks for being so understanding. I think I’ll take the day for myself, if you don’t mind."
+        N "No worries. I’ll catch you later."
+        Dany "See ya!"
+    "Why so moody?":
+        $ Dany_LP -= 1.0
+        Dany "That’s really dismissive of you."
+        N "Sorry. You just seem like you’re in a bad mood."
+        Dany "You’re certainly not helpin’ that."
+        Dany "Look. I’m going to take the rest of the day for myself. I’ll catch you another time."
+        N "Alright." 
+
+label e_Dany2end:
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+
+
+######################################################################################################
+######################################################################################################
+#DANY ENCOUNTERS
+#DANY ENCOUNTER THREE
+label e_Dany_3:
+"Huh."
+"I look around for Dany, but it seems like she isn't here today..."
+menu:
+    "Sit at a table?"
+    "Yes":
+        $ dany_encounter = True
+        define e_dany3end2 = False
+        jump e_dany3
+    "No":
+        "I'll just leave. Not much of a point."
+        jump menu_areas
+
+label e_dany3:
+"I decide to take a seat at a table and relax for a bit. The last time with Dany was a little weird. Maybe she’s-"
+Dany "[name]! I’ve been lookin’ all over for you."
+"She looks out of breath as she stands there in front of me."
+Dany "{i}*huff*{i/} I just wanted to {i}*huff*{i/} apologize for the other day."
+Dany "It’s just... She meant a lot to me."
+Dany "She may have been “just some animal” to a lotta folks, but..."
+menu:
+    "It's okay.":
+        $ Dany_LP += 1.0
+        jump e_dany3a
+    "...":
+        jump e_dany3b
+
+label e_dany3a:
+Dany "Thanks, [name]. I appreciate it."
+"She sits across from me and takes a moment to collect herself."
+Dany "How’ve you been, though?"
+N "I’ve been okay. Just getting through the day."
+N "You seem really out of breath, though."
+N "Do you want me to grab you something to drink?"
+"Dany stares at me incredulously."
+Dany "Actually, I was intendin’ for it to be on me."
+N "What? Why?"
+Dany "It’s part of the apology, silly!"
+Dany "‘Round these parts, it’s pretty customary to give a ‘lil something extra as a thank you."
+"Thank you?"
+menu:
+    "Thanks for what?":
+        $ Dany_LP += 0.5
+        Dany "For bein’ such a good friend!"
+        #note should make dialogue flexible in light of other choices in future builds
+        N "Ah...you don’t have to thank me for that, you know."
+        Dany "Ugh, stop being so tight! Haha."
+        Dany "I promise my intentions are pure and noble."
+        N "That wasn’t the point-"
+        Dany "C’mon. Let’s get some iced coffees."
+        N "O-okay..."
+        "Despite my reluctance, we had a lot of fun!"
+        "We talked about the animals on her farm, my old friends from back home, and enjoyed iced coffees."
+        "It was nice..."
+        jump e_dany3end1
+    "Oh, got it.":
+        $ Dany_LP += 0.5
+        Dany "There we go!"
+        "I'm still a little confused"
+        N "So, do you want me to pay you back, or..."
+        Dany "Ask me that again, I dare you."
+        Dany "Haha, just kidding!!"
+        Dany "We’re gonna have a lot of fun today, so just let me take care of everything, okay?"
+        "It felt a little weird letting her pay for me, but I vowed that it’s definitely gonna be on me next time."
+        N "Alright, then. Lead the way!"
+        "We had a lot of fun! We talked about the animals on her farm, my old friends from back home, and enjoyed some iced coffees."
+        "It was...nice."
+        jump e_dany3end1
+
+label e_dany3b:
+Dany "Um, [name]?"
+"She seems worried about what I’ll say next."
+Dany "Look, I know I wasn’t greatest the other day, but I really am sorry."
+"I’m trying to process what she’s saying. How am I supposed to respond to this?"
+Dany "Anything?"
+"It seems like she wants me to respond."
+menu:
+    "Uh...sike?":
+        $ Dany_LP -= 0.5
+        jump e_dany3ba
+    "...":
+        $ Dany_LP -= 1.0
+        play sound "audio/bad choice.mp3"
+        jump e_dany3bb
+
+label e_dany3ba:
+$ Dany_LP -= 1.0
+"She’s absolutely flabbergasted."
+show dany annoy blush
+Dany "DAMMIT, [name]! That’s not funny at all."
+"And even though she’s saying that, I can hear her chuckling under her frustration."
+Dany "Ugh, you had me worried."
+Dany "Never do that again, or I’ll hogtie you and throw you into the river!"
+N "Alright, alright. I promise I won’t do it again."
+Dany "Hey, lemme buy you a drink. We can just hang out today and catch up."
+menu:
+    "You really don't have to.":
+        Dany "Already getting up!"
+        N "Wait!"
+        Dany "Better tell me what you like before I get that caramel latte!"
+        "That doesn’t sound bad, actually..."
+        "We had a lot of fun! We talked about the animals on her farm, my old friends from back home, and enjoyed some iced coffees."
+        "It was...nice."
+    "That sounds like a lot of fun!":
+        Dany "No hesitation, huh?"
+        N "Well I-"
+        Dany "Kidding! C’mon, I want you to try a cool flavor I discovered..."
+        "We had a lot of fun! We talked about the animals on her farm, my old friends from back home, and enjoyed some iced coffees."
+        "It was...nice."
+
+label e_dany3bb:
+Dany "I see."
+"She looks like she’s on the verge of tears."
+Dany "Alright, I guess I’ll just talk to you later, then."
+"She’s getting up and leaving. I still don’t know what to say, but if I can stop her, I should."
+menu:
+    "Grab her arm.":
+        $ Dany_LP += 1.0
+        Dany "Huh...?"
+        N "I’m not sure how to respond."
+        N "I’m sure it’s not proper to say “it’s okay” because it feels dismissive."
+        N "And I feel like I should also apologize, but...should I answer an apology with an apology...?"
+        show dany mouth smile
+        Dany "You goof."
+        "She has a little smile on her face as she’s wiping her eyes."
+        Dany "It’s always okay to say “it’s okay.” It’s short and simple."
+        show dany annoy
+        Dany "And doesn’t keep people anxiously waiting around!"
+        N "Sorry about that."
+        show dany neutral
+        Dany "No, no! It’s fine."
+        hide dany neutral with dissolve
+        "We had a lot of fun! We talked about the animals on her farm, my old friends from back home, and enjoyed some iced coffees."
+        "It was...nice."
+        jump e_dany3end1
+    "Let her go.":
+        $ Dany_LP -= 1.0
+        $ e_dany3end2 = True
+        "And she’s gone. All that time I spent trying to figure out how to assure her I wasn’t angry...wasted."
+
+label e_dany3end1:
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+
+######################################################################################################
+######################################################################################################
+#DANY ENCOUNTERS
+#DANY ENCOUNTER FOUR
+label e_Dany_4:
+if e_dany3end2 == True:
+   jump e_dany4bad
+else:
+   jump e_dany4ok
+
+label e_dany4ok:
+"Dany's sitting by the window."
+Dany "Hey, [name]!"
+"She waves me over. Seems like she’s looking to have me sit next to her."
+
+label e_dany4bad:
+"Dany's sitting by the window."
+"She turns her head and we make eye contact. But she just turns around and stares out the window."
+"I should probably go to not make things awkward..."
+jump dayendings
