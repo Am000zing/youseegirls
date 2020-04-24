@@ -1,3 +1,4 @@
+define ED = 0
 label Monday_Two: 
 $ AP = 3
 "Ugh...it's Monday."
@@ -134,10 +135,11 @@ $ irene_encounter = False
 $ diana_encounter = False
 jump menu_areas
 
-if AP == 0:
-    jump End_Monday
-else:
-    "Hey, you shouldn't be seeing this. Please give us a bug report!"
+#if AP == 0:
+#    jump End_Monday
+#else:
+#    "Hey, you shouldn't be seeing this. Please give us a bug report!"
+$ ED = 0
 
 label End_Monday:
 "Well, I should get going."
@@ -150,6 +152,7 @@ jump Tuesday_Two
 
 label Tuesday_Two:
 $ AP = 3
+$ ED = 1
 $ ryver_encounter = False
 $ bella_encounter = False
 $ mercie_encounter = False
@@ -168,10 +171,10 @@ show outdoor hall with Fade(1.0,0,2.0)
 "Hmm...what should I do?"
 jump menu_areas
 
-if AP == 0:
-    jump End_Tuesday
-else:
-    "Hey, you shouldn't be seeing this. Please give us a bug report!"
+#if AP == 0:
+#    jump End_Tuesday
+#else:
+#    "Hey, you shouldn't be seeing this. Please give us a bug report!"
 #=else:
 #    "Are you sure you want to end the day?"
 #    menu:
@@ -182,13 +185,14 @@ label End_Tuesday:
 "Well, I should get going."
 show dorm night with Fade(1.0, 0, 1.0)
 "Ah, what an eventful day."
-"I should get some sleep..."
+"I should really get some sleep..."
 jump Wednesday_Two
 
 ############################
 
 label Wednesday_Two:
 $ AP = 3
+$ ED = 2
 $ ryver_encounter = False
 $ bella_encounter = False
 $ mercie_encounter = False
@@ -217,12 +221,14 @@ label End_Wednesday:
 "Well, I should get going."
 show dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
-"I should get some sleep..."
+"I should get some sleep though..."
+jump Thursday_Two
 
 ############################
 
 label Thursday_Two:
 $ AP = 1
+$ ED = 3
 $ ryver_encounter = False
 $ bella_encounter = False
 $ mercie_encounter = False
@@ -245,22 +251,56 @@ show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far."
 "I think I only have enough energy to talk to one person..."
 jump menu_areas
-if AP == 0:
-    jump End_Thursday
-else:
-    "Hey, you shouldn't be seeing this. Please give us a bug report!"
+#if AP == 0:
+#    jump End_Thursday
+#else:
+#    "Hey, you shouldn't be seeing this. Please give us a bug report!"
 #    menu:
 #        "Yes":
 #        "No":
-
 label End_Thursday:
 "Well, I should get going."
 show dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
+scene dorm inside with Fade(2.0,0,2.0)
+"Sunlight streamed into my room as I groggily turned off my alarm."
+"Finally..."
+"It's the end of the week."
+"It's always feels relieving knowing you've made it through the rough of it."
+"I've had a good time though."
+"I think I've met some really cool people here on campus."
+"Well, I should get going to class. I started strong, so now I should end strong!"
 
-jump Friday_2
+scene outdoor hall with Fade(2.0,0,2.0)
+"As I make my way to class, I start thinking about the people I've talked to..."
+"I hope I'll be able to make lasting relationships while I'm here!"
 
+scene romance hall with Fade(2.0,0,2.0)
+"It's quite lovely outside at this time of day."
+"UCJJ has been really fun so far."
+"Maybe I'll just stay here."
+"From behind me, I hear someone-"
+if e_Mercie == 4:
+    jump e_Mercie_CSF
+elif e_Ryver == 4:
+    jump e_Ryver_CSF
+elif e_Berkly == 4:
+    jump e_Berkly_CSF
+elif e_Bella == 4:
+    jump e_Bella_CSF
+elif e_Dany == 4:
+    jump e_Dany_CSF
+elif e_Christine == 4:
+    jump e_Christine_CSF
+elif e_Lola == 4:
+    jump e_Lola_CSF
+elif e_Diana == 4:
+    jump e_Diana_CSF
+elif e_Irene == 4:
+    jump e_Irene_CSF
+else:
+    jump e_Mio
 ############################
 
 label menu_areas:
@@ -288,21 +328,17 @@ menu:
         "Should I talk to them?"
         jump bookstore_people
     "Go back to the dorm":
-        $ ED = 0
         stop music fadeout 6.0
         "I'm not really feeling it right now."
         "I'll just head back."
+        label dayendings:
         if ED == 0:
-            $ ED += 1
             jump End_Monday
         elif ED == 1:
-            $ ED += 1
             jump End_Tuesday
         elif ED == 2:
-            $ ED += 1
             jump End_Wednesday
         elif ED == 3:
-            $ ED += 1
             jump End_Thursday
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
@@ -311,20 +347,20 @@ menu:
 label quad_people:
 menu:
     "Bella":
-        #$ AP -= 1
-        #if e_Bella == 0:
-        #    $ e_Bella += 1
-        #    jump e_Bella_1
-        #elif e_Bella == 1:
-        #    $ e_Bella += 1
-        #    jump e_Bella_2
-        #elif e_Bella == 2:
-        #    $ e_Bella += 1
-        #    jump e_Bella_3
-        #elif e_Bella == 3
-        #    $ e_Bella += 1
-        #    jump e_Bella_4
-        #else:
+        $ AP -= 1
+        if e_Bella == 0:
+            $ e_Bella += 1
+            jump e_Bella_1
+        elif e_Bella == 1:
+            $ e_Bella += 1
+            jump e_Bella_2
+        elif e_Bella == 2:
+            $ e_Bella += 1
+            jump e_Bella_3
+        elif e_Bella == 3:
+            $ e_Bella += 1
+            jump e_Bella_4
+        else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
     "Mercie" if mercie_encounter == False:

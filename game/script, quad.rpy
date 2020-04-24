@@ -1,5 +1,4 @@
 label quad_encounters:
-scene Quad with dissolve
 
 #RYVER ENCOUNTERS
 #RYVER ENCOUNTER ONE
@@ -106,7 +105,10 @@ Ryver "Anyways, I have to run to a meeting now. It was nice seeing you!"
 N "See you later!"
 "Ryver waves enthusiastically as she leaves."
 hide ryver neutral with dissolve
-jump menu_areas
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 ###################################################
 #RYVER ENCOUNTERS
@@ -242,7 +244,10 @@ N "It’s no problem."
 Ryver "See you later?"
 N "Yeah! See you."
 hide ryver concerned with dissolve
-jump menu_areas
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 
 ###################################################
@@ -464,9 +469,10 @@ N "I see. I guess I’ll leave you to your nap, then. See you tomorrow?"
 "Almost instantly she’s out."
 "I think I just heard her snort! It’s kind of endearing..."
 "Argh, I should stop being such a creeper, watching her sleep."
-jump quad_people
-
-
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 #########################################################################################################################################################
 #########################################################################################################################################################
@@ -505,7 +511,7 @@ Mercie "Um, thanks."
 "What's she thanking me for?"
 "She moved her things aside and we chatted for a bit..."
 hide mercie neutral with dissolve
-scene quad with Fade(1.0,0,2.0)
+scene qquad with Fade(1.0,0,2.0)
 show mercie happy with dissolve
 Mercie "Well, I should get going. I've got class in a couple of minutes."
 N "Okay! It was nice talking to you."
@@ -540,31 +546,43 @@ menu:
         $ Mercie_LP += 1.0
         "I point to her lap."
         N "Is this for a class?"
+        show mercie neutral
         Mercie "Oh! This? It's for my breadth requirement."
+        show mercie concern
         Mercie "But I...I kind of like the class though."
+        show mercie neutral
         "Wow. She looks super passionate about this type of stuff. Maybe I should ask her-"
     "Ask her what she's studying for.":
         $ Mercie_LP += 0.5
         N "Are you studying for something?"
+        show mercie concern
         Mercie "H-Huh? Oh, um- Yeah."
+        show mercie annoyed
         Mercie "I sit all the way in the back. And this really tall guy sits in front of me... "
         Mercie "I-I tend to fall behind..."
+        show mercie neutral
         N "I can try to help you if you want. What class is this for?"
+        show mercie concern
         Mercie "R-Really? You don't have to."
 
 Mercie "Wait- I just remembered."
 Mercie "I-I have a meeting in five minutes!"
 Mercie "{i}Ugh, why am I always so forgetful!{/i}"
 N "O-Oh, okay! Good luck!"
+show mercie neutral
 Mercie "Thanks! See ya!"
 N "See you later too..."
+hide mercie neutral with dissolve
 "Well, that was abrupt."
-jump menu_areas
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 #######################################################
 #MERCIE ENCOUNTER THREE
 label e_Mercie_3:
-if Mercie_LP >= 2:
+if Mercie_LP == 2:
     jump e_Mercie_3_alt
 else: 
     jump e_Mercie_3_start
@@ -675,7 +693,7 @@ menu:
     "Well, if it's any consolation, I would definitely talk to you if you ever get bored.":
         show mercie neutral blush
         Mercie "..."
-        show mericie happy
+        show mercie happy
         Mercie "Thanks. I appreciate it."
 
 show mercie neutral
@@ -688,4 +706,490 @@ N "Ah, I see. I'll see you around then!"
 Mercie "Bye!"
 N "See you later!"
 hide mercie neutral with dissolve
-jump menu_areas
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+
+#######################################################
+#MERCIE ENCOUNTER FOUR
+"Mercie waves at you excitedly, motioning for you to sit with her."
+menu:
+    "Sit with her?"
+    "Yes":
+        jump e_Mercie_4
+    "No":
+        $ Mercie_LP -= 3.0
+        "I can't today, Mercie. I'll make it up to you, I promise."
+        "Her face falls and I can tell she's really upset."
+        Mercie "I-It's okay! I'll see you around!"
+        "She scurries away, looking down."
+        jump menu_areas
+
+label e_Mercie_4:
+N "Hey, Mercie! How are you?"
+show mercie happy with dissolve
+Mercie "Haha, I'm doing gre- "
+$ sshake = Shake((0, 0, 0, 0), 0.5, dist=10)
+show mercie concern with sshake
+"Some guys sit down on her end laughs and jostles her backpack."
+"Wow. They're acting like she doesn't even exist."
+"She looks uncomfortable. Is she too afraid to say anything?"
+menu:
+    "Sit next to her.":
+        $ Mercie_LP += 1.0
+        "I plop myself in the space between Mercie and the other guys."
+        "I lean on the guy next to me and obnoxiously pool my belongings onto him."
+        unknown "Ugh!"
+        "Eventually, he and his friends pick up their things and leave in a huff."
+        N "What a load of jerks."
+    "Move somewhere else.":
+        $ Mercie_LP += 0.5
+        N "It's a little stuffy here. Wanna find a different table?"
+        Mercie "Y-Yes, please."
+        "We grab her things and find a nice patch of grass to sit on."
+        N "We should be fine over here."
+Mercie "I-I'm sorry it had to come to that. Thanks for helping."
+menu: 
+    "Don't feel sorry.":
+        $ Mercie_LP += 1.0
+        N "That guy was overstepping your boundaries. Someone's got to teach him a lesson eventually."
+        Mercie "I guess so. Either way, I'm grateful."
+        N "Don't worry about it. What are friends for?"
+    "It's okay.":
+        $ Mercie_LP += 0.5
+        N "That guy was overstepping your boundaries. I thought getting you out of there would be better than making you uncomfortable."
+        show mercie happy
+        Mercie "You're right. Maybe I should start kicking people in the-"
+        show mercie neutral
+        N "I-I wouldn't go that far."
+show mercie annoyed
+Mercie "I don't know. I feel like I should have like... done something too. "
+Mercie "I mean- People tend to do this all the time."
+show mercie concern
+"All the time?"
+menu:
+    "I don't see why.":
+        $ Mercie_LP += 1.0
+        show mercie neutral
+        "I can spot you a mile away. They'd have to be blind to not see you. "
+        show mercie neutral blush
+        Mercie "..."
+        N "I mean, it's true."
+    "Then, assert yourself!":
+        $ Mercie_LP += 0.5
+        show mercie laugh
+        Mercie "What if they decide to rough me up? What then?"
+        show mercie neutral
+        N "Your friends will back you up. Including me!"
+        Mercie "..."
+show mercie happy blush
+Mercie "T-thanks. I really appreciate it."
+scene qquad with Fade(1.0,0,2.0)
+"Ah, it's gotten pretty late. We had an intense conversation about acceptable forms of pizza consumption, and I lost track of time."
+Mercie "The next shuttle is leaving in fifteen minutes. I better get going."
+N "No problem! I'll walk you there."
+"We walked over to the shuttle stop."
+Mercie "W-well...I'll catch you later?"
+N "Yeah! Definitely."
+"She waves goodbye as she boards the shuttle."
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#########################################################################################################################################################
+#BELLA ENCOUNTERS
+#BELLA ENCOUNTER ONE
+label e_Bella_1:
+$ bella_encounter = True
+"She has a series of notebooks on the table and her lap. She fans herself while she reads."
+menu:
+    "Approach Bella?"
+    "Yes":
+        jump e_Bella_A
+    "No":
+        "Hm, I think I should leave her alone now. She could be busy."
+
+label e_Bella_A:
+$ Bella_LP += 1.0
+N "Hey! Bella, right?"
+Bella "Oh, hey. I remember you. [name], right?"
+N "Yeah! That’s me, haha."
+Bella "You still getting out of breath when you run?"
+"Oof, she remembered that too. How should I respond...?"
+menu:
+    "Lie to her":
+        $ Bella_LP += 0.5
+        N "Actually, I’ve been running since last we met."
+        Bella "Oh really?"
+        N "..."
+        N "Okay, maybe I’m lying."
+        Bella "Don’t feel bad about it. You’re not the first guy to try to impress me through athleticism."
+        N "Sorry. You’re really cool. I didn’t want you to think I was like...some kind of dweeb."
+        Bella "Haha, too late for that!"
+    "Tell the truth":
+        $ Bella_LP += 1.0
+        N "I’ve been walking around campus a lot, but I don’t exercise as much as I should."
+        N "I’ll likely get used to it though. Eventually."
+        Bella "Haha, that’s the spirit!"
+        Bella "Oh, I’m so sorry. Did you want to sit next to me? I have plenty of room."
+        N "O-Oh, thank you!"
+        Bella "No problem."
+        Bella "Just don’t trip over yourself trying to sit down."
+scene qquad with Fade(2.0,0,2.0)
+Bella "I’ve gotta go now. It takes a bit to return to my place, and I’d rather go now than later."
+N "Okay, see you later then?"
+Bella "Yeah, see you!"
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+
+#########################################################################
+#########################################################################
+#BELLA ENCOUNTERS
+#BELLA ENCOUNTER TWO
+label e_Bella_2:
+$ bella_encounter = True
+"Bella’s sitting on a bench trying to fit a whole bagel into her mouth."
+menu:
+    "Approach Bella?"
+    "Yes":
+        jump e_Bella_2A
+    "No":
+        "Hm, I should leave her alone for now. She seems busy."
+        jump menu_areas
+
+label e_Bella_2A:
+N "Hey, Bella. What’re you up to?"
+Bella "{i}Whan shum?{/i}"
+"Huh? What was that? I can’t hear her over the bagel."
+N "D-Did I catch you at a bad time?"
+"She hurriedly gulps the bagel."
+show bella neutral with dissolve
+Bella "Urk- Not at all! Want some?"
+menu:
+    "Sure!":
+        $ Bella_LP += 1.0
+        jump e_Bella_2A1
+    "Uh, I think I'm good.":
+        $ Bella_LP += 0.5
+        jump e_Bella_2A2
+
+label e_Bella_2A1:
+"She breaks off a piece and hands it to me. I chomp into the bagel piece and sit down next to her."
+N "{i}Thish ish preddy goo.{/i}"
+show bella laugh
+Bella "Pft- Dude. You spilled some over your, err...Let me help."
+show bella neutral
+N "!!!"
+"Bella leans over with a napkin. It’s inches from my face..."
+menu:
+    "Let her.":
+        $ Bella_LP += 1.0
+        "I couldn’t look her in the eyes. The napkin glides over my face."
+        N "O-Oh, uhhh...Thanks."
+        Bella "You’re welcome!"
+        show bella neutral blush
+        Bella "You had crumbs on your face."
+        N "O-Oh, thank you..."
+        hide bella neutral blush with dissolve
+        jump e_Bella_2end
+    "Take the napkin.":
+        $ Bella_LP += 0.5
+        N "T-Thanks, Bella."
+        "She stares unblinkingly, then smiles."
+        show bella neutral blush
+        Bella "Oops, sorry. Personal space. Forgot about that."
+        N "N-No, you did nothing wrong."
+        hide bella neutral blush with dissolve
+        jump e_Bella_2end
+label e_Bella_2A2:
+Bella "Suit yourself!"
+"I sat down next to her as she finished the rest of her bagel."
+N "Did you just get out of class?"
+Bella "Yup. I forgot to pack myself lunch, so I went straight to the JJ Store."
+show bella concern
+Bella "I’m {i}starving{i/}."
+menu:
+    "Offer to give her something.":
+        $ Bella_LP += 1.0
+        N "I have a protein bar in my bag, if you'd like."
+        show bella smile
+        Bella "No, it’s okay! Save it for yourself."
+        N "It’s fine, really."
+        "Bella laughs and she waves her hand in dismissal."
+        show bella laugh
+        Bella "I’m not going to DIE, dude. That’s something I would expect from you, running out of breath so easily."
+        jump e_Bella_2end
+    "Offer to buy her something.":
+        $ Bella_LP += 1.0
+        N "Why don’t we stop by a vending machine? It’s on me."
+        Bella "Aw, I’d really appreciate that. But why?"
+        N "As a thank you. You know, for when we met. I technically owe you."
+        show bella smile
+        Bella "You’re too sweet."
+        Bella "Are you single?"
+        N "Um..."
+        show bella laugh
+        Bella "Haha, I’m just joking around. Let’s go!"
+        hide bella laugh with dissolve
+        jump e_Bella_2end
+
+label e_Bella_2end:
+scene qquad with Pause(2.0)
+"After eating, we walked around the quad together for a bit. She eventually had to leave though."
+show bella neutral with dissolve
+Bella "See you sometime?"
+N "Yeah, see you!"
+hide bella neutral with dissolve
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+#########################################################################
+#########################################################################
+#BELLA ENCOUNTERS
+#BELLA ENCOUNTER THREE
+label e_Bella_3:
+$ bella_encounter = True
+"Bella is sitting alone, but staring intently at her laptop."
+menu:
+    "Approach her?"
+    "Yes":
+        jump bella3
+    "No":
+        "She’s probably doing an online class or something. I should leave her alone." 
+        jump menu_areas
+label bella3:
+$ Bella_LP += 0.5
+N "Skipping out on lunch today?"
+Bella "Haha, hey. I didn’t have class, so I ate a little earlier. Why? You hungry?"
+N "Err, no. Not particularly."
+"Bella stares at me a little too intensely."
+"She pulls out a sandwich from her purse. My stomach grumbles."
+show bella smile
+Bella "You should have a snack. At least."
+menu:
+    "Decline her sammich.":
+        $ Bella_LP -= 0.5
+        N "I think I can hold out until dinner."
+        Bella "Hm, Suit yourself! I have a purse full, but I guess I'll just share them with my friends tonight."
+        N "You have something planned?"
+        Bella "Yeah. I bought this new multiplayer game and we wanted to mess around with it."
+        N "You play?"
+        Bella "Haha, only with friends! But that’s besides the point. I have something {i}very{/i} important to ask you..."
+        "My stomach knots up. She says it so seriously..."
+        Bella "Do you have Uno on Xbox?"
+        "..."
+        "Huh?"
+        jump bellaUNO
+    "Eat it.":
+        $ Bella_LP += 1.0
+        N "I guess a little piece wouldn’t hurt."
+        Bella "Hell yeah! Here, I’ll give you the best part."
+        "She hands me a square. I reach down to take it, but-"
+        show bella laugh
+        Bella "Say ‘ah’!"
+        "She’s holding the sandwich and slowly looming it over my mouth."
+        jump bellasammich
+
+label bellaUNO:
+menu:
+    "Of course.":
+        $ Bella_LP += 1.0
+        N "Of course I have Uno on Xbox. It came free with the console."
+        show bella laugh
+        Bella "Yeah!"
+        show bella smile
+        Bella "You should play with us some time. The more, the merrier."
+        show bella neutral
+        N "I’m actually pretty bad at playing any form of card games. I always get dealt a bad hand."
+        Bella "Damn- Must be hard to have the odds stacked against you."
+        show bella laugh
+        Bella "Is there {i}anything{i/} you’re good at?"
+        "Now that I think about it, I don’t think I really have any character-defining hobbies..."
+        N "Uhhh, I make...really good friends?"
+        show bella laugh
+        "Bella laughs."
+        show bella smile
+        Bella "Hmm, yeah. I guess that’s true."
+        jump e_Bella_3end
+    "No, I don't.":
+        $ Bella_LP -= 0.5
+        N "Sorry, I don't have Uno."
+        show bella annoyed
+        Bella "Um, yeah, you do. Every Xbox came with Uno for free."
+        N "My Xbox didn't come with Uno."
+        Bella "You have Uno. When you get home, check it out."
+        N "Errr, I don’t know, I can’t really-"
+        Bella "You have Uno."
+        N "I don’t have-"
+        $ sshake = Shake((0, 0, 0, 0), 3.0, dist=15)
+        show bella annoyed with sshake
+        Bella "YOU HAVE UNO."
+        show bella annoyed
+        #(hella funny if she just zoomed in really dramatically lol)
+        N "O-Okay. I guess I have Uno! Y-You can back up now."
+        show bella smile
+        Bella "Cool. Now we can play it some time!"
+        N "S-Sure."
+        "Well, this is a new side of Bella I didn’t expect."
+        jump e_Bella_3end
+
+label bellasammich:
+menu:
+    "Open up.":
+        $ Bella_LP += 1.0
+        "My cheeks blaze up into flames and I open up."
+        "..."
+        "The sandwich is REALLY good, though."
+        Bella "It rocks, right? My last class had a party and I have like… a buttload in my bag."
+        "She unfastens her duffel bag and reveals a stack of sandwiches."
+        N "Can...Can I take some?"
+        Bella "No, man! Find your own stash!"
+        N "Aw, man. Not even just one?"
+        Bella "Okay, okay! Here."
+        "She laughs and playfully throws me one."
+        jump e_Bella_3end
+
+    "Close those chompers.":
+        $ Bella_LP += 0.5
+        "I close my mouth. I don’t want her to think I’m a little kid."
+        N "T-Thank you, but I can eat by myself."
+        show bella concern
+        Bella "Huh?"
+        show bella concern blush
+        Bella "O-Oh, right." 
+        Bella "S-Sorry. I keep forgetting. I have a habit of overstepping people’s personal space."
+        N "It’s okay! My mom has done worse things."
+        Bella "So, I’m one step away from being your mom?"
+        N "T-That’s not what I meant!"
+        "Bella laughs and hits my shoulder."
+        jump e_Bella_3end
+
+label e_Bella_3end:
+"We spent the rest of our time talking about upcoming game releases. She’s got good taste!"
+show bella neutral with dissolve
+Bella "Well, I better get going. I have classs soon."
+N "Alright, see you!"
+Bella "Yeah, see you!"
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+#########################################################################
+#########################################################################
+#BELLA ENCOUNTERS
+#BELLA ENCOUNTER FOUR
+label e_Bella_4:
+$ bella_encounter = True
+"She’s zipping up her bag when she notices me."
+Bella "Hey, [name]!"
+"She waves me over. Is she inviting me to walk with her?"
+menu:
+    "Go to her?"
+    "Yes.":
+        jump e_Bella_4A
+    "No.":
+        $ Bella_LP -= 4.0
+        N "Uh, I really can’t. Sorry."
+        Bella "Okay. Have fun then!"
+        "She scurried off before I could say anything else."
+        jump menu_areas
+
+label e_Bella_4A:
+$ Bella_LP += 0.5
+"I jog over. As I’m approach...is that chlorine?"
+"Before I can think too much of it, Bella taps my shoulder playfully."
+Bella "Fancy seeing you here, [name]. Heading to class?"
+N "No. I’m actually free 'til like...3?"
+Bella "Oh cool. Mind if we sit down for a bit? I wanted to go through my notes."
+N "Yeah, I don't mind."
+"We walk further into the quad and find an empty table."
+menu:
+    "Where should I sit?"
+    "Across from her.":
+        $ Bella_LP += 1.0
+        jump e_Bella4A1
+    "Next to her.":
+        $ Bella_LP += 0.5
+        jump e_Bella4A2
+
+label e_Bella4A1:
+"I sit across from her, avoiding her notes. She’s pulling a lot of markers and pens from her bag."
+N "You have a test or something coming up?"
+Bella "Nah. I like to doll up what I’ve written down, you know? It’s easier to remember."
+"Now that I’m looking at her papers, little flowers are doodled in the corners. "
+menu:
+    "I lean over and draw a..."
+    "Cowboy":
+        $ Bella_LP += 0.5
+        "I draw a cute little mustache and a wide hat, but she isn’t looking up from her notes. "
+        show bella neutral
+        show bella smile with dissolve
+        Bella "Aw! That’s cute!"
+        "She reaches over and doodles a bandana over his eyes."
+        "Hm, he has an air of mystery now. I wonder what his backstory would be if we fleshed it out..."
+        jump e_Bella4end
+    "Racoon":
+        $ Bella_LP += 1.0
+        show bella laugh
+        Bella "Haha, how cute! I love raccoons!"
+        "I look up from my drawing and she's staring at the doodle."
+        N "Are they your favorite animal?"
+        Bella "Yeah! They’re such cute little trash babies!"
+        "Her face lights up with a smile as she pulls out her phone."
+        Bella "I have a bunch of photos of my neighborhood raccoon. Here, I’ll show you."
+        jump e_Bella4end
+        
+label e_Bella4A2:
+$ Bella_LP += 0.5
+Bella "Oh, let me move these for you."
+"She reaches over and gathers up her stuff. Pens, highlighters, post-it notes, markers, etc. "
+N "That’s a lot of uhh, pens you got there."
+Bella "Nice deduction there, Sherlock. I just like making my notes pretty, you know?"
+N "Can I look?"
+Bella "Sure, go for it!"
+"I glance down at her notes and-"
+"Whoa. There’s that chlorine smell again."
+menu:
+    "Maybe I should ask about her..."
+    "Wet hair.":
+        $ Bella_LP += 1.0
+        N "Did you go to the gym this morning?"
+        Bella "Huh? Why?"
+        N "Well, your hair is still wet. And you look a bit flushed."
+        Bella "Oh! I was just at the pool. I wanted to swim for a bit. "
+        "There’s a pool here?"
+        Bella "Do you know how to swim?"
+        N "Errr, I can, but nothing amazing.”"
+        Bella "Maybe I can take you there some time. Show you around some more?”"
+        N "Yeah, I wouldn't mind that."
+    "Smell":
+        $ Bella_LP -= 1.0
+        N "Did you buy a new perfume?"
+        show bella concern
+        Bella "A new what?"
+        N "O-Oh, it’s just- Before, you had vanilla and now you smell...pool-y."
+        show bella annoyed
+        Bella "You’ve...smelled me before?"
+        "Oh. That doesn’t sound right out loud. "
+        N "I-I mean, I don’t smell you intentionally. It just wafts around!"
+        show bella annoyed
+        Bella "Yeah, right..."
+        "Damn- I’m never going to live this down, huh."
+
+label e_Bella4end:
+"We spend the rest of the evening talking about upcoming classes."
+"Before heading home, Bella asked if I knew what the flying spaghetti mosnter was."
+"I had no idea how to respond."
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas

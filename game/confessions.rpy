@@ -14,6 +14,8 @@ scene outdoor hall with Fade(2.0,0,2.0)
 "As I make my way to class, I start thinking about the people I've talked to..."
 "I hope I'll be able to make lasting relationships while I'm here!"
 
+
+play music "audio/confession.mp3" fadein 6.0
 scene Romance hall with Fade(2.0,0,2.0)
 "It's quite lovely outside at this time of day."
 "UCJJ has been really fun so far."
@@ -133,7 +135,6 @@ menu:
         Mio "You sayin' you interested?"
         N "Huh? N-no, that's not what I'm-"
         "Mio suddenly leans in really close."
-        #show Mio cg1
     "I don't think I should be worried about.":
         show mio upset
         Mio "What do you mean?"
@@ -141,8 +142,14 @@ menu:
         N "No, I never said that! I just-"
         Mio "Just what?"
         "Mio suddenly leans in really close."
-
-
+"I suddenly feel really self-conscious."
+N "Um, you're really close-"
+"I lose my balance and fall backwards."
+"Mio tries to reach out for me but it's too late."
+"I fall on my butt on the lawn."
+N "Ugh..."
+Mio "You alright?"
+#show Mio cg
 
 label Credits:
 scene ysg with Fade(2.0,0,2.0)

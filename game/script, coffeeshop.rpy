@@ -135,9 +135,10 @@ N "I’m glad as well. I got a lot of work done."
 Berkly "Catch you later then."
 N "Let's meet up again"
 Berkly "Yeah!"
-jump menu_areas
-
-
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 ######################################################################################################
 ######################################################################################################
@@ -345,8 +346,10 @@ B "Thanks for waiting while I pack up."
 N "It's no biggie."
 B "Later."
 N "Bye."
-jump menu_areas
-
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 ######################################################################################################
 ######################################################################################################
@@ -382,7 +385,7 @@ menu:
     "Maybe...":
         $ Berkly_LP += 0.5
         jump e_Berkly_3A2
-    "You want some?"
+    "You want some?":
         $ Berkly_LP += 0.5
         jump e_Berkly_3A3
 
@@ -522,8 +525,10 @@ N "If I don’t have any other plans, then sure."
 Berkly "I see. Well, catch you later?"
 N "Yeah, Later!"
 
-jump menu_areas
-
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 ######################################################################################################
 ######################################################################################################
@@ -604,8 +609,10 @@ Berkly "Thanks for listening to me, [name]."
 N "Of course."
 Berkly "I'm gonna get going. See you later, maybe."
 N "Yeah, see you."
-jump menu_areas
-
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
 
 ############################################################################################################################################################################################################
 ############################################################################################################################################################################################################
