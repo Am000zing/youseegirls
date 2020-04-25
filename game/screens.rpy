@@ -302,6 +302,7 @@ style quick_button:
 
 style quick_button_text:
     properties gui.button_text_properties("quick_button")
+    outlines [ (1,"#000",0,0) ]
 
 
 ################################################################################
@@ -1518,6 +1519,14 @@ style journal_button:
 style journal_button_text:
     outlines [ (1,"#000",0,0) ]
     xalign 0.5
+
+## AP Overlay Screen
+
+screen AP_overlay(action_points):
+    text "Action points: [action_points]":
+        xalign 0.98
+        yalign 0.95
+        outlines [ (1,"#000",0,0) ]
 
 
 ################################################################################
