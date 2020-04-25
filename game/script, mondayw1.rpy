@@ -1,15 +1,13 @@
 label Monday_One:
 
-show dorm morning
-with Fade(1.0, 1.0, 1.0) 
-
-"I woke to the sunlight streaming through the blinds and the loud sound of machinery outside the window."
+scene dorm morning with Fade(2.0, 0, 2.0) 
+play sound "audio/birds chirping loop.mp3"
+"I woke to the sunlight streaming through the blinds."
 "*Yawn*"
-"I stretched and peeked through the blinds. There was a man mowing the lawn, and another blowing leaves away."
 "I checked the time"
 "It's 8 AM! I woke up so early..."
 "Man, jet-lag is one hell of a sucker."
-
+stop sound fadeout 5.0
 #jump: Agenda
 
 "I did my morning routine: brushing my teeth, washing my face, did my hair..."
@@ -125,10 +123,10 @@ menu:
 
 show mio neutral
 Mio "Anyways, let's get going!"
+stop music fadeout 10.0
 hide mio neutral with dissolve
 #Time-Skip. prob just say something like the tour guide lasted up til lunch
-
-scene dorm front with Fade (2.0,0,2.0)
+scene outdoor hall with Fade (2.0,0,2.0)
 show mio neutral with dissolve
 Mio "~And that's it for today's tour!"
 Mio "Let's head over to the dining hall. You're probably starving!"
@@ -136,7 +134,7 @@ Mio "Let's head over to the dining hall. You're probably starving!"
 "But I don't want to stretch Mio's time more than I need to."
 N "Ah, I think I'll just head back to my room. I'm not that hungry."
 $ sshake = Shake((0, 0, 0, 0), 2.0, dist=15)
-show dorm front with sshake
+show outdoor hall with sshake
 "GROOOOWWWLWLLLWWHWWH~"
 #probably have some sound effect for a very long stomach rumble
 "I gasped and I clutched my stomach in embarrassment."
@@ -150,6 +148,7 @@ Mio "Then let's go get something to eat! Clearly your stomach has a mind of its 
 "Meekly, I followed him."
 hide mio laugh with dissolve
 "Why do stomach growls always have to happen at the worst moment possible?!"
+
 label dininghall_introduction:
 show dining hall with Fade(2.0,0,2.0)
 cashier "Have a nice day!"
@@ -171,6 +170,7 @@ menu:
     "Kale Feta Salad":
         "I grabbed the tongs and heaped a helping of kale feta salad onto my plate. I feel healthier already!"
         "As I contemplated over salad dressings, I overhear someone rapidly asking the chefs a bunch of questions."
+        play music "audio/Casual.mp3" fadein 10.0
         unknown "Is this dish vegetarian friendly?"
         unknown "So this isn't cooked in like animal fat either, right?"
         unknown "Like butter?"
@@ -197,6 +197,7 @@ menu:
         "I heaped a spoonful of rice onto my plate. Can't ever go any meal without rice!"
         "I eyed the large pan of roast chicken, which laid next to a pan of mashed potatoes and a separate pan of gravy."
         "As I grabbed the tongs to reach for the chicken, I overhear someone rapidly asking the chefs a bunch of questions."
+        play music "audio/Casual.mp3" fadein 10.0
         unknown "Is this dish vegetarian friendly?"
         unknown "So this isn't cooked in like animal fat either, right?"
         unknown "Like butter?"
@@ -218,13 +219,6 @@ menu:
 
 show dany neutral
 N "I'm [name]."
-#"Give Dany a gift?"
-#menu:
-#    "Yes":
-#        jump danygift
-#    "No":
-#        jump aftergiftgiving
-#label aftergiftgiving:
 Dany "Nice to meet you, [name]! Wanna eat with me?"
 "I see Mio waving at me from his table."
 N "Ah, no, sorry. I'm already sitting with someone."

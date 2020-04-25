@@ -61,6 +61,7 @@ label sunday:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 scene purple bubble bg with dissolve
+play music "audio/Maintheme.mp3" fadein 6.0
 "I stepped out of the plane into the passenger boarding bridge, feeling the immediate difference between the dry California breeze and the warm Japan humidity."
 "As I walked into passport control, I quickly texted my family friends that it would only take about 10 to 15 more minutes before I could go to the terminal where I should be exiting."
 "Luckily I don't have too much luggage to pick up from the baggage claim."
@@ -85,11 +86,12 @@ unknown "Hey, [name]! Over here!"
 "I waved to them as I got closer, shaking in excitement."
 
 N "Hey Auntie! Uncle! Sorry I took a bit."
-
-show auntie neutral at right
-with dissolve
+show uncle at left with dissolve
+show auntie neutral at right with dissolve
 A "Oh no worries, [name]. We're just glad you landed safely!"
 U "Here, let me put your luggage in the back. We gotta get out of this airport before the traffic makes me lose my mind."
+hide uncle with dissolve
+show auntie neutral at center with move
 A "How was your flight, [name]? I hope you were able to get some sleep on the plane."
 menu:
     "It was bearable.":
@@ -114,25 +116,28 @@ menu:
         U "Which is exactly why I think toddlers and babies should be banned from planes."
         A "Well, [name], you can sleep in the car ride on the way to UCJJ if you need to, okay?"
 
-hide auntie neutral
-with dissolve
+hide uncle with dissolve
+hide auntie neutral with dissolve
 "Finally leaving the airport, I leaned back the car seat and relaxed."
 "My eyes feel a bit heavy... maybe I should get some rest."
 "I closed my eyes..."
-scene black bg
-with dissolve
+stop music fadeout 6.0
+scene black bg with dissolve
 with Pause(1)
-
 U "Hey, [name]. Wake up! We're here now."
 U "Luckily the drive wasn't too bad as soon as we left the airport."
 "Groggily, I stretched my arms out. Oh man, already at the school?"
 scene dorm front with Fade(1.0,0,2.0)
+show uncle at left with dissolve
+show auntie smile at right with dissolve
 U "You can rest some more as soon as we move in."
 A "Take out your passport. It's your only piece of ID for your dorm keys right now."
+hide uncle with dissolve
+hide auntie smile with dissolve
 
 label dorm_movein:
 scene dorm inside with Fade(2.0,0,2.0)
-play audio "audio/door_open.wav"
+play audio "audio/door open.mp3"
 "Getting the keys didn't take too long, but the moving in process felt like lifetimes."
 "ESPECIALLY since I just got off the plane about an hour ago."
 "But I am feeling a little more energized now though."
@@ -155,12 +160,13 @@ Mio "I'm your Resident Advisor, so if you need anything, just knock at my door!"
 show mio smile
 #"His smile is so bright it's blinding..."
 Mio "I didn't come over just to introduce myself though."
+show mio neutral
 Mio "I also came to remind you that I'll be taking you on campus tours during your orientation."
 show mio teasing
 Mio "You do remember, right?"
 N "Ah, yes! I did know about the tours but I wasn't sure who I was supposed to meet."
 "Well, NOW I know, anyways."
-show mio smile
+show mio laugh
 Mio "Well, now you know!"
 show mio neutral
 Mio "I'll let you settle in and move in now. Meet me at the parking lot that you came in from at 10 AM."
@@ -168,19 +174,17 @@ Mio "I'll let you settle in and move in now. Meet me at the parking lot that you
 Mio "See you tomorrow! 10 AM, Parking lot!"
 N "Ahaha, yeah! See you!"
 hide mio neutral with dissolve
-play audio "audio/door_close.wav"
+play audio "audio/door close.mp3"
 #"He leaves the room."
+stop music fadeout 10.0
 A "He seems like a nice boy! I hope you two will get along."
 "Yeah, he seems nice."
 #"I feel like I can trust him..."
-stop music fadeout 5.0
-scene desk bg
-with Fade(0.5, 0.0, 0.5)
+scene dorm night with Fade(1.0, 0.0, 1.0)
 "I slurped on my cup noodles tiredly, finally finished with settling in."
 "Auntie and Uncle already left about 2 hours ago."
 N "Well, I have to be a little more productive now so that I can just get some sleep."
 "I cleaned up, muscles feeling a little stiff from all the sitting in the plane."
 "I wonder what school here is... going to be like...zzz"
 N "zzz..."
-
 jump Monday_One

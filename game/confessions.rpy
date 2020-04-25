@@ -109,7 +109,7 @@ Berkly "[name], good to see you again."
 N "Yeah, good to see you too."
 B "Listen, I was thinking over some things...and I realized theres areas I can really improve myself on."
 "I opened my mouth to speak-"
-#show berkly cg
+scene berkly cg with Fade(2.0,0,2.0)
 "-but Berkly quickly shushed me."
 B "Sorry, I just want to get all this off my chest at once."
 B "I know that you were right, but improving on my own is difficult. Which is why I wondered if you were open to the possibility of hanging out- no."
@@ -161,22 +161,23 @@ menu:
         Mio "Just what?"
         show mio neutral
         "Mio suddenly leans in really close."
-"I suddenly feel really self-conscious."
+"I begin to feel extremely self-conscious."
 N "Um, you're really close-"
 hide mio neutral with dissolve
 "I lose my balance and fall backwards."
 "Mio tries to reach out for me but it's too late."
-"I fall on my butt on the lawn."
+"I fall onto the lawn."
 N "Ugh..."
 Mio "You alright?"
-scene mio cg with Fade(1.0,0,2.5)
+scene mio cg with Fade(2.0,0,2.5)
 N "Um, yeah."
 Mio "Haha, did you get nervous?"
 N "N-no, that isn't it. I just-"
 Mio "You don't gotta give me an answer now."
 Mio "We can just progress naturally, as most do."
-N "..."
 Mio "Won't we now, [name]?"
+"Oh god."
+"What have I gotten myself into?"
 jump Credits
 
 label Credits:

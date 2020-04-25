@@ -1,30 +1,30 @@
 label Tuesday_One:
 
-scene dorm inside
-with Fade(1.0, 0.0, 1.0)
+scene dorm inside with Fade(1.0, 0.0, 1.0)
 "Ugh...I'm so tired. I didn't realize how much Orientation was going to drain me out."
 "I wonder what the plans are for the day..."
 "I thought about the girls I met yesterday.  The people on campus are rather... unique."
-"I wonder what today will bring me."
 "..."
-"Ah, I should get my head out the clouds and concentrate on getting ready."
+"Ah, I should get my head out of the clouds and concentrate on getting ready."
 "I quickly brushed my teeth, showered and got dressed. I don't want to be late, so I ran out the door without any breakfast."
 "Even though Mio said not to worry about being late, I didn't want to disappoint him."
 "I don't want all his kindness to go unnoticed!"
+play sound "audio/door open.mp3"
+play sound "audio/door close.mp3"
 
-scene parking lot
-with Fade(2.0,0,2.0)
+scene parking lot with Fade(2.0,0,2.0)
 with Pause(1)
-"Oh, god... I think.... I pushed myself... too much. I think I'm gonna throw up."
+"Oh, god...I think...I pushed myself...too much. I think I'm gonna throw up."
 "I leaned on a nearby tree and panted like a dog."
 "I probably look like an idiot, but that's the least of my worries..."
 
 unknown "Are you okay?"
 "I looked up and my eyes fluttered under the sun."
 "My heart nearly shot out of my mouth as someone straight out of a romance novel appeared in front of me. Her hair swept up against the breeze and I caught the faintest smell of vanilla."
-"Now this is a woman I can respect."
+"Now {i}this{i/} is a woman I can {i}respect{i/}."
 #"I didn't know where she came from, but at this point, do I care?"
 show bella neutral with dissolve
+play music "audio/Casual.mp3" fadein 10.0
 unknown "Are you not feeling good? I have something that can help..."
 "She stepped closer. She reached into her purse and rummaged through her bag."
 menu:
@@ -97,7 +97,7 @@ Mio "[name]!"
 "She waved goodbye and disappeared into a crowd of students."
 hide bella neutral with dissolve
 N "Hope to see you around."
-"With a jump to my step, I jogged to Mio."
+"I jogged over to Mio."
 show mio neutral with dissolve
 Mio "You're late."
 N "Y-yeah. I figured. Thanks for waiting."
@@ -105,9 +105,10 @@ show mio teasing
 Mio "If this is a habit of yours, maybe I'll swing by your place and wake you up myself."
 "Blood rushed to my cheeks, but I tried to laugh it off."
 N "Haha. Please don't."
+stop music fadeout 10.0
 hide mio teasing with dissolve
 
-show parking lot with Fade(1.0,0,2.0)
+show outdoor hall with Fade(2.0,0,2.0)
 "As students filed out of their evening classes, campus buzzed with small-talk."
 "I'm a little tired from today's events, but I think it's something I can get used to."
 show mio neutral with dissolve
@@ -131,6 +132,7 @@ menu:
         "I scooped up some good looking Tofu and Veggies."
         unknown "Hey, that looks good, whatcha getting?"
         "I jerked my head, a sudden breathy voice by my ears."
+        play music "Casual.mp3" fadein 10.0
         show christine neutral with dissolve
         N "O-oh just some stir fried tofu and veggies. Planning to get some rice with it too."
         unknown "That sounds really good. I'll probably get a scoop of that too."
@@ -145,6 +147,7 @@ menu:
     "BBQ Pulled Pork Sliders":
         unknown "Ooh, that smells so good, what'd you get?"
         "I jerked my head, a sudden breathy voice by my ears."
+        play music "Casual.mp3" fadein 10.0
         show christine neutral with dissolve
         N "A-ah, I got a BBQ Pulled Pork Slider. It smelled so good, I couldn't resist."
         "She gave a long look at me and the slider on my plate."
@@ -203,11 +206,11 @@ Christine "Well, it's a pleasure to meet you."
 Christine "I'm sure we'll be seeing each other around often considering how few people attend this summer session."
 Christine "Well, I'm gonna go. My friends are nearly done with their food, so I should finish mine too."
 N "Uhh, yeah! Hope to see you around!"
+stop music fadeout 10.0
 hide christine neutral with dissolve
 
 scene dorm afternoon
 with Fade(1.0,0,2.0)
-
 "The day ended with Mio walking me back to my room."
 "He answered a lot of my questions, and we realized we had a lot in common."
 "I wonder if all guys are as cool and chill as Mio."
@@ -230,5 +233,4 @@ with Pause(2.0)
 "As the silence settled in, I realized that like it here a lot."
 "I changed into my pajamas, washed, and plopped myself into bed."
 "As I slowly drifted to sleep, I wondered what might happen tomorrow..."
-
 jump Wednesday_One
