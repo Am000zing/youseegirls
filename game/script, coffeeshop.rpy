@@ -662,7 +662,7 @@ N "..."
 Dany "Do you have any stuff to do?"
 menu:
     "Yeah":
-        N "I’ve gotta figure out where everything is. There’s just... {i}so much.{i/}"
+        N "I’ve gotta figure out where everything is. There’s just... {i}so much.{/i}"
         Dany "No kiddin’."
         Dany "I think you’ll get the hang of it pretty quick, though!"
         N "Haha, thanks."
@@ -871,7 +871,7 @@ label e_dany3:
 "I decide to take a seat at a table and relax for a bit. The last time with Dany was a little weird. Maybe she’s-"
 Dany "[name]! I’ve been lookin’ all over for you."
 "She looks out of breath as she stands there in front of me."
-Dany "{i}*huff*{i/} I just wanted to {i}*huff*{i/} apologize for the other day."
+Dany "{i}*huff*{/i} I just wanted to {i}*huff*{/i} apologize for the other day."
 Dany "It’s just... She meant a lot to me."
 Dany "She may have been “just some animal” to a lotta folks, but..."
 menu:
@@ -1011,12 +1011,103 @@ else:
    jump e_dany4ok
 
 label e_dany4ok:
-"Dany's sitting by the window."
+"I look around and realize she's not at her usual table."
+"However, she's outside the window where her table is, waving at me."
 Dany "Hey, [name]!"
 "She waves me over. Seems like she’s looking to have me sit next to her."
+menu:
+    "Go outside to her?"
+    "Yes":
+        jump e_dany4a
+    "No":
+        "Eh, I don't really know how I feel about going outside."
+        "I shake my head, and go to buy a drink."
+        "After I order my drink, I look outside."
+        "..."
+        "She's gone."
+        jump dayendings
 
 label e_dany4bad:
-"Dany's sitting by the window."
-"She turns her head and we make eye contact. But she just turns around and stares out the window."
-"I should probably go to not make things awkward..."
+"I look around and realize she's not at her usual table."
+"However, she's outside the window where her table is."
+"She looks up and we briefly make eye contact."
+"However she just turns away and stares up at the sky."
+jump dayendings
+
+label e_dany4a:
+scene qquad with Fade(1.0,0,1.0 )
+"She’s sitting on the grass, now looking up at the clouds."
+Dany "Glad I caught you. Have you been cloudgazing before?"
+N "A few times, but only in passing."
+Dany "Well have I got a treat for you! Look up there."
+"I look up at the clouds. They’re fluffy and thick... It’s almost breathtaking."
+menu:
+    "Sit next to Dany.":
+        $ Dany_LP += 1.0
+        jump e_dany4a1
+    "Continue standing.":
+        $ Dany_LP -= 1.0
+        jump e_dany4a2
+
+label e_dany4a1:
+"I sit next to her. She scoots a bit closer to me."
+N "Today’s a really nice day. Such a blue sky."
+Dany "Right?"
+"She points at the biggest one."
+Dany "Whaddya think that one is?"
+"I think about it for a second."
+menu:
+    "A ship.":
+        N "A ship!"
+        "It’s got a sail and everything!"
+        Dany "I...can kinda see that actually!"
+        "She leans a bit closer to me and points up at it again. "
+        Dany "I used to do this a lot when I was a kid. I’m really happy that I get to do it again."
+        "She continued to point out clouds for me like a rorschach test, and I kept doing my best to come up with something cool."
+        jump e_dany4end
+    "A cow.":
+        N "I kind of see a cow, with a blocky body and floppy ears."
+        Dany "Whoa. You saw it too, then."
+        "She leans a bit closer to me."
+        Dany "I used to do this a lot with Cat, y’know."
+        "Her cow."
+        Dany "She used to just lay there next to me with those big, cute eyes...But it was so nice havin’ her there, y’know?"
+        "She continued to point out clouds for me like a rorschach test, and I kept doing my best to come up with something cool."
+        jump e_dany4end
+
+label e_dany4a2:
+"Probably shouldn’t sit on the grass. I might get bitten by something."
+Dany "How’s the weather up there?"
+N "About as hot as it is on the grass."
+Dany "You never fail to surprise me, [name]."
+"I find myself chuckling with her, too."
+"Then I remember she wasn’t in the cafe this time."
+menu:
+    "Ask her about it.":
+        N "Hey, I didn’t see you at the cafe today."
+        Dany "What, you stalkin’ me, now?"
+        "She starts giggling."
+        Dany "I just wanted to change it up a bit! The outdoors are more my element, after all."
+        Dany "Plus, cloudgazing gives me some really nice memories."
+        "She started pointing at clouds and asking me to identify them. We came up with a few funny answers, but we had a good time."
+        jump e_dany4end
+    "Ask where she's been.":
+        N "You weren’t at the cafe. Where’ve you been?"
+        Dany "That’s an awfully rude way to ask."
+        Dany "If ya must know, I’ve been changing it up today. Wanted to be outside instead."
+        N "I'm sorry, I didn’t mean to be rude."
+        "Oof. Thinking about it, that did come out a little off."
+        Dany "We’re gonna have to work on that. You’ll scare people off."
+        "She’s going to make me remember that for a while."
+        jump e_dany4end
+
+label e_dany4end:
+scene qquad with Fade(1.0,0,2.0)
+"We spent the rest of the day enjoying nature and each other’s company."
+"She asked me if I liked country music, and honestly, I have no idea how to answer that."
+Dany "Well, relaxation's over. I gotta head home."
+N "Ah, same here."
+Dany "Thanks for keeping me company. See you later, maybe?"
+N "Yeah, of course!"
+"..."
 jump dayendings

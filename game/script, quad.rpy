@@ -918,7 +918,7 @@ Bella "Suit yourself!"
 N "Did you just get out of class?"
 Bella "Yup. I forgot to pack myself lunch, so I went straight to the JJ Store."
 show bella concern
-Bella "I’m {i}starving{i/}."
+Bella "I’m {i}starving{/i}."
 menu:
     "Offer to give her something.":
         $ Bella_LP += 1.0
@@ -1015,7 +1015,7 @@ menu:
         N "I’m actually pretty bad at playing any form of card games. I always get dealt a bad hand."
         Bella "Damn- Must be hard to have the odds stacked against you."
         show bella laugh
-        Bella "Is there {i}anything{i/} you’re good at?"
+        Bella "Is there {i}anything{/i} you’re good at?"
         "Now that I think about it, I don’t think I really have any character-defining hobbies..."
         N "Uhhh, I make...really good friends?"
         show bella laugh

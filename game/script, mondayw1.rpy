@@ -14,8 +14,8 @@ with Fade(1.0, 1.0, 1.0)
 
 "I did my morning routine: brushing my teeth, washing my face, did my hair..."
 "I'm so excited what might happen today!"
-play audio "audio/door_open.wav"
-play audio "audio/door_close.wav"
+play audio "audio/door open.mp3"
+play audio "audio/door close.mp3"
 "I exited the dorms, and made my way to the parking lot where I supposed to meet up with Mio."
 show parking lot with Fade(2.0,0,2.0)
 play music "audio/Casual.mp3" fadein 10.0
@@ -24,7 +24,7 @@ play music "audio/Casual.mp3" fadein 10.0
 "It's 9:50AM."
 "Maybe he's running a bit late. I'll just wait around for him."
 
-play audio "audio/car_arrive_stop.wav"
+play audio "audio/Car zoomin by.mp3"
 "Close by, a car screeched into a parking space."
 "Wow! It's so glossy-looking..."
 "And a Mercedes? S-Class? I didn't realize people enjoyed their wealth on their sleeve, not that it's up to me to decide."

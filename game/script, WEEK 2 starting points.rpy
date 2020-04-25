@@ -114,13 +114,13 @@ show mio laugh
 Mio "Good luck this week!"
 N "Ahah, thanks!"
 hide mio laugh with dissolve
-play sound door_close
 "Alright, let's get ready and get going as soon as we can..."
+play sound "audio/door close.mp3"
 
 show outdoor hall with Fade(1.0,0,2.0)
 #show screen ap_screen
 "{b}Activity points are now functional.{/b}"
-"{b}Current available routes: Bella, Mercie, Ryver, Berkly, Dany.{b/}"
+"{b}Current available routes: Bella, Mercie, Ryver, Berkly, Dany.{/b}"
 #"{b}Keep in mind that your points will vary day to day.{/b}"
 
 "I'm done with classes, but walking back seems so far..."
@@ -184,7 +184,7 @@ jump menu_areas
 
 label End_Tuesday:
 "Well, I should get going."
-show dorm night with Fade(1.0, 0, 1.0)
+scene dorm night with Fade(1.0, 0, 1.0)
 "Ah, what an eventful day."
 "I should really get some sleep..."
 jump Wednesday_Two
@@ -220,7 +220,7 @@ else:
 
 label End_Wednesday:
 "Well, I should get going."
-show dorm night with Fade(1.0,0,2.0)
+scene dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep though..."
 jump Thursday_Two
@@ -261,10 +261,10 @@ jump menu_areas
 #        "No":
 label End_Thursday:
 "Well, I should get going."
-show dorm night with Fade(1.0,0,2.0)
+scene dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
-scene dorm inside with Fade(2.0,0,2.0)
+scene dorm morning with Fade(2.0,0,2.0)
 "Sunlight streamed into my room as I groggily turned off my alarm."
 "Finally..."
 "It's the end of the week."
