@@ -277,6 +277,7 @@ stop music fadeout 3.0
 "Ryver is laying on the lawn in the Quad."
 "She has earphones in and her eyes are closed. It looks like she’s relaxing or taking a nap."
 menu:
+    "Approach Ryver?"
     "Yes":
         jump e_Ryver_3_A
     "No":
@@ -589,7 +590,7 @@ menu:
         play sound "audio/good choice.mp3"
         Ryver "That’s what I was thinking!"
         Ryver "Some people believe cloud formations are omens."
-        Ryver "{i}I wonder if that heart means anything?{i/}"
+        Ryver "{i}I wonder if that heart means anything?{/i}"
         "We lie in silence for a little longer."
         "After a while, her hand brushes against mine."
         show ryver neutral blushing
@@ -958,7 +959,7 @@ menu:
         Mercie "Cool!"
         hide mercie laugh with dissolve
         "We ended up walking around the Quad aimlessly and complained about our classes..."
-        scene Quad with Fade (2.0,0,2.0)
+        scene qquad with Fade (2.0,0,2.0)
         show mercie laugh with dissolve
         "It sounds like she's really into plants and wildlife. It's the total opposite of what I expected...but also somehow not surprising."
         "Eventually, we got tired and decided to sit down."
@@ -1337,6 +1338,7 @@ menu:
 label bella3:
 play music "audio/outdoors.mp3"
 N "Skipping out on lunch today?"
+show bella neutral with dissolve
 Bella "Haha, hey. I didn’t have class, so I ate a little earlier. Why? You hungry?"
 N "Err, no. Not particularly."
 "Bella stares at me a little too intensely."
