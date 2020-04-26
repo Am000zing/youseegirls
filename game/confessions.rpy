@@ -25,21 +25,21 @@ scene Romance hall with Fade(2.0,0,2.0)
 if e_Mercie == 4:
     jump e_Mercie_CSF
 elif e_Ryver == 4:
-    jump e_Ryver_CSF
+    jump Credits
 elif e_Berkly == 4:
     jump e_Berkly_CSF
 elif e_Bella == 4:
     jump e_Bella_CSF
 elif e_Dany == 4:
-    jump e_Dany_CSF
-elif e_Christine == 4:
-    jump e_Christine_CSF
-elif e_Lola == 4:
-    jump e_Lola_CSF
-elif e_Diana == 4:
-    jump e_Diana_CSF
-elif e_Irene == 4:
-    jump e_Irene_CSF
+    jump Credits
+#elif e_Christine == 4:
+#    jump e_Christine_CSF
+#elif e_Lola == 4:
+#    jump e_Lola_CSF
+#elif e_Diana == 4:
+#    jump e_Diana_CSF
+#elif e_Irene == 4:
+#    jump e_Irene_CSF
 else:
     jump e_Mio
 

@@ -230,6 +230,7 @@ jump Thursday_Two
 
 label Thursday_Two:
 $ AP = 1
+show screen AP_overlay(AP)
 $ ED = 3
 $ ryver_encounter = False
 $ bella_encounter = False
@@ -276,7 +277,7 @@ scene outdoor hall with Fade(2.0,0,2.0)
 
 scene romance hall with Fade(2.0,0,2.0)
 "It's quite lovely outside at this time of day."
-play music "audio/onfession.mp3" fadein 15.0
+play music "audio/confession.mp3" fadein 15.0
 "UCJJ has been really fun so far."
 "Maybe I'll just stay here."
 "From behind me, I hear someone-"
