@@ -12,7 +12,7 @@ Mio "zzz..."
 jump Friday_One_AfterClass
 
 label Friday_One:
-show dorm morning with Fade(1.0,0,1.0)
+scene dorm morning with Fade(1.0,0,1.0)
 "I wake up early, somewhat tired from the first day of class yesterday."
 "It wasn't too bad at least. The jet lag is wearing off, and my sleep schedule has improved greatly."
 "It's time to get to class though!"
@@ -20,6 +20,7 @@ show dorm morning with Fade(1.0,0,1.0)
 jump Friday_One_AfterClass
 
 label Friday_One_AfterClass:
+scene dorm afternoon with Fade(1.0,0,1.0)
 "After class, I walked back my dorm wearily."
 "Ah, this week has been quite the ride. I've met so many people, and all this social interaction has really tired me out."
 "What should I do now?"

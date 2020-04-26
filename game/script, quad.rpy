@@ -5,6 +5,7 @@ label quad_encounters:
 label e_Ryver_1:
 $ ryver_encounter = True
 #Ryver is outside in the Quad.
+stop music fadeout 3.0
 "She’s sitting on the lawn with two library books lying open in front of her, scribbling in a notebook on her lap."
 menu:
     "Approach Ryver?"
@@ -17,6 +18,7 @@ menu:
 #(A.)
 label e_Ryver_1_A:
 $ Ryver_LP += 1.0
+play music "audio/outdoors.mp3" fadein 15.0
 "As I walk closer, Ryver notices me approaching and looks up from her writing."
 show ryver laughing with dissolve
 Ryver "Hi, [name]! What’s up?"
@@ -103,6 +105,7 @@ label e_Ryver_1_A_End:
 show ryver neutral
 Ryver "Anyways, I have to run to a meeting now. It was nice seeing you!"
 N "See you later!"
+stop music fadeout 3.0
 "Ryver waves enthusiastically as she leaves."
 hide ryver neutral with dissolve
 if AP == 0:
@@ -115,6 +118,7 @@ else:
 #RYVER ENCOUNTER TWO
 label e_Ryver_2:
 $ ryver_encounter = True
+stop music fadeout 3.0
 "Ryver is talking with a group of people in the Quad. I hear them saying goodbyes as they start to disperse."
 menu:
     "Approach Ryver?"
@@ -127,6 +131,7 @@ menu:
 #(A.)
 label e_Ryver_2_A:
 $ Ryver_LP += 1.0
+play music "audio/outdoors.mp3" fadein 15.0
 N "Hey Ryver!"
 show ryver laughing with dissolve
 Ryver "Oh, hey, [name]!"
@@ -162,13 +167,16 @@ Ryver "Haha, no. I’m just an ally."
 menu:
     "So, you still like guys?":
         $ Ryver_LP -= 1.0
+        play sound "audio/bad choice.mp3"
         show ryver annoyed blushing
+        stop music fadeout 3.0
         Ryver "Yeah. Well, actually, if I’m being honest, I’m bi. I just think that everyone deserves a chance, you know?"
         #Relationship Result: 1.0
         jump e_Ryver_2_End
     "That’s really cool.":
         $ Ryver_LP += 0.5
         show ryver neutral blushing
+        stop music fadeout 3.0
         Ryver "Yeah, it’s nice to be able to support others."
         #Relationship Result: 2.5
         jump e_Ryver_2_End
@@ -184,12 +192,15 @@ menu:
         show ryver laughing
         Ryver "Yeah. It is. You should join!"
         N "I’ll think about it, for sure."
+        stop music fadeout 3.0
         #Relationship Result: 2.5
         jump e_Ryver_2_End
     "Sounds like I should join.":
         $ Ryver_LP += 1.0
+        play sound "audio/good choice.mp3"
         show ryver laughing
         Ryver "You totally should! It’ll be extra exciting with you there. The more the merrier!"
+        stop music fadeout 3.0
         #Relationship Result: 3.0
         jump e_Ryver_2_End
 
@@ -204,20 +215,24 @@ menu:
         show ryver neutral
         Ryver "Done! I submitted it already."
         Ryver "Too bad early turn-in extra credit isn’t a thing in college, otherwise I might actually get a good grade on that paper, ha."
+        stop music fadeout 3.0
         #Relationship Result: 2.0
         jump e_Ryver_2_End
     "Where are you going?":
         $ Ryver_LP -= 1.0
+        play sound "audio/bad choice.mp3"
         show ryver annoyed
         Ryver "Nosy much?"
         show ryver neutral
         Ryver "We’re just gonna chill a friend’s house, that’s all."
+        stop music fadeout 3.0
         #Relationship Result: 0.5
         jump e_Ryver_2_End
 
 #["How was it?"]
 label e_Ryver_2_A3:
 $ Ryver_LP += 1.0
+play sound "audio/good choice.mp3"
 show ryver neutral
 Ryver "It was good! A lot of people came. It’s nice to see everyone finding a place where they feel welcomed."
 menu:
@@ -226,12 +241,15 @@ menu:
         show ryver laughing
         Ryver "Yeah. It is. You should join!"
         N "I’ll think about it, for sure."
+        stop music fadeout 3.0
         #Relationship Result: 2.5
         jump e_Ryver_2_End
     "Sounds like I should join.":
         $ Ryver_LP += 1.0
+        play sound "audio/good choice.mp3"
         show ryver laughing
         Ryver "You totally should! It’ll be extra exciting with you there. The more the merrier!"
+        stop music fadeout 3.0
         #Relationship Result: 3.0
         jump e_Ryver_2_End
 
@@ -255,6 +273,7 @@ else:
 #RYVER ENCOUNTER THREE
 label e_Ryver_3:
 $ ryver_encounter = True
+stop music fadeout 3.0
 "Ryver is laying on the lawn in the Quad."
 "She has earphones in and her eyes are closed. It looks like she’s relaxing or taking a nap."
 menu:
@@ -265,6 +284,7 @@ menu:
         jump quad_people
 label e_Ryver_3_A:
 "As I come closer, I hear music faintly blaring from her earphones. She couldn’t be asleep with the volume that loud, could she?"
+play music "audio/outdoors.mp3" fadein 10.0
 N "Hey, Ryver?"
 "She doesn’t respond. Maybe a little louder…"
 N "Ryver!"
@@ -283,6 +303,7 @@ label e_Ryver_3_A1:
 "She sits up suddenly and tries to yank the earphone from my hand."
 show ryver annoyed with dissolve
 $ Ryver_LP -= 1.0
+play sound "audio/bad choice.mp3"
 Ryver "Hey! That’s not cool, bro."
 menu:
     "Apologize.":
@@ -295,11 +316,13 @@ label e_Ryver_3_A1a:
 N "I’m sorry. I only wanted to get your attention."
 show ryver neutral
 $ Ryver_LP += 1.0
+play sound "audio/good choice.mp3"
 Ryver "Oh, that’s alright. Sorry for snapping."
 N "You’re fine."
 menu:
     "What're you listening to?":
         $ Ryver_LP += 1.0
+        play sound "audio/good choice.mp3"
         Ryver "This cool EDM artist, Skill-Rex. I listen to them a lot, especially at, uh, parties."
         Ryver "I just went to one last night, so I’m trying to catch up on sleep out here between classes."
         show ryver concerned
@@ -436,6 +459,7 @@ menu:
         Ryver "Woah, [name]! That’s cool stuff."
         show ryver neutral blushing
         Ryver "Alright, maybe we can vibe. I’ll think about it."
+        show ryver neutral
         Ryver "But I’m all partied out for now and need a big nap. I’ll be down to talk to you tomorrow, ‘kay?"
         jump e_Ryver_3_end
         #Relationship Result: 3.0
@@ -444,31 +468,315 @@ label e_Ryver_3_A32:
 menu:
     "Is everything alright?":
         $ Ryver_LP += 1.0
+        play sound "audio/good sound.mp3"
+        show ryver 
         Ryver "Oh, yeah, totally. Nothing bad happened; don’t worry."
         Ryver "It’s just that I may have partied a little too hard last night and my head still hurts."
         N "Do you need anything?"
+        show ryver neutral
         Ryver "No, I think I just need to rest up. Thanks for asking, though."
         jump e_Ryver_3_end
         #Relationship Result: 1.0
     "More schoolwork?":
         $ Ryver_LP += 0.5
+        show ryver concerned
         Ryver "No..."
         N "No more ethnic studies papers?"
+        show ryver neutral
         Ryver "Not yet, but that one paper I worked on earlier was so that I could go to a party last night."
         N "A party? Oh, cool."
         Ryver "Yep. Maybe if you’re free next time we can go together."
         show ryver concerned
         Ryver "Ooh... My head is still kind of pounding. I should lay back down..."
+        show ryver neutral
         jump e_Ryver_3_end
         #Relationship Result: 0.5
 
 ######
 label e_Ryver_3_end:
 N "I see. I guess I’ll leave you to your nap, then. See you tomorrow?"
+stop music fadeout 5.0
+hide ryver neutral with dissolve
 "Ryver waves her hand in a silent goodbye as she lays back down, music loud in her ears."
 "Almost instantly she’s out."
 "I think I just heard her snort! It’s kind of endearing..."
 "Argh, I should stop being such a creeper, watching her sleep."
+if AP == 0:
+    jump dayendings
+else:
+    jump menu_areas
+
+###################################################
+#RYVER ENCOUNTERS
+#RYVER ENCOUNTER FOUR
+label e_Ryver_4:
+$ ryver_encounter = True
+stop music fadeout 3.0
+"Ryver is laying on her back on the grass in the Quad."
+"She’s awake this time, watching the cumulus clouds drift in the sky."
+menu:
+    "Approach Ryver?"
+    "Yes":
+        play music "audio/outdoors.mp3" fadein 10.0
+        jump e_ryver4
+    "No":
+        "I just don’t feel like talking to Ryver right now. Besides, she’s probably tired of seeing me all week."
+        jump dayendings
+
+label e_ryver4:
+$ Ryver_LP += 1.0
+play sound "audio/good choice.mp3"
+"I take a few steps towards her and she notices me right away."
+"Was she expecting me?"
+show ryver neutral
+Ryver "Hi, [name]!"
+"She pats the grass next to her."
+Ryver "Lie down with me?"
+menu:
+    "Sure":
+        $ Ryver_LP += 1.0
+        play sound "audio/good choice.mp3"
+        jump e_ryver4a
+    "I'd rather not.":
+        $ Ryver_LP -= 1.0
+        play sound "audio/bad choice.mp3"
+        jump e_ryver4b
+    "Why?":
+        jump e_ryver4c
+
+label e_ryver4a:
+N "The grass looks almost soft."
+show ryver laughing
+Ryver "Right? It’s really comfy. That’s why you always find me chilling out here."
+show ryver neutral
+"I stretch out on my back next to Ryver."
+"The grass feels cool against my skin and smells clean and fresh."
+"As I take a deep breath, I catch a whiff of something citrusy...oranges?"
+"This is the first time I’ve been this close to Ryver, enough to smell her perfume."
+menu:
+    "Now what?":
+        jump e_ryver4a1
+    "You smell nice.":
+        $ Ryver_LP -= 1.0
+        play sound "audio/bad choice.mp3"
+        jump e_ryver4a2
+
+label e_ryver4a1:
+Ryver "Now we cloud-gaze. It's a beautiful day and the clouds are big and fluffy."
+N "Yep, certainly beautiful."
+"For a few minutes, we are relaxing in a peaceful quiet, gazing up at the sky."
+"I feel so comfortable in this moment."
+show ryver laughing
+Ryver "Hey! That one-"
+"She pointed up at a particular cloud."
+show ryver neutral
+Ryver "What does that look like to you?"
+N "That one looks like..."
+menu:
+    "A fluffy bear!":
+        $ Ryver_LP += 0.5
+        Ryver "Oh yeah, it does look like a bear if it were on it’s back."
+        Ryver "I was thinking it kinda looked like a heart."
+        Ryver "But bears are cool too! They’re actually my favorite animal."
+        show ryver laughing
+        Ryver "They’re strong and fierce...{i}grahhh{i/}!"
+        "She growls intimidatingly with her hands as claws."
+        show ryver laughing blushing
+        Ryver "But also cute and cuddly!"
+        #Relationship Result: 2.5
+    "A lovely heart!":
+        $ Ryver_LP += 1.0
+        play sound "audio/good choice.mp3"
+        Ryver "That’s what I was thinking!"
+        Ryver "Some people believe cloud formations are omens."
+        Ryver "{i}I wonder if that heart means anything?{i/}"
+        "We lie in silence for a little longer."
+        "After a while, her hand brushes against mine."
+        show ryver neutral blushing
+        Ryver "Oops! Sorry."
+        N "I-It’s no big deal."
+        #Relationship Result: 3.0
+
+label e_ryver4a2:
+$ Ryver_LP -= 1.0
+play sound "audio/bad choice.mp3"
+show ryver annoyed
+Ryver "What?"
+N "You smell nice, like oranges."
+Ryver "Oh, uh, thanks."
+"Ryver subtly shifts away from me."
+"Awkward. I guess she didn’t like the compliment."
+menu:
+    "So...":
+        $ Ryver_LP -= 1.0
+        play sound "audio/bad choice.mp3"
+        Ryver "So...wanna cloud-gaze with me?"
+        N "Sure."
+        Ryver "It’s nice weather we’re having."
+        N "Yep, very nice."
+        "For a few minutes, we relax quietly, staring up at the sky."
+        "The silence is a bit uncomfortable..."
+        #Relationship result: -1.0
+    "Why oranges?":
+        $ Ryver_LP += 0.5
+        Ryver "It reminds me of home. There were a lot of citrus groves near where I lived."
+        N "Do you miss home?"
+        Ryver "Not too much, only because I have made such good friends here that UCJJ’s almost like a second home to me now."
+        N "Am I one of those friends?"
+        show ryver neutral blushing
+        Ryver "Maybe!"
+        #Relationship Result: 0.5
+
+label e_ryver4b:
+Ryver "Oh... well, that’s okay."
+"I squat down next to Ryver, making sure not to touch the grass."
+"Ryver sits up."
+N "You don't have to..."
+Ryver "Nah, it’s alright."
+menu:
+    "So, now what?":
+        jump e_ryver4b1
+    "Nice weather.":
+        jump e_ryver4b2
+
+label e_ryver4b1:
+$ Ryver_LP += 0.5
+show ryver concerned
+Ryver "So... wanna cloud-gaze with me?"
+N "Sure."
+show ryver neutral
+Ryver "The clouds are big and fluffy today."
+N "Yeah, they look nice."
+"For a few minutes, we relax quietly, staring up at the sky."
+Ryver "Hey! That one-"
+"Ryver pointed up at a particular cloud."
+Ryver "What does that look like to you?"
+menu:
+    "A fluffy bear!":
+        $ Ryver_LP += 0.5
+        Ryver "Oh yeah, it does look like a bear if it were on it’s back."
+        Ryver "I was thinking it kinda looked like a heart."
+        Ryver "But bears are cool too! They’re actually my favorite animal."
+        show ryver laughing
+        Ryver "They’re strong and fierce...{i}grahhh{i/}!"
+        "She growls intimidatingly with her hands as claws."
+        show ryver laughing blushing
+        Ryver "But also cute and cuddly!"
+        hide ryver laughing blushing with dissolve
+        jump e_ryver4end
+    "A lovely heart!":
+        $ Ryver_LP += 1.0
+        play sound "audio/good choice.mp3"
+        Ryver "That’s what I was thinking!"
+        Ryver "Some people believe cloud formations are omens."
+        Ryver "{i}I wonder if that heart means anything?{i/}"
+        "We lie in silence for a little longer."
+        "After a while, her hand brushes against mine."
+        show ryver neutral blushing
+        Ryver "Oops! Sorry."
+        N "I-It’s no big deal."
+        hide ryver neutral blushing with dissolve
+        jump e_ryver4end
+
+label e_ryver4b2:
+show ryver laughing
+Ryver "It is! The UCJJ campus is really beautiful too. How are you liking it here?"
+N "It’s great, honestly. Classes are, well, you know. But I’ve been having a lot of fun getting to know the other students...like you!"
+Ryver "Aw, thanks! I like you too."
+menu:
+    "You like me?":
+        $ Ryver_LP += 1.0
+        play sound "audio/good choice.mp3"
+        show ryver concerned blushing
+        Ryver "Uh- well- yes! Who doesn’t!"
+        hide ryver concerned blushing
+        "We sit and talk for a long while, but it only feels like minutes."
+        jump e_ryver4end
+    "Check out that cool cloud!":
+        $ Ryver_LP += 0.5
+        N "Hey, check out that cloud! It looks like..."
+        show ryver laughing
+        Ryver "A heart! Aw, how cute."
+        "She points at a different cloud."
+        show ryver neutral
+        Ryver "-And that one kind of looks like a poodle."
+        N "No way! It does not!"
+        hide ryver neutral with dissolve
+        "We joke and laugh the day away."
+        jump e_ryver4end
+
+label e_ryver4c:
+show ryver concerned
+Ryver "Why?"
+Ryver "I thought you wanted to hang out with me."
+menu:
+    "You're not upset?":
+        jump e_ryver4c1    
+    "Of course I do!":
+        jump e_ryver4c2
+
+label e_ryver4c1:
+show ryver neutral
+Ryver "Upset with you? Of course not!"
+Ryver "I’m not one to hold grudges."
+show ryver annoyed
+Ryver "Unless you’ve really made me mad...then you’ll know!"
+menu:
+    "What's something that'd make you mad?":
+        show ryver neutral
+        $ Ryver_LP += 0.5
+        Ryver "People taking advantage of each other. Like racial discrimination, or toxic relationships, or even students that cheat. It’s just horrible."
+        N "You’re really passionate about human rights. I admire that."
+        Ryver "Thanks. If only everyone could, then we wouldn’t have a problem."
+        hide ryver neutral
+        jump e_ryver4end
+    "Phew! Guess I'm lucky.":
+        $ Ryver_LP += 0.5
+        show ryver laughing
+        Ryver "Fortunately! Otherwise you’d get some of this!"
+        "She punches me playfully in the shoulder."
+        hide ryver laughing with dissolve
+        "We joke and laugh with each other during the time we had."
+        #Relationship Result: 1.0
+        jump e_ryver4end
+
+label e_ryver4c2:
+$ Ryver_LP += 0.5
+show ryver neutral
+Ryver "Oh, that’s good. Got me worried for a second."
+N "Don’t worry about that! I’m a good friend, I promise."
+N "I just wanted to know what we were doing is all."
+Ryver "Well, what do you want to do?"
+menu:
+    "Whatever you want.":
+        $ Ryver_LP += 0.5
+        Ryver "Wanna cloud-gaze with me?"
+        N "Sure."
+        #Ryver plays some chill lo-fi music from her phone speaker.
+        Ryver "The sky is pretty today."
+        N "It’s nice out too. Not too hot."
+        hide ryver neutral with dissolve
+        "We relax quietly, staring up at the sky."
+        "Every so often we point out a funny-looking cloud and laugh about it."
+        #Relationship Result: 1.5
+        jump e_ryver4end
+    "Let's just talk.":
+        $ Ryver_LP += 0.5
+        Ryver "Sure. What’d you want to talk about?"
+        N "How’s school going for you? Have you met any other people?"
+        show ryver laughing
+        Ryver "School’s good. I feel really passionate about learning."
+        show ryver neutral
+        Ryver "Some of friends I have here are Bella and Mercie. They’re cool. Maybe you’ve met them."
+        N "Yeah, I've bumped into them."
+        hide ryver neutral with dissolve
+        "We chat about whatever we can think of. I think we learn a lot about each other."
+        #Relationship Result: 1.5
+        jump e_ryver4end
+
+label e_ryver4end:
+stop music fadeout 3.0
+"After hours of fascinating conversation fly by, we both say goodbye and go our separate ways."
 if AP == 0:
     jump dayendings
 else:
@@ -484,6 +792,7 @@ else:
 #MERCIE ENCOUNTER ONE
 label e_Mercie_1:
 $ mercie_encounter = True
+stop music fadeout 5.0
 "Mercie is sitting alone at a table, aimlessly staring at her phone. She doesn't look very busy. If anything, she looks bored."
 menu:
     "Approach Mercie?"
@@ -518,6 +827,7 @@ N "Okay! It was nice talking to you."
 show mercie concern
 Mercie "Yeah! I'll...see you later?"
 show mercie happy
+stop music fadeout 5.0
 N "Yeah, see you!"
 "She scurries away, a bounce in her step."
 hide mercie happy with dissolve
@@ -530,6 +840,7 @@ else:
 #MERCIE ENCOUNTER TWO
 label e_Mercie_2:
 $ mercie_encounter = True
+stop music fadeout 3.0
 "She's sitting alone, this time twiddling her thumbs, almost as if she's expecting someone."
 menu:
     "Approach Mercie?"
@@ -541,12 +852,14 @@ menu:
 
 label e_Mercie_2_A:
 N "Hey, Mercie!"
-show mercie happy
+show mercie happy with dissolve
+play music "audio/outdoors.mp3" fadein 10.0
 Mercie "Hey, [name]! Come here, I saved you a seat!"
 "As I made my way over, I noticed she had notes out on her lap. Is she studying?"
 menu:
     "Observe her work.":
         $ Mercie_LP += 1.0
+        play sound "audio/good choice.mp3"
         "I point to her lap."
         N "Is this for a class?"
         show mercie neutral
@@ -568,11 +881,13 @@ menu:
         show mercie concern
         Mercie "R-Really? You don't have to."
 
+show mercie concern
 Mercie "Wait- I just remembered."
 Mercie "I-I have a meeting in five minutes!"
 Mercie "{i}Ugh, why am I always so forgetful!{/i}"
 N "O-Oh, okay! Good luck!"
 show mercie neutral
+stop music fadeout 5.0
 Mercie "Thanks! See ya!"
 N "See you later too..."
 hide mercie neutral with dissolve
@@ -590,34 +905,46 @@ if Mercie_LP == 2:
 else: 
     jump e_Mercie_3_start
 
+
 label e_Mercie_3_alt:
 $ mercie_encounter = True
+stop music fadeout 3.0
 "I feel someone poke my arm."
+show mercie neutral with dissolve
 Mercie "Hey, are you busy? If not, do you want to chat for a bit?"
 menu:
     "Chat with Mercie?"
     "Yes":
         N "Yeah, I've got time to spare."
+        hide mercie neutral with dissolve
         "We ended up walking around the Quad aimlessly and complained about our classes..."
-        scene Quad with Fade (2.0,0,2.0)
+        play music "audio/outdoors.mp3" fadein 10.0
+        scene qquad with Fade (2.0,0,2.0)
         "It sounds like she's really into plants and wildlife. It's the total opposite of what I expected...but also somehow not surprising."
         "Eventually, we got tired and decided to sit down."
         jump e_Mercie_3_A
     "No":
         $ Mercie_LP -= 1.0
+        play sound "audio/bad choice.mp3"
         N "Sorry, not now."
         Mercie "Oh, um, okay. I'll see you around then."
         "She seems disappointed."
-        jump menu_areas
+        hide mercie neutral with dissolve
+        if AP == 0:
+            jump dayendings
+        else:
+            jump menu_areas
 
 label e_Mercie_3_start:
 $ mercie_encounter = True
+stop music fadeout 3.0
 "She's leaning against a wall, toeing the ground aimlessly."
 "She looks like she's expecting someone."
 menu:
     "Approach Mercie?"
     "Yes":
         N "Hey, Mercie."
+        play music "audio/outdoors.mp3" fadein 10.0
         show mercie happy with dissolve
         Mercie "Hi, [name]!! How has your day been?"
         N "It's been good. You seem excited."
@@ -644,11 +971,13 @@ menu:
     "Where should we sit?"
     "On the grass.":
         $ Mercie_LP += 2.0
+        play sound "audio/good choice.mp3"
         show mercie neutral
         N "You don't mind sitting on the grass, right?"
         Mercie "Not at all! I love the smell of fresh-cut grass!"
     "At a table.":
         $ Mercie_LP += 1.0
+        play sound "audio/good choice.mp3"
         show mercie neutral
         N "Let's go find a table."
         Mercie "Let's just hope it's clean, haha."
@@ -669,6 +998,7 @@ menu:
         Mercie "It's not exactly like that. Just kind of have a lot of cows."
     "God, I can't wait either.":
         $ Mercie_LP += 1.0
+        play sound "audio/good choice.mp3"
         show mercie neutral
         Mercie "Dude, you JUST started. Haha."
         N "I mean- I could always catch up on some games I bought."
@@ -688,6 +1018,7 @@ menu:
         Mercie "It's reaaally boring... But you know, it's home."
     "I'm sure you'll have fun!":
         $ Mercie_LP += 1.0
+        play sound "audio/good choice.mp3"
         N "Plus, you have a lot of cool friends to hang out with!"
         show mercie neutral
         Mercie "I guess you're right. I just wished I didn't live so far away from everything."
@@ -700,8 +1031,8 @@ menu:
         Mercie "Thanks. I appreciate it."
 
 show mercie neutral
+play sound "audio/Phone Ring.mp3"
 "My phone rings."
-##Ring Ring
 "Oh, this phone call looks important."
 N "O-Oh, sorry, Mercie. I really have to take this."
 Mercie "Don't worry about it. I'm just about to run home anyway."
@@ -716,24 +1047,29 @@ else:
 
 #######################################################
 #MERCIE ENCOUNTER FOUR
+label e_Mercie_4:
+$ mercie_encounter = True
+stop music fadeout 3.0
 "Mercie waves at you excitedly, motioning for you to sit with her."
 menu:
     "Sit with her?"
     "Yes":
-        jump e_Mercie_4
+        jump e_Mercie4
     "No":
         $ Mercie_LP -= 3.0
+        play sound "audio/bad choice.mp3"
         "I can't today, Mercie. I'll make it up to you, I promise."
         "Her face falls and I can tell she's really upset."
         Mercie "I-It's okay! I'll see you around!"
         "She scurries away, looking down."
         jump menu_areas
 
-label e_Mercie_4:
+label e_Mercie4:
+play music "audio/outdoors.mp3" fadein 10.0
 N "Hey, Mercie! How are you?"
 show mercie happy with dissolve
 Mercie "Haha, I'm doing gre- "
-$ sshake = Shake((0, 0, 0, 0), 0.5, dist=10)
+define sshake = { "master" : Shake((0, 0, 0, 0), 3.0, dist=15)}
 show mercie concern with sshake
 "Some guys sit down on her end laughs and jostles her backpack."
 "Wow. They're acting like she doesn't even exist."
@@ -741,6 +1077,7 @@ show mercie concern with sshake
 menu:
     "Sit next to her.":
         $ Mercie_LP += 1.0
+        play sound "audio/good choice.mp3"
         "I plop myself in the space between Mercie and the other guys."
         "I lean on the guy next to me and obnoxiously pool my belongings onto him."
         unknown "Ugh!"
@@ -756,6 +1093,7 @@ Mercie "I-I'm sorry it had to come to that. Thanks for helping."
 menu: 
     "Don't feel sorry.":
         $ Mercie_LP += 1.0
+        play osund "audio/good choice.mp3"
         N "That guy was overstepping your boundaries. Someone's got to teach him a lesson eventually."
         Mercie "I guess so. Either way, I'm grateful."
         N "Don't worry about it. What are friends for?"
@@ -774,6 +1112,7 @@ show mercie concern
 menu:
     "I don't see why.":
         $ Mercie_LP += 1.0
+        play sound "audio/good choice.mp3"
         show mercie neutral
         "I can spot you a mile away. They'd have to be blind to not see you. "
         show mercie neutral blush
@@ -788,13 +1127,17 @@ menu:
         Mercie "..."
 show mercie happy blush
 Mercie "T-thanks. I really appreciate it."
+hide mercie happy blush with dissolve
 scene qquad with Fade(1.0,0,2.0)
+stop music fadeout 10.0
 "Ah, it's gotten pretty late. We had an intense conversation about acceptable forms of pizza consumption, and I lost track of time."
+show mercie neutral with dissolve
 Mercie "The next shuttle is leaving in fifteen minutes. I better get going."
 N "No problem! I'll walk you there."
 "We walked over to the shuttle stop."
 Mercie "W-well...I'll catch you later?"
 N "Yeah! Definitely."
+hide mercie neutral with dissolve
 "She waves goodbye as she boards the shuttle."
 if AP == 0:
     jump dayendings
@@ -810,6 +1153,7 @@ else:
 #BELLA ENCOUNTER ONE
 label e_Bella_1:
 $ bella_encounter = True
+stop music fadeout 3.0
 "She has a series of notebooks on the table and her lap. She fans herself while she reads."
 menu:
     "Approach Bella?"
@@ -821,6 +1165,8 @@ menu:
 label e_Bella_A:
 $ Bella_LP += 1.0
 N "Hey! Bella, right?"
+play music "audio/outdoors.mp3" fadein 10.0
+show bella neutral with dissolve
 Bella "Oh, hey. I remember you. [name], right?"
 N "Yeah! That’s me, haha."
 Bella "You still getting out of breath when you run?"
@@ -829,25 +1175,34 @@ menu:
     "Lie to her":
         $ Bella_LP += 0.5
         N "Actually, I’ve been running since last we met."
+        show bella smile
         Bella "Oh really?"
         N "..."
         N "Okay, maybe I’m lying."
+        show bella neutral
         Bella "Don’t feel bad about it. You’re not the first guy to try to impress me through athleticism."
         N "Sorry. You’re really cool. I didn’t want you to think I was like...some kind of dweeb."
+        show bella laugh
         Bella "Haha, too late for that!"
     "Tell the truth":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         N "I’ve been walking around campus a lot, but I don’t exercise as much as I should."
         N "I’ll likely get used to it though. Eventually."
+        show bella laugh
         Bella "Haha, that’s the spirit!"
+        show bella neutral
         Bella "Oh, I’m so sorry. Did you want to sit next to me? I have plenty of room."
         N "O-Oh, thank you!"
         Bella "No problem."
         Bella "Just don’t trip over yourself trying to sit down."
 scene qquad with Fade(2.0,0,2.0)
+show bella neutral
+stop music fadeout 3.0
 Bella "I’ve gotta go now. It takes a bit to return to my place, and I’d rather go now than later."
 N "Okay, see you later then?"
 Bella "Yeah, see you!"
+hide bella neutral with dissolve
 if AP == 0:
     jump dayendings
 else:
@@ -859,6 +1214,7 @@ else:
 #BELLA ENCOUNTER TWO
 label e_Bella_2:
 $ bella_encounter = True
+stop music fadeout 3.0
 "Bella’s sitting on a bench trying to fit a whole bagel into her mouth."
 menu:
     "Approach Bella?"
@@ -869,6 +1225,7 @@ menu:
         jump menu_areas
 
 label e_Bella_2A:
+play music "audio/outdoors.mp3" fadein 10.0
 N "Hey, Bella. What’re you up to?"
 Bella "{i}Whan shum?{/i}"
 "Huh? What was that? I can’t hear her over the bagel."
@@ -879,6 +1236,7 @@ Bella "Urk- Not at all! Want some?"
 menu:
     "Sure!":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         jump e_Bella_2A1
     "Uh, I think I'm good.":
         $ Bella_LP += 0.5
@@ -895,6 +1253,7 @@ N "!!!"
 menu:
     "Let her.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         "I couldn’t look her in the eyes. The napkin glides over my face."
         N "O-Oh, uhhh...Thanks."
         Bella "You’re welcome!"
@@ -912,7 +1271,9 @@ menu:
         N "N-No, you did nothing wrong."
         hide bella neutral blush with dissolve
         jump e_Bella_2end
+
 label e_Bella_2A2:
+show bella neutral
 Bella "Suit yourself!"
 "I sat down next to her as she finished the rest of her bagel."
 N "Did you just get out of class?"
@@ -922,6 +1283,7 @@ Bella "I’m {i}starving{/i}."
 menu:
     "Offer to give her something.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         N "I have a protein bar in my bag, if you'd like."
         show bella smile
         Bella "No, it’s okay! Save it for yourself."
@@ -932,6 +1294,7 @@ menu:
         jump e_Bella_2end
     "Offer to buy her something.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         N "Why don’t we stop by a vending machine? It’s on me."
         Bella "Aw, I’d really appreciate that. But why?"
         N "As a thank you. You know, for when we met. I technically owe you."
@@ -947,6 +1310,7 @@ menu:
 label e_Bella_2end:
 scene qquad with Pause(2.0)
 "After eating, we walked around the quad together for a bit. She eventually had to leave though."
+stop music fadeout 3.0
 show bella neutral with dissolve
 Bella "See you sometime?"
 N "Yeah, see you!"
@@ -961,6 +1325,7 @@ else:
 #BELLA ENCOUNTER THREE
 label e_Bella_3:
 $ bella_encounter = True
+stop music fadeout 3.0
 "Bella is sitting alone, but staring intently at her laptop."
 menu:
     "Approach her?"
@@ -970,7 +1335,7 @@ menu:
         "She’s probably doing an online class or something. I should leave her alone." 
         jump menu_areas
 label bella3:
-$ Bella_LP += 0.5
+play music "audio/outdoors.mp3"
 N "Skipping out on lunch today?"
 Bella "Haha, hey. I didn’t have class, so I ate a little earlier. Why? You hungry?"
 N "Err, no. Not particularly."
@@ -994,6 +1359,7 @@ menu:
         jump bellaUNO
     "Eat it.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         N "I guess a little piece wouldn’t hurt."
         Bella "Hell yeah! Here, I’ll give you the best part."
         "She hands me a square. I reach down to take it, but-"
@@ -1006,6 +1372,7 @@ label bellaUNO:
 menu:
     "Of course.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         N "Of course I have Uno on Xbox. It came free with the console."
         show bella laugh
         Bella "Yeah!"
@@ -1049,16 +1416,21 @@ label bellasammich:
 menu:
     "Open up.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
+        show bella smile
         "My cheeks blaze up into flames and I open up."
         "..."
         "The sandwich is REALLY good, though."
         Bella "It rocks, right? My last class had a party and I have like… a buttload in my bag."
         "She unfastens her duffel bag and reveals a stack of sandwiches."
         N "Can...Can I take some?"
+        show bella neutral
         Bella "No, man! Find your own stash!"
         N "Aw, man. Not even just one?"
+        show bella laugh
         Bella "Okay, okay! Here."
         "She laughs and playfully throws me one."
+        hide bella laugh with dissolve
         jump e_Bella_3end
 
     "Close those chompers.":
@@ -1069,19 +1441,23 @@ menu:
         Bella "Huh?"
         show bella concern blush
         Bella "O-Oh, right." 
+        show bella neutral
         Bella "S-Sorry. I keep forgetting. I have a habit of overstepping people’s personal space."
         N "It’s okay! My mom has done worse things."
         Bella "So, I’m one step away from being your mom?"
         N "T-That’s not what I meant!"
         "Bella laughs and hits my shoulder."
+        hide bella neutral with dissolve
         jump e_Bella_3end
 
 label e_Bella_3end:
 "We spent the rest of our time talking about upcoming game releases. She’s got good taste!"
 show bella neutral with dissolve
+stop music fadeout 3.0
 Bella "Well, I better get going. I have classs soon."
 N "Alright, see you!"
 Bella "Yeah, see you!"
+hide bella neutral with dissolve
 if AP == 0:
     jump dayendings
 else:
@@ -1092,6 +1468,7 @@ else:
 #BELLA ENCOUNTER FOUR
 label e_Bella_4:
 $ bella_encounter = True
+stop music fadeout 3.0
 "She’s zipping up her bag when she notices me."
 Bella "Hey, [name]!"
 "She waves me over. Is she inviting me to walk with her?"
@@ -1108,8 +1485,10 @@ menu:
 
 label e_Bella_4A:
 $ Bella_LP += 0.5
+play music "audio/outdoors.mp3" fadeout 10.0
 "I jog over. As I’m approach...is that chlorine?"
 "Before I can think too much of it, Bella taps my shoulder playfully."
+show bella neutral
 Bella "Fancy seeing you here, [name]. Heading to class?"
 N "No. I’m actually free 'til like...3?"
 Bella "Oh cool. Mind if we sit down for a bit? I wanted to go through my notes."
@@ -1119,79 +1498,101 @@ menu:
     "Where should I sit?"
     "Across from her.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         jump e_Bella4A1
     "Next to her.":
         $ Bella_LP += 0.5
         jump e_Bella4A2
 
 label e_Bella4A1:
+show bella neutral
 "I sit across from her, avoiding her notes. She’s pulling a lot of markers and pens from her bag."
 N "You have a test or something coming up?"
+show bella smile
 Bella "Nah. I like to doll up what I’ve written down, you know? It’s easier to remember."
-"Now that I’m looking at her papers, little flowers are doodled in the corners. "
+show bella neutral
+"Now that I’m looking at her papers, little flowers are doodled in the corners."
 menu:
     "I lean over and draw a..."
     "Cowboy":
         $ Bella_LP += 0.5
         "I draw a cute little mustache and a wide hat, but she isn’t looking up from her notes. "
         show bella neutral
-        show bella smile with dissolve
+        show bella laugh with dissolve
         Bella "Aw! That’s cute!"
+        show bella neutral
         "She reaches over and doodles a bandana over his eyes."
-        "Hm, he has an air of mystery now. I wonder what his backstory would be if we fleshed it out..."
+        hide bella neutral with dissolve
+        #"Hm, he has an air of mystery now. I wonder what his backstory would be if we fleshed it out..."
         jump e_Bella4end
     "Racoon":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
         show bella laugh
         Bella "Haha, how cute! I love raccoons!"
+        show bella neutral
         "I look up from my drawing and she's staring at the doodle."
         N "Are they your favorite animal?"
         Bella "Yeah! They’re such cute little trash babies!"
         "Her face lights up with a smile as she pulls out her phone."
         Bella "I have a bunch of photos of my neighborhood raccoon. Here, I’ll show you."
+        hide bella neutral with dissolve
         jump e_Bella4end
 
 label e_Bella4A2:
 $ Bella_LP += 0.5
+show bella smile
 Bella "Oh, let me move these for you."
-"She reaches over and gathers up her stuff. Pens, highlighters, post-it notes, markers, etc. "
+show bella neutral
+"She reaches over and gathers up her stuff. Pens, highlighters, post-it notes, markers, etc."
 N "That’s a lot of uhh, pens you got there."
+show bella smile
 Bella "Nice deduction there, Sherlock. I just like making my notes pretty, you know?"
 N "Can I look?"
+show bella laugh
 Bella "Sure, go for it!"
+show bella neutral
 "I glance down at her notes and-"
 "Whoa. There’s that chlorine smell again."
 menu:
     "Maybe I should ask about her..."
     "Wet hair.":
         $ Bella_LP += 1.0
+        play sound "audio/good choice.mp3"
+        show bella concern
         N "Did you go to the gym this morning?"
         Bella "Huh? Why?"
         N "Well, your hair is still wet. And you look a bit flushed."
+        show bella smile
         Bella "Oh! I was just at the pool. I wanted to swim for a bit. "
         "There’s a pool here?"
+        show bella neutral
         Bella "Do you know how to swim?"
         N "Errr, I can, but nothing amazing.”"
+        show bella smile
         Bella "Maybe I can take you there some time. Show you around some more?”"
         N "Yeah, I wouldn't mind that."
+        hide bella smile with dissolve
     "Smell":
         $ Bella_LP -= 1.0
+        play sound "audio/bad choice.mp3"
         N "Did you buy a new perfume?"
         show bella concern
         Bella "A new what?"
         N "O-Oh, it’s just- Before, you had vanilla and now you smell...pool-y."
-        show bella annoyed
+        show bella annoyed blush
         Bella "You’ve...smelled me before?"
         "Oh. That doesn’t sound right out loud. "
         N "I-I mean, I don’t smell you intentionally. It just wafts around!"
         show bella annoyed
         Bella "Yeah, right..."
-        "Damn- I’m never going to live this down, huh."
+        hide bella annoyed with dissolve
+        #"Damn- I’m never going to live this down, huh."
 
 label e_Bella4end:
 "We spend the rest of the evening talking about upcoming classes."
 "Before heading home, Bella asked if I knew what the flying spaghetti mosnter was."
-"I had no idea how to respond."
+"I had {i}no{i/} idea how to respond."
 if AP == 0:
     jump dayendings
 else:

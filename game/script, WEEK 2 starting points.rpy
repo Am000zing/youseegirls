@@ -1,5 +1,6 @@
 define ED = 0
-label Monday_Two: 
+label Monday_Two:
+scene dorm morning with Fade(2.0,1.0,2.0)
 $ AP = 3
 "Ugh...it's Monday."
 "Sluggishly, I get up out of bed."
@@ -9,9 +10,10 @@ $ AP = 3
 "Strange. I wonder who’s knocking on the door?"
 Mio "Open up [name], I’ve got an important announcement for you!"
 N "Alright, alright."
-play sound "audio/door open.mp3"
+play sound "audio/door open.mp3" fadein 8.0
 scene dorm morning with dissolve
 show mio laugh with dissolve
+play music "audio/Maintheme.mp3" fadein 20.0
 Mio "Thanks for letting me in. Check this out!"
 "In shining letters on the screen of his phone was the title {b}UC Girls{/b}."
 show mio neutral
@@ -28,15 +30,20 @@ hide mio neutral
 
 menu:
     "Activate NPC Mio? {fast}"
-    "Yes":
+    "Yes.":
+        show mio laugh
+        Mio "Alright!"
         jump Mio_AP_NPC_yes
-    "No":
-        jump Mio_AP_NPC_no
+    "Yes!":
+        show mio laugh
+        Mio "Cool!"
+        jump Mio_AP_NPC_yes
 
 #(Yes)
 label Mio_AP_NPC_yes:
 # show Mio at left with move
 # show AP tutorial slide 1 at right with dissolve
+show mio neutral
 NPCM "There is a system in the game called “Activity Points.” Activity Points will be referred to as AP."
 NPCM "You have a set amount of AP per day, but there might be instances where you might have more or less."
 NPCM "It really depends on how you, our protagonist, is feeling for the day."
@@ -44,10 +51,12 @@ NPCM "AP is only impacted when you decide to talk to someone. Going to an area w
 NPCM "You are not required to use up all of your AP for the day. You can end the day without using up all your AP."
 NPCM "Each day you decide to talk to the same person will help your bond progress."
 #show NPCM_tease
+show mio teasing
 NPCM "Maybe you'll even get a lucky surprise."
+show mio neutral
 Mio "If you ever need a refresher on anything, you can go into your agenda and check your notes!"
 N "Cool, I'll keep it in mind."
-jump after_Mio_LP
+show mio neutral
 #NPCM "Would you like me to explain the Love Point system?"
 #"Would you like to know about the Love Point System?"
 #menu:
@@ -57,18 +66,18 @@ jump after_Mio_LP
 #        jump Mio_LP_no
 
 #(No)
-label Mio_AP_NPC_no:
+#label Mio_AP_NPC_no:
 # show Mio at left with move
 # show AP tutorial slide 1 at right with dissolve
-show mio neutral
-Mio "So in the game UC Girls, there’s a system called “Activity Points.” Activity Points is referred to as AP."
-Mio "You have a set amount of AP per day, but there might be instances where you might have more or less."
-Mio "It really depends on how you’re feeling for the day."
-Mio "AP is only impacted when you decide to talk to someone. Going to an area will {b}not{/b} change how much AP you have."
-Mio "You are not required to use up all of your AP for the day. You can end the day without using up all your AP."
-Mio "Each day you decide to talk to the same person will help your bond progress."
-show mio teasing
-Mio "Maybe you'll even get a lucky surprise."
+#show mio neutral
+#Mio "So in the game UC Girls, there’s a system called “Activity Points.” Activity Points is referred to as AP."
+#Mio "You have a set amount of AP per day, but there might be instances where you might have more or less."
+#Mio "It really depends on how you’re feeling for the day."
+#Mio "AP is only impacted when you decide to talk to someone. Going to an area will {b}not{/b} change how much AP you have."
+#Mio "You are not required to use up all of your AP for the day. You can end the day without using up all your AP."
+#Mio "Each day you decide to talk to the same person will help your bond progress."
+#show mio teasing
+#Mio "Maybe you'll even get a lucky surprise."
 #Mio "Would you like me to explain the Love Point system?"
 #"Would you like to know about the Love Point System?"
 #menu:
@@ -101,10 +110,10 @@ Mio "Maybe you'll even get a lucky surprise."
 
 #(No)
 #label Mio_LP_no:
-show mio neutral
-Mio "If you ever need a refresher on anything, you can go into your agenda and check your notes!"
-N "Cool, I'll keep it in mind."
-jump after_Mio_LP
+#show mio neutral
+#Mio "If you ever need a refresher on anything, you can go into your agenda and check your notes!"
+#N "Cool, I'll keep it in mind."
+#jump after_Mio_LP
 
 #################################
 
@@ -113,14 +122,16 @@ Mio "Anyways, I should let you get going."
 show mio laugh
 Mio "Good luck this week!"
 N "Ahah, thanks!"
+stop music fadeout 10.0
 hide mio laugh with dissolve
 "Alright, let's get ready and get going as soon as we can..."
 play sound "audio/door close.mp3"
 
 show outdoor hall with Fade(1.0,0,2.0)
-#show screen ap_screen
+show screen AP_overlay(AP)
 "{b}Activity points are now functional.{/b}"
 "{b}Current available routes: Bella, Mercie, Ryver, Berkly, Dany.{/b}"
+play music "audio/Casual.mp3" fadein 15.0
 #"{b}Keep in mind that your points will vary day to day.{/b}"
 
 "I'm done with classes, but walking back seems so far..."
@@ -144,6 +155,7 @@ $ ED = 0
 
 label End_Monday:
 "Well, I should get going."
+stop music fadeout 10.0
 scene dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
@@ -168,22 +180,14 @@ show dorm morning with Fade(2.0,0,2.0)
 "I get up out of bed, and get ready for class..."
 
 show outdoor hall with Fade(1.0,0,2.0)
+play music "audio/Casual.mp3"
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
 jump menu_areas
 
-#if AP == 0:
-#    jump End_Tuesday
-#else:
-#    "Hey, you shouldn't be seeing this. Please give us a bug report!"
-#=else:
-#    "Are you sure you want to end the day?"
-#    menu:
-#        "Yes":
-#        "No":
-
 label End_Tuesday:
 "Well, I should get going."
+stop music fadeout 10.0
 scene dorm night with Fade(1.0, 0, 1.0)
 "Ah, what an eventful day."
 "I should really get some sleep..."
@@ -203,23 +207,20 @@ $ christine_encounter = False
 $ lola_encounter = False
 $ irene_encounter = False
 $ diana_encounter = False
-show dorm morning with Fade(2.0,0,2.0) 
+show dorm morning with Fade(2.0,0,2.0)
 "Halfway through the week!"
 "Well, I know it is but it doesn't really feel like it."
 "Whatever, I should get ready to go to class..."
 
 show outdoor hall with Fade(1.0,0,2.0)
+play music "audio/Casual.mp3" fadein 10.0
 "I'm done with classes, but walking back seems so far..."
 "Hmm...what should I do?"
 jump menu_areas
 
-if AP == 0:
-    jump End_Wednesday
-else:
-    "Hey, you shouldn't be seeing this. Please give us a bug report!"
-
 label End_Wednesday:
 "Well, I should get going."
+stop music fadeout 10.0
 scene dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep though..."
@@ -252,19 +253,15 @@ show outdoor hall with Fade(1.0,0,2.0)
 "I'm done with classes, but walking back seems so far."
 "I think I only have enough energy to talk to one person..."
 jump menu_areas
-#if AP == 0:
-#    jump End_Thursday
-#else:
-#    "Hey, you shouldn't be seeing this. Please give us a bug report!"
-#    menu:
-#        "Yes":
-#        "No":
+
 label End_Thursday:
 "Well, I should get going."
+stop music fadeout 10.0
 scene dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
 scene dorm morning with Fade(2.0,0,2.0)
+hide screen AP_overlay
 "Sunlight streamed into my room as I groggily turned off my alarm."
 "Finally..."
 "It's the end of the week."
@@ -279,6 +276,7 @@ scene outdoor hall with Fade(2.0,0,2.0)
 
 scene romance hall with Fade(2.0,0,2.0)
 "It's quite lovely outside at this time of day."
+play music "audio/onfession.mp3" fadein 15.0
 "UCJJ has been really fun so far."
 "Maybe I'll just stay here."
 "From behind me, I hear someone-"
@@ -302,9 +300,10 @@ elif e_Irene == 4:
     jump e_Irene_CSF
 else:
     jump e_Mio
-############################
+###############################################################################################
 
 label menu_areas:
+play music "audio/Casual.mp3" fadein 10.0
 menu:
     "Go to the Quad":
         "Maybe I can just chill for a little in the Quad before I head back."
@@ -316,22 +315,22 @@ menu:
     "Go to the Coffeeshop":
         "Maybe I can get something at the coffeeshop before I head back."
         scene coffeeshop with Fade(1.0,0,2.0)
-        play music "audio/coffee shoppe jazz.mp3" fadein 6.0
         "Oh?"
         "There's some people I recognize..."
         "Should I talk to them?"
         jump coffeeshop_people
     "Go to the Bookstore":
-        "Maybe I can check out some stuff in the bookstore before I head back."
+        "Sorry, but this route is unavailable right now."
+        #"Maybe I can check out some stuff in the bookstore before I head back."
         #show bookstore with Fade(1.0,0,1.0)
-        "Oh?"
-        "There's some people I recognize..."
-        "Should I talk to them?"
-        jump bookstore_people
+        #"Oh?"
+        #"There's some people I recognize..."
+        #"Should I talk to them?"
+        #jump bookstore_people
+        jump menu_areas
     "Go back to the dorm":
         stop music fadeout 6.0
-        "I'm not really feeling it right now."
-        "I'll just head back."
+        "I'm just gonna head back."
         label dayendings:
         if ED == 0:
             jump End_Monday
@@ -347,7 +346,7 @@ menu:
 
 label quad_people:
 menu:
-    "Bella":
+    "Bella" if bella_encounter == False:
         $ AP -= 1
         if e_Bella == 0:
             $ e_Bella += 1
@@ -392,9 +391,9 @@ menu:
         elif e_Ryver == 2:
             $ e_Ryver += 1
             jump e_Ryver_3
-        #elif e_Ryver == 3:
-        #    $ e_Ryver += 1
-        #    jump e_Ryver_4
+        elif e_Ryver == 3:
+            $ e_Ryver += 1
+            jump e_Ryver_4
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
@@ -403,7 +402,7 @@ menu:
         
 label coffeeshop_people:
 menu:
-    "Berkly":
+    "Berkly" if berkly_encounter == False:
         $ AP -= 1
         if e_Berkly == 0:
             $ e_Berkly += 1
@@ -420,7 +419,7 @@ menu:
         else:
             "Hey, you shouldn't be seeing this. Give us a Bug Report!"
             jump menu_areas
-    "Dany":
+    "Dany" if dany_encounter == False:
         $ AP -= 1
         if e_Dany == 0:
             $ e_Dany += 1
@@ -453,7 +452,7 @@ menu:
         #    jump e_Christine_4
         #else:
         #    "Hey, you shouldn't be seeing this. Give us a Bug Report!"
-            "Sorry, this isn't available yet!"
+            "Sorry, this route isn't available yet!"
             jump menu_areas
     "Go somewhere else.":
         jump menu_areas

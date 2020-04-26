@@ -61,7 +61,7 @@ label sunday:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 scene purple bubble bg with dissolve
-play music "audio/Maintheme.mp3" fadein 6.0
+#play music "audio/Maintheme.mp3" fadein 6.0
 "I stepped out of the plane into the passenger boarding bridge, feeling the immediate difference between the dry California breeze and the warm Japan humidity."
 "As I walked into passport control, I quickly texted my family friends that it would only take about 10 to 15 more minutes before I could go to the terminal where I should be exiting."
 "Luckily I don't have too much luggage to pick up from the baggage claim."

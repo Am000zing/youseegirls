@@ -2,9 +2,9 @@ label Wednesday_One:
 define Upstairs = False
 define Downstairs = False
 
-scene dorm inside
+scene dorm morning
 with Fade(1.0, 0.0, 1.0)
-#birds chirping sound
+play sound "audio/birds chirping loop.mp3" fadein 3.0 fadeout 6.0
 "..."
 "Ah, I woke up before my alarm..."
 "I rolled out of bed and sluggishly trudged into my bathroom."
@@ -13,17 +13,17 @@ with Fade(1.0, 0.0, 1.0)
 "Jet lag has really been killer, considering that I kept waking up at odd hours and then falling back asleep."
 "I slapped on some clothes and munched on a banana that conveniently was on my desk."
 "I don't even remember when I got it, but I probably grabbed it before I left the dining hall yesterday."
+play sound "audio/door close.mp3"
 "The door slammed behind me as I made my way to the parking lot."
-#sound of door closing
 "I wonder what today would bring me..."
 "Mio's been super helpful so far, not to mention, I've met so many people so far!"
 "Whatever life throws at me, I feel like I can take it!"
 show parking lot with Fade(1.0,1.0,2.0)
+play music "audio/Casual.mp3" fadein 10.0
 "I made it to the parking lot. Now I have plenty of time to arrive earl-"
-#*SMACK*
-#bumping into someone sound
 $ sshake = Shake((0, 0, 0, 0), 0.5, dist=15)
 show parking lot with sshake
+play sound "audio/falling over.mp3"
 "I toppled over, but barely caught my balance at the last second."
 unknown "Ow! Shoot, I'm so sorry. Are you okay?"
 N "Y-yeah, I'm fine...?"
@@ -61,7 +61,7 @@ show mio neutral
 Mio "Well anyways, let's get going, shall we? There's not much left to show you around."
 hide mio neutral with dissolve
 
-scene purple bubble bg
+scene outdoor hall
 with Fade(1.0,0.0,1.0)
 "I started to get hungry as noontime came about."
 N "Hey, Mio, when are we going to the Dining Hall?"
@@ -73,6 +73,7 @@ Mio "I do what I can."
 hide mio teasing with dissolve
 N "Woah, thanks, I-"
 "!!!"
+scene bentobox with Fade(1.0,0,1.0)
 "In his hands, he held a decorated bento you'd purchase anywhere. But..."
 N "Uh, Mio..."
 Mio "Yeah, what's up?"
@@ -82,14 +83,15 @@ N "Why is it in this kind of container?"
 Mio "Oh, it was the cheapest one at the market, so I decided on it."
 Mio "It's an old container, don't sweat it!"
 N "U-uh, yeah."
+stop music fadeout 6.0
 Mio "Anyways, eat up! We still got a place to go to, and it's pretty big, so you'll need your energy."
-N "Alright, got it!"
+N "Alright, got it."
 
 #scene library
-show library_2 with Fade(1.0,0,2.0)
-
+show library_2 with Fade(2.0,0,2.0)
 "Mio stopped us by the library, which was absolutely huge."
 show mio neutral with dissolve
+play music bookstore
 Mio "Downstairs is the research archives, while upstairs is the literature section."
 Mio "Take your time to look around anywhere."
 "Mio's phone dings, and he takes his phone out and stares at the screen."
@@ -496,6 +498,7 @@ menu:
         Mio "Dang, dude. I can't help it when I have emergencies."
 
 show mio neutral
+stop music fadeout 6.0
 Mio "Anyways, let's head back if there's nothing else to do."
 N "Okay."
 hide mio neutral with dissolve

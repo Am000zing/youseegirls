@@ -21,7 +21,7 @@ with Pause(1)
 unknown "Are you okay?"
 "I looked up and my eyes fluttered under the sun."
 "My heart nearly shot out of my mouth as someone straight out of a romance novel appeared in front of me. Her hair swept up against the breeze and I caught the faintest smell of vanilla."
-"Now {i}this{i/} is a woman I can {i}respect{i/}."
+"Now {i}this{/i} is a woman I can {i}respect{/i}."
 #"I didn't know where she came from, but at this point, do I care?"
 show bella neutral with dissolve
 play music "audio/Casual.mp3" fadein 10.0
@@ -132,7 +132,7 @@ menu:
         "I scooped up some good looking Tofu and Veggies."
         unknown "Hey, that looks good, whatcha getting?"
         "I jerked my head, a sudden breathy voice by my ears."
-        play music "Casual.mp3" fadein 10.0
+        play music "audio/Casual.mp3" fadein 10.0
         show christine neutral with dissolve
         N "O-oh just some stir fried tofu and veggies. Planning to get some rice with it too."
         unknown "That sounds really good. I'll probably get a scoop of that too."
@@ -147,7 +147,7 @@ menu:
     "BBQ Pulled Pork Sliders":
         unknown "Ooh, that smells so good, what'd you get?"
         "I jerked my head, a sudden breathy voice by my ears."
-        play music "Casual.mp3" fadein 10.0
+        play music "audio/Casual.mp3" fadein 10.0
         show christine neutral with dissolve
         N "A-ah, I got a BBQ Pulled Pork Slider. It smelled so good, I couldn't resist."
         "She gave a long look at me and the slider on my plate."

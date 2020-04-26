@@ -1,6 +1,6 @@
 label Thursday_One:
 
-scene dorm inside
+scene dorm morning
 with Fade(1.0, 0.0, 1.0)
 "I woke up and found a piece of paper that had been slid under the door."
 "I picked it up."
@@ -10,12 +10,12 @@ with Fade(1.0, 0.0, 1.0)
 "Message me if you need anything! Your dear RA, Mio (951)XXX-XXXX"
 "Well, it would be nice to take a break today, especially since I've been flung into action as soon as I stepped off the plane."
 "Time to get ready for the day..."
-show dorm inside with Fade(1.0,0,1.0)
+scene dorm morning with Fade(1.0,0,1.0)
 "Okay, I think I'm about ready to go out now."
 "Hmm...should I see if Mio's up?"
 menu:
     "Knock on Mio's door.":
-        #knock knock knock
+        play sound "audio/knock.wav"
         "No one answered. There's no noise from inside."
         jump knock_once
     "Leave":
@@ -80,7 +80,7 @@ N "{i}Okay, Auntie. Thanks!{/i}"
 "I should really call Mom though..."
 "Ah, I need to get to class! Shouldn't be late for my first day!"
 # time skip
-show purple bubble bg with Fade(1.0,0,2.0)
+scene outdoor hall with Fade(1.0,0,2.0)
 "Class wasn’t too bad. The teacher seems really nice and understanding, so I think I’ll have a good time here!"
 "Especially since I have Auntie taking care of me."
 "It was nice to see her for lunch."
@@ -129,8 +129,9 @@ menu:
 label leave_Mioalone:
 "I should probably leave Mio alone."
 "He’s probably busy anyways, you know, sleeping or something."
-#*RING RING*
+play sound "audio/Phone Ring.mp3"
 "Oh?"
+play sound "audio/Phone pick up.mp3"
 N "Hello?"
 Mom "Hey, [name]!"
 N "Oh, Mom!"
@@ -156,12 +157,13 @@ Mom "Stay safe and eat well, okay?"
 N "Okay, mom."
 Mom "Okay, goodnight! Bye-bye!"
 N "Goodnight."
+play sound "audio/Phone hang up.mp3"
 jump Friday_One
 
 #################################
 
 label knock_MiosDoor:
-#sound door knock
+scene black bg with dissolve
 "..."
 "No answer"
 
@@ -182,7 +184,7 @@ menu:
     "No":
         jump leave_Mioalone
 label knock_MiosDoor3:
-#sound: door opening
+play sound "audio/door open.mp3"
 N "Ah, Mio! You’re awake!"
 show mio neutral with dissolve
 Mio "Indeed I am. You’re quite the persistent one."
@@ -226,5 +228,7 @@ menu:
 show mio neutral
 Mio "I play a really mean Powser. I just got the DLC too."
 hide mio neutral with dissolve
-show black bg with Fade(1.0,0,1.0)
+play sound "audio/fighting loop.mp3" fadein 5.0
+show black bg with Fade(1.0,1.0,2.0)
+stop sound fadeout 3.0
 jump Friday_One_withMio
