@@ -265,13 +265,14 @@ screen quick_menu():
             # textbutton _("Prefs") action ShowMenu('preferences')
             
         vbox:
-            xalign .98
-            yalign 0.005
+            xalign 0.99
+            yalign 0
             
             textbutton _("Menu"):
                 action SetScreenVariable("corner_menu", not corner_menu)
                 text_size 48
                 xalign 1.0
+                text_outlines [ (1,"#000",0,0) ]
             if corner_menu:
                 style_prefix "corner_menu"
                 textbutton _("Save") action ShowMenu('save')
@@ -295,7 +296,8 @@ style quick_button_text is button_text
 style corner_menu_button:
     xalign 1.0
 
-style corner_menu_button_text is button_text
+style corner_menu_button_text:
+    outlines [ (1,"#000",0,0) ]
 
 style quick_button:
     properties gui.button_properties("quick_button")
