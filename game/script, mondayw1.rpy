@@ -10,11 +10,11 @@ play sound "audio/birds chirping loop.mp3"
 stop sound fadeout 5.0
 #jump: Agenda
 
-"I did my morning routine: brushing my teeth, washing my face, did my hair..."
+"I did my morning routine: brushing my teeth, washing my face, doing my hair..."
 "I'm so excited what might happen today!"
 play audio "audio/door open.mp3"
 play audio "audio/door close.mp3"
-"I exited the dorms, and made my way to the parking lot where I supposed to meet up with Mio."
+"I leave the dorms, and made my way to the parking lot where I'm supposed to meet up with Mio."
 show parking lot with Fade(2.0,0,2.0)
 play music "audio/Casual.mp3" fadein 10.0
 "Oh? He isn't here yet?"
@@ -26,7 +26,7 @@ play audio "audio/Car zoomin by.mp3"
 "Close by, a car screeched into a parking space."
 "Wow! It's so glossy-looking..."
 "And a Mercedes? S-Class? I didn't realize people enjoyed their wealth on their sleeve, not that it's up to me to decide."
-"A girl stepped out, dressed in her school uniform with a large oversized jacket on top."
+"A girl steps out, dressed in her school uniform with a large, oversized jacket on top."
 "Her large sunglasses covered half her face. How could she possibly hold her head up with such large, heavy glasses?"
 "In her hand was a cup of boba milk tea."
 "She took a sip as she shut her car door, but then suddenly she sounded like she, quite loudly, had a hard time breathing."
@@ -212,7 +212,7 @@ menu:
         with dissolve
         unknown "You don't have to hide meat from me just 'cause I'm trying to be a vegetarian, you know. Even I can't resist it sometimes!"
         N "Really?"
-        show dany happy
+        show dany mouth smile
         unknown "Yeah. My dad makes *the best* ribs."
         show dany laugh
         Dany "Oh, my name's Dany, by the way."
@@ -223,7 +223,7 @@ Dany "Nice to meet you, [name]! Wanna eat with me?"
 "I see Mio waving at me from his table."
 N "Ah, no, sorry. I'm already sitting with someone."
 Dany "Alrighty. I'll see you later then, [name]!"
-hide dany happy with dissolve
+hide dany mouth smile with dissolve
 stop music fadeout 6.0
 scene dorm afternoon with Fade(1.0, 1.0, 1.0)
 with Pause(1)

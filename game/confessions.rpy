@@ -1,48 +1,9 @@
-label Friday_2:
 #"confessions page"
 #Here things are labeled as CFS - confession scene :D
-scene dorm morning with Fade(2.0,0,2.0)
-"Sunlight streamed into my room as I groggily turned off my alarm."
-"Finally..."
-"It's the end of the week."
-"It always feels relieving knowing you've made it through the rough of it."
-"I've had a good time though."
-"I think I've met some really cool people here on campus."
-"Well, I should get going to class. I started strong, so now I should end strong!"
-
-scene outdoor hall with Fade(2.0,0,2.0)
-"As I make my way to class, I start thinking about the people I've talked to..."
-"I hope I'll be able to make lasting relationships while I'm here!"
 
 
-play music "audio/confession.mp3" fadein 6.0
-scene Romance hall with Fade(2.0,0,2.0)
-"It's quite lovely outside at this time of day."
-"UCJJ has been really fun so far."
-"Maybe I'll just stay here."
-"From behind me, I hear someone-"
-
-if e_Mercie == 4:
-    jump e_Mercie_CSF
-elif e_Ryver == 4:
-    jump Credits
-elif e_Berkly == 4:
-    jump e_Berkly_CSF
-elif e_Bella == 4:
-    jump e_Bella_CSF
-elif e_Dany == 4:
-    jump Credits
-#elif e_Christine == 4:
-#    jump e_Christine_CSF
-#elif e_Lola == 4:
-#    jump e_Lola_CSF
-#elif e_Diana == 4:
-#    jump e_Diana_CSF
-#elif e_Irene == 4:
-#    jump e_Irene_CSF
-else:
-    jump e_Mio
-
+###########################################################################
+#MERCIE
 label e_Mercie_CSF:
 Mercie "H-Hey, [name]. I wanted to talk to you. If that’s okay."
 N "Huh?"
@@ -98,8 +59,13 @@ show black bg with Fade(2.0,0,2.0)
 "You've unlocked special images in your Journal."
 jump Credits
 
+###########################################################################
+#RYVER
 #label e_Ryver_CSF:
 
+
+###########################################################################
+#BERKLY
 label e_Berkly_CSF:
 "I turn around and spot a familiar face. Except instead of being alone, she was with a couple others."
 "She spots me and walks over to me."

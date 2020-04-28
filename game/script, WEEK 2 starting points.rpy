@@ -13,7 +13,7 @@ N "Alright, alright."
 play sound "audio/door open.mp3" fadein 8.0
 scene dorm morning with dissolve
 show mio laugh with dissolve
-play music "audio/Maintheme.mp3" fadein 20.0
+play music "audio/<loop 16.000>Maintheme.mp3" fadein 20.0
 Mio "Thanks for letting me in. Check this out!"
 "In shining letters on the screen of his phone was the title {b}UC Girls{/b}."
 show mio neutral
@@ -230,7 +230,7 @@ jump Thursday_Two
 
 label Thursday_Two:
 $ AP = 1
-show screen AP_overlay(AP)
+hide screen AP_overlay
 $ ED = 3
 $ ryver_encounter = False
 $ bella_encounter = False
@@ -262,7 +262,6 @@ scene dorm night with Fade(1.0,0,2.0)
 "Ah, what an eventful day."
 "I should get some sleep..."
 scene dorm morning with Fade(2.0,0,2.0)
-hide screen AP_overlay
 "Sunlight streamed into my room as I groggily turned off my alarm."
 "Finally..."
 "It's the end of the week."
@@ -281,34 +280,34 @@ play music "audio/confession.mp3" fadein 15.0
 "UCJJ has been really fun so far."
 "Maybe I'll just stay here."
 "From behind me, I hear someone-"
-if e_Mercie == 4:
+if c_Mercie == 4:
     jump e_Mercie_CSF
-elif e_Ryver == 4:
+elif c_Ryver == 4:
     jump Credits
-elif e_Berkly == 4:
+elif c_Berkly == 4:
     jump e_Berkly_CSF
-elif e_Bella == 4:
-    jump e_Bella_CSF
-elif e_Dany == 4:
+elif c_Bella == 4:
     jump Credits
-#elif e_Christine == 4:
+elif c_Dany == 4:
+    jump Credits
+#elif c_Christine == 4:
 #    jump e_Christine_CSF
-#elif e_Lola == 4:
+#elif c_Lola == 4:
 #    jump e_Lola_CSF
-#elif e_Diana == 4:
+#elif c_Diana == 4:
 #    jump e_Diana_CSF
-#elif e_Irene == 4:
+#elif c_Irene == 4:
 #    jump e_Irene_CSF
 else:
-    jump e_Mio
+    jump Credits
 ###############################################################################################
 
 label menu_areas:
-play music "audio/Casual.mp3" fadein 10.0
 menu:
     "Go to the Quad":
         "Maybe I can just chill for a little in the Quad before I head back."
         scene qquad with Fade(1.0,0,2.0)
+        play music "audio/outdoors.mp3" fadein 10.0
         "Oh?"
         "There's some people I recognize..."
         "Should I talk to them?"
@@ -316,6 +315,7 @@ menu:
     "Go to the Coffeeshop":
         "Maybe I can get something at the coffeeshop before I head back."
         scene coffeeshop with Fade(1.0,0,2.0)
+        play music "audio/coffee shoppe jazz.mp3" fadein 10.0
         "Oh?"
         "There's some people I recognize..."
         "Should I talk to them?"

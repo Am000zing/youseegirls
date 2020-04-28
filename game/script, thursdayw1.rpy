@@ -133,6 +133,7 @@ play sound "audio/Phone Ring.mp3"
 "Oh?"
 play sound "audio/Phone pick up.mp3"
 N "Hello?"
+play music "audio/Maintheme.mp3" fadein 6.0
 Mom "Hey, [name]!"
 N "Oh, Mom!"
 Mom "What? You didn’t forget to call me did you?"

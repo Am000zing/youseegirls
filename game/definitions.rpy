@@ -43,6 +43,16 @@ define e_Diana = 0
 define e_Ryver = 0
 define e_Irene = 0
 
+define c_Berkly = 0
+define c_Dany = 0
+define c_Lola = 0
+define c_Mercie = 0
+define c_Bella = 0
+define c_Christine = 0
+define c_Diana = 0
+define c_Ryver = 0
+define c_Irene = 0
+
 init:
 
     python:

@@ -10,6 +10,7 @@ stop music fadeout 3.0
 menu:
     "Approach Ryver?"
     "Yes":
+        $ c_Ryver += 1.0
         jump e_Ryver_1_A
     "No":
         #return to the quad options
@@ -18,7 +19,6 @@ menu:
 #(A.)
 label e_Ryver_1_A:
 $ Ryver_LP += 1.0
-play music "audio/outdoors.mp3" fadein 15.0
 "As I walk closer, Ryver notices me approaching and looks up from her writing."
 show ryver laughing with dissolve
 Ryver "Hi, [name]! What’s up?"
@@ -123,6 +123,7 @@ stop music fadeout 3.0
 menu:
     "Approach Ryver?"
     "Yes":
+        $ c_Ryver += 1.0
         jump e_Ryver_2_A
     "No":
         #return to the quad options
@@ -131,7 +132,6 @@ menu:
 #(A.)
 label e_Ryver_2_A:
 $ Ryver_LP += 1.0
-play music "audio/outdoors.mp3" fadein 15.0
 N "Hey Ryver!"
 show ryver laughing with dissolve
 Ryver "Oh, hey, [name]!"
@@ -279,13 +279,13 @@ stop music fadeout 3.0
 menu:
     "Approach Ryver?"
     "Yes":
+        $ c_Ryver += 1.0
         jump e_Ryver_3_A
     "No":
         "I think I just heard a little snore. I better let her relax in peace."
         jump quad_people
 label e_Ryver_3_A:
 "As I come closer, I hear music faintly blaring from her earphones. She couldn’t be asleep with the volume that loud, could she?"
-play music "audio/outdoors.mp3" fadein 10.0
 N "Hey, Ryver?"
 "She doesn’t respond. Maybe a little louder…"
 N "Ryver!"
@@ -518,7 +518,7 @@ stop music fadeout 3.0
 menu:
     "Approach Ryver?"
     "Yes":
-        play music "audio/outdoors.mp3" fadein 10.0
+        $ c_Ryver += 1.0
         jump e_ryver4
     "No":
         "I just don’t feel like talking to Ryver right now. Besides, she’s probably tired of seeing me all week."
@@ -799,6 +799,7 @@ menu:
     "Approach Mercie?"
     "Yes":
         $ Mercie_LP += 1.0
+        $ c_Mercie += 1.0
         jump e_Mercie_1_A
     "No":
         "I shouldn't bother her."
@@ -846,6 +847,7 @@ stop music fadeout 3.0
 menu:
     "Approach Mercie?"
     "Yes":
+        $ c_Mercie += 1.0
         jump e_Mercie_2_A
     "No":
         "She's probably waiting for someone else."
@@ -854,7 +856,6 @@ menu:
 label e_Mercie_2_A:
 N "Hey, Mercie!"
 show mercie happy with dissolve
-play music "audio/outdoors.mp3" fadein 10.0
 Mercie "Hey, [name]! Come here, I saved you a seat!"
 "As I made my way over, I noticed she had notes out on her lap. Is she studying?"
 menu:
@@ -916,10 +917,10 @@ Mercie "Hey, are you busy? If not, do you want to chat for a bit?"
 menu:
     "Chat with Mercie?"
     "Yes":
+        $ c_Mercie += 1.0
         N "Yeah, I've got time to spare."
         hide mercie neutral with dissolve
         "We ended up walking around the Quad aimlessly and complained about our classes..."
-        play music "audio/outdoors.mp3" fadein 10.0
         scene qquad with Fade (2.0,0,2.0)
         "It sounds like she's really into plants and wildlife. It's the total opposite of what I expected...but also somehow not surprising."
         "Eventually, we got tired and decided to sit down."
@@ -944,8 +945,8 @@ stop music fadeout 3.0
 menu:
     "Approach Mercie?"
     "Yes":
+        $ c_Mercie += 1.0
         N "Hey, Mercie."
-        play music "audio/outdoors.mp3" fadein 10.0
         show mercie happy with dissolve
         Mercie "Hi, [name]!! How has your day been?"
         N "It's been good. You seem excited."
@@ -1055,6 +1056,7 @@ stop music fadeout 3.0
 menu:
     "Sit with her?"
     "Yes":
+        $ c_Mercie += 1.0
         jump e_Mercie4
     "No":
         $ Mercie_LP -= 3.0
@@ -1066,7 +1068,6 @@ menu:
         jump menu_areas
 
 label e_Mercie4:
-play music "audio/outdoors.mp3" fadein 10.0
 N "Hey, Mercie! How are you?"
 show mercie happy with dissolve
 Mercie "Haha, I'm doing gre- "
@@ -1159,6 +1160,7 @@ stop music fadeout 3.0
 menu:
     "Approach Bella?"
     "Yes":
+        $ c_Bella += 1.0
         jump e_Bella_A
     "No":
         "Hm, I think I should leave her alone now. She could be busy."
@@ -1166,7 +1168,6 @@ menu:
 label e_Bella_A:
 $ Bella_LP += 1.0
 N "Hey! Bella, right?"
-play music "audio/outdoors.mp3" fadein 10.0
 show bella neutral with dissolve
 Bella "Oh, hey. I remember you. [name], right?"
 N "Yeah! That’s me, haha."
@@ -1220,13 +1221,13 @@ stop music fadeout 3.0
 menu:
     "Approach Bella?"
     "Yes":
+        $ c_Bella += 1.0
         jump e_Bella_2A
     "No":
         "Hm, I should leave her alone for now. She seems busy."
         jump menu_areas
 
 label e_Bella_2A:
-play music "audio/outdoors.mp3" fadein 10.0
 N "Hey, Bella. What’re you up to?"
 Bella "{i}Whan shum?{/i}"
 "Huh? What was that? I can’t hear her over the bagel."
@@ -1331,12 +1332,12 @@ stop music fadeout 3.0
 menu:
     "Approach her?"
     "Yes":
+        $ c_Bella += 1.0
         jump bella3
     "No":
         "She’s probably doing an online class or something. I should leave her alone." 
         jump menu_areas
 label bella3:
-play music "audio/outdoors.mp3"
 N "Skipping out on lunch today?"
 show bella neutral with dissolve
 Bella "Haha, hey. I didn’t have class, so I ate a little earlier. Why? You hungry?"
@@ -1456,7 +1457,7 @@ label e_Bella_3end:
 "We spent the rest of our time talking about upcoming game releases. She’s got good taste!"
 show bella neutral with dissolve
 stop music fadeout 3.0
-Bella "Well, I better get going. I have classs soon."
+Bella "Well, I better get going. I have class soon."
 N "Alright, see you!"
 Bella "Yeah, see you!"
 hide bella neutral with dissolve
@@ -1477,6 +1478,7 @@ Bella "Hey, [name]!"
 menu:
     "Go to her?"
     "Yes.":
+        $ c_Bella += 1.0
         jump e_Bella_4A
     "No.":
         $ Bella_LP -= 4.0
@@ -1487,7 +1489,6 @@ menu:
 
 label e_Bella_4A:
 $ Bella_LP += 0.5
-play music "audio/outdoors.mp3" fadeout 10.0
 "I jog over. As I’m approach...is that chlorine?"
 "Before I can think too much of it, Bella taps my shoulder playfully."
 show bella neutral

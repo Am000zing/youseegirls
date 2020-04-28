@@ -1,6 +1,6 @@
 label Tuesday_One:
 
-scene dorm inside with Fade(1.0, 0.0, 1.0)
+scene dorm morning with Fade(1.0, 0.0, 1.0)
 "Ugh...I'm so tired. I didn't realize how much Orientation was going to drain me out."
 "I wonder what the plans are for the day..."
 "I thought about the girls I met yesterday.  The people on campus are rather... unique."
@@ -114,7 +114,7 @@ show outdoor hall with Fade(2.0,0,2.0)
 show mio neutral with dissolve
 Mio "Man, it's already this late. How you holding up, [name]?"
 N "Uhhhh..."
-"My mind went blanks as a taco truck parked directly behind Mio."
+"My mind went blank as a taco truck parked directly behind Mio."
 "The windows swung open and carried the greasy, meaty smell of fresh burritos and chips."
 "While trying to form an answer, I could feel my mouth watering."
 Mio "We'll take an hour break to recuperate from the tour. Feel free to eat anything from the Dining Hall."
@@ -191,7 +191,7 @@ menu:
         N "O-oh, I see. I wasn't aware of that."
         $Christine_LP += 1
         jump choice_ChristineIntroFinal
-    "How does this apply to me.":
+    "How does this apply to me?":
         N "How does this apply to me now though?"
         $Christine_LP -=1
         show christine annoyed

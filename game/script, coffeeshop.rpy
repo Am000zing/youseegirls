@@ -10,6 +10,7 @@ stop music fadeout 5.0
 menu:
     "Approach Berkly?"
     "Yes":
+        $ c_Berkly += 1.0
         $ Berkly_LP += 0.5
         play music "audio/coffee shoppe jazz.mp3" fadein 15.0
         N "Hey, Berkly! How’s your studying going?"
@@ -203,6 +204,7 @@ stop music fadeout 5.0
 menu:
     "Approach Berkly?"
     "Yes":
+        $ c_Berkly += 1.0
         play music "audio/Coffee shoppe jazz.mp3"
         N "Is it just you this time?"
         show berkly annoyed with dissolve
@@ -317,19 +319,19 @@ $ Berkly_LP += 1.0
 play sound "audio/good choice.mp3"
 #[Sure, I could use some exercise]
 show berkly laugh
-B "Great, let’s go!"
+Berkly "Great, let’s go!"
 N "Gimme a sec, just need to finish this coffee."
 show berkly neutral
-B "Didn't you just get it? Wouldn’t-"
+Berkly "Didn't you just get it? Wouldn’t-"
 show berkly concerned
 N "-Done."
 show berkly annoyed
 "I can’t tell if she’s amazed with disgust or interest."
-B "Wow."
-B "You just downed like a million calories in an instant."
+Berkly "Wow."
+Berkly "You just downed like a million calories in an instant."
 N "That much?"
 show berkly concerned
-B "You wanna hit the gym and do some exercising later?"
+Berkly "You wanna hit the gym and do some exercising later?"
 menu:
     "Sure.":
         jump e_Berkly_2_A21
@@ -451,9 +453,9 @@ label e_Berkly_2_end:
 show coffeeshop with Fade(1.0,0,1.0)
 show berkly neutral with dissolve
 stop music fadeout 10.0
-B "Thanks for waiting while I pack up."
+Berkly "Thanks for waiting while I pack up."
 N "It's no biggie."
-B "Later."
+Berkly "Later."
 N "Bye."
 hide berkly neutral with dissolve
 if AP == 0:
@@ -472,6 +474,7 @@ stop music fadeout 5.0
 menu:
     "Approach Berkly?"
     "Yes":
+        $ c_Berkly += 1.0
         jump e_Berkly_3A
     "No":
         jump menu_areas
@@ -506,15 +509,15 @@ menu:
 
 label e_Berkly_3A1:
 show berkly annoyed
-B "Really? I thought I already told you about how it isn’t healthy to drink something like that so often."
+Berkly "Really? I thought I already told you about how it isn’t healthy to drink something like that so often."
 N "I might have a slight appreciation for the taste of it."
 show berkly concerned
-B "You should say that after you buy one that isn’t extra sweetened."
+Berkly "You should say that after you buy one that isn’t extra sweetened."
 "Not this again."
 N "Alright, next time I’ll get one that isn’t extra sweetened."
 show berkly neutral
-B "Good."
-B "I don’t have much to do for homework today what about you?"
+Berkly "Good."
+Berkly "I don’t have much to do for homework today what about you?"
 menu:
     "I don’t have much to do either.":
         $ Berkly_LP += 1.0
@@ -527,15 +530,15 @@ menu:
 ###
 label e_Berkly_3A2:
 show berkly annoyed
-B "Really? I thought I already told you about how it isn’t healthy to drink something like that so often?"
+Berkly "Really? I thought I already told you about how it isn’t healthy to drink something like that so often?"
 N "I might have a slight appreciation for the taste of it."
 show berkly concerned
-B "You should say that after you buy one that isn’t extra sweetened."
+Berkly "You should say that after you buy one that isn’t extra sweetened."
 "Not this again."
 N "I think next time I’ll buy one that isn’t extra sweetened"
 show berkly neutral
-B "Good."
-B "I don’t have much to do today. What about you?"
+Berkly "Good."
+Berkly "I don’t have much to do today. What about you?"
 menu:
     "I don’t have much to do either.":
         $ Berkly_LP += 1.0
@@ -549,15 +552,15 @@ menu:
 ###
 label e_Berkly_3A3:
 show berkly annoyed
-B "I’m not going to be bribed. I thought I already told you about how it isn’t healthy to drink something like that so often?"
+Berkly "I’m not going to be bribed. I thought I already told you about how it isn’t healthy to drink something like that so often?"
 N "I might have a slight appreciation for the taste of it."
 show berkly concerned
-B "You should say that after you buy one that isn’t extra sweetened."
+Berkly "You should say that after you buy one that isn’t extra sweetened."
 "Not this again."
 N "Alright, next time I’ll get one that isn’t extra sweetened"
 show berkly neutral
-B "Good."
-B "I don’t have much to do for homework today. What about you?"
+Berkly "Good."
+Berkly "I don’t have much to do for homework today. What about you?"
 menu:
     "I don’t have much to do either.":
         $ Berkly_LP += 1.0
@@ -630,7 +633,7 @@ menu:
         show berkly neutral
         Berkly "What movie did you have in mind?"
         N "An old romcom."
-        B "Oh, yeah, I’m in."
+        Berkly "Oh, yeah, I’m in."
         show berkly concerned
         Berkly "By the way...I’m still curious about your interest in politics, by the way. Don’t you think you should keep track of what’s going on here?"
         N "Well, I don’t really see how it’s necessary to keep track of the politics here since I’m not really from here."
@@ -638,7 +641,7 @@ menu:
         hide berkly concerned with dissolve
         scene coffeeshop with Fade(2.0,0,2.0)
         show berkly neutral with dissolve
-        B "That was a fun movie."
+        Berkly "That was a fun movie."
         N "That scene with the stone mask always gets me."
 
     "Let me introduce you to this game I play on my phone!":
@@ -662,7 +665,7 @@ menu:
         hide berkly concerned with dissolve
         scene coffeeshop with Fade(2.0,0,2.0)
         show berkly neutral with dissolve
-        B "That was a fun!"
+        Berkly "That was a fun!"
         N "Yeah!"
 
     "We never talked about music. What is your favorite?":
@@ -700,6 +703,7 @@ stop music fadeout 5.0
 menu:
     "Approach Berkly?"
     "Yes":
+        $ c_Berkly += 1.0
         jump e_Berkly_4A
     "No":
         "I wave back, but turn around. I shouldn't bother her..."
@@ -802,6 +806,7 @@ stop music fadeout 5.0
 menu:
     "Approach Dany?"
     "Yes":
+        $ c_Dany += 1.0
         jump e_Dany1
     "No":
         "I should probably leave her alone."
@@ -940,6 +945,7 @@ stop music fadeout 5.0
 menu:
     "Approach Dany?"
     "Yes":
+        $ c_Dany += 1.0
         jump e_Dany2
     "No":
         "I should probably leave her alone."
@@ -1118,6 +1124,7 @@ menu:
     "Yes":
         $ dany_encounter = True
         define e_dany3end2 = False
+        $ c_Dany += 1.0
         jump e_dany3
     "No":
         "I'll just leave. Not much of a point."
@@ -1311,6 +1318,7 @@ Dany "Hey, [name]!"
 menu:
     "Go outside to her?"
     "Yes":
+        $ c_Dany += 1.0
         jump e_dany4a
     "No":
         "Eh, I don't really know how I feel about going outside."
