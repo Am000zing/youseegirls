@@ -146,7 +146,15 @@ Mio "Won't we now, [name]?"
 "What have I gotten myself into?"
 jump Credits
 
+
+
+######################################################################################################################################################
+######################################################################################################################################################
 label Credits:
 scene ysg with Fade(2.0,0,2.0)
 "Thank you so much for playing!"
 "It's incomplete right now, but I hope you'll look forward to seeing what we continue to develop!"
+"Writing: Annika Kirman, Austin Hong, Chris Fleming, Klaritza Campos, Leilia Lin"
+"Programming: Diane Ngo, Leilia Lin"
+"Art: David Kim, Klaritza Campos, Leilia Lin"
+"Audio: Adam Wise (Vivm)"
