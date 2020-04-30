@@ -5,7 +5,6 @@ label quad_encounters:
 label e_Ryver_1:
 $ ryver_encounter = True
 #Ryver is outside in the Quad.
-stop music fadeout 3.0
 "She’s sitting on the lawn with two library books lying open in front of her, scribbling in a notebook on her lap."
 menu:
     "Approach Ryver?"
@@ -105,7 +104,6 @@ label e_Ryver_1_A_End:
 show ryver neutral
 Ryver "Anyways, I have to run to a meeting now. It was nice seeing you!"
 N "See you later!"
-stop music fadeout 3.0
 "Ryver waves enthusiastically as she leaves."
 hide ryver neutral with dissolve
 if AP == 0:
@@ -118,7 +116,6 @@ else:
 #RYVER ENCOUNTER TWO
 label e_Ryver_2:
 $ ryver_encounter = True
-stop music fadeout 3.0
 "Ryver is talking with a group of people in the Quad. I hear them saying goodbyes as they start to disperse."
 menu:
     "Approach Ryver?"
@@ -169,14 +166,12 @@ menu:
         $ Ryver_LP -= 1.0
         play sound "audio/bad choice.mp3"
         show ryver annoyed blushing
-        stop music fadeout 3.0
         Ryver "Yeah. Well, actually, if I’m being honest, I’m bi. I just think that everyone deserves a chance, you know?"
         #Relationship Result: 1.0
         jump e_Ryver_2_End
     "That’s really cool.":
         $ Ryver_LP += 0.5
         show ryver neutral blushing
-        stop music fadeout 3.0
         Ryver "Yeah, it’s nice to be able to support others."
         #Relationship Result: 2.5
         jump e_Ryver_2_End
@@ -192,7 +187,6 @@ menu:
         show ryver laughing
         Ryver "Yeah. It is. You should join!"
         N "I’ll think about it, for sure."
-        stop music fadeout 3.0
         #Relationship Result: 2.5
         jump e_Ryver_2_End
     "Sounds like I should join.":
@@ -200,7 +194,6 @@ menu:
         play sound "audio/good choice.mp3"
         show ryver laughing
         Ryver "You totally should! It’ll be extra exciting with you there. The more the merrier!"
-        stop music fadeout 3.0
         #Relationship Result: 3.0
         jump e_Ryver_2_End
 
@@ -215,7 +208,6 @@ menu:
         show ryver neutral
         Ryver "Done! I submitted it already."
         Ryver "Too bad early turn-in extra credit isn’t a thing in college, otherwise I might actually get a good grade on that paper, ha."
-        stop music fadeout 3.0
         #Relationship Result: 2.0
         jump e_Ryver_2_End
     "Where are you going?":
@@ -225,7 +217,6 @@ menu:
         Ryver "Nosy much?"
         show ryver neutral
         Ryver "We’re just gonna chill a friend’s house, that’s all."
-        stop music fadeout 3.0
         #Relationship Result: 0.5
         jump e_Ryver_2_End
 
@@ -241,7 +232,6 @@ menu:
         show ryver laughing
         Ryver "Yeah. It is. You should join!"
         N "I’ll think about it, for sure."
-        stop music fadeout 3.0
         #Relationship Result: 2.5
         jump e_Ryver_2_End
     "Sounds like I should join.":
@@ -249,7 +239,6 @@ menu:
         play sound "audio/good choice.mp3"
         show ryver laughing
         Ryver "You totally should! It’ll be extra exciting with you there. The more the merrier!"
-        stop music fadeout 3.0
         #Relationship Result: 3.0
         jump e_Ryver_2_End
 
@@ -273,7 +262,6 @@ else:
 #RYVER ENCOUNTER THREE
 label e_Ryver_3:
 $ ryver_encounter = True
-stop music fadeout 3.0
 "Ryver is laying on the lawn in the Quad."
 "She has earphones in and her eyes are closed. It looks like she’s relaxing or taking a nap."
 menu:
@@ -496,7 +484,6 @@ menu:
 ######
 label e_Ryver_3_end:
 N "I see. I guess I’ll leave you to your nap, then. See you tomorrow?"
-stop music fadeout 5.0
 hide ryver neutral with dissolve
 "Ryver waves her hand in a silent goodbye as she lays back down, music loud in her ears."
 "Almost instantly she’s out."
@@ -512,7 +499,6 @@ else:
 #RYVER ENCOUNTER FOUR
 label e_Ryver_4:
 $ ryver_encounter = True
-stop music fadeout 3.0
 "Ryver is laying on her back on the grass in the Quad."
 "She’s awake this time, watching the cumulus clouds drift in the sky."
 menu:
@@ -776,7 +762,6 @@ menu:
         jump e_ryver4end
 
 label e_ryver4end:
-stop music fadeout 3.0
 "After hours of fascinating conversation fly by, we both say goodbye and go our separate ways."
 if AP == 0:
     jump dayendings
@@ -793,7 +778,6 @@ else:
 #MERCIE ENCOUNTER ONE
 label e_Mercie_1:
 $ mercie_encounter = True
-stop music fadeout 5.0
 "Mercie is sitting alone at a table, aimlessly staring at her phone. She doesn't look very busy. If anything, she looks bored."
 menu:
     "Approach Mercie?"
@@ -829,7 +813,6 @@ N "Okay! It was nice talking to you."
 show mercie concern
 Mercie "Yeah! I'll...see you later?"
 show mercie happy
-stop music fadeout 5.0
 N "Yeah, see you!"
 "She scurries away, a bounce in her step."
 hide mercie happy with dissolve
@@ -842,7 +825,6 @@ else:
 #MERCIE ENCOUNTER TWO
 label e_Mercie_2:
 $ mercie_encounter = True
-stop music fadeout 3.0
 "She's sitting alone, this time twiddling her thumbs, almost as if she's expecting someone."
 menu:
     "Approach Mercie?"
@@ -889,7 +871,6 @@ Mercie "I-I have a meeting in five minutes!"
 Mercie "{i}Ugh, why am I always so forgetful!{/i}"
 N "O-Oh, okay! Good luck!"
 show mercie neutral
-stop music fadeout 5.0
 Mercie "Thanks! See ya!"
 N "See you later too..."
 hide mercie neutral with dissolve
@@ -910,7 +891,6 @@ else:
 
 label e_Mercie_3_alt:
 $ mercie_encounter = True
-stop music fadeout 3.0
 "I feel someone poke my arm."
 show mercie neutral with dissolve
 Mercie "Hey, are you busy? If not, do you want to chat for a bit?"
@@ -939,7 +919,6 @@ menu:
 
 label e_Mercie_3_start:
 $ mercie_encounter = True
-stop music fadeout 3.0
 "She's leaning against a wall, toeing the ground aimlessly."
 "She looks like she's expecting someone."
 menu:
@@ -1051,7 +1030,6 @@ else:
 #MERCIE ENCOUNTER FOUR
 label e_Mercie_4:
 $ mercie_encounter = True
-stop music fadeout 3.0
 "Mercie waves at you excitedly, motioning for you to sit with her."
 menu:
     "Sit with her?"
@@ -1095,7 +1073,7 @@ Mercie "I-I'm sorry it had to come to that. Thanks for helping."
 menu: 
     "Don't feel sorry.":
         $ Mercie_LP += 1.0
-        play osund "audio/good choice.mp3"
+        play sound "audio/good choice.mp3"
         N "That guy was overstepping your boundaries. Someone's got to teach him a lesson eventually."
         Mercie "I guess so. Either way, I'm grateful."
         N "Don't worry about it. What are friends for?"
@@ -1131,7 +1109,6 @@ show mercie happy blush
 Mercie "T-thanks. I really appreciate it."
 hide mercie happy blush with dissolve
 scene qquad with Fade(1.0,0,2.0)
-stop music fadeout 10.0
 "Ah, it's gotten pretty late. We had an intense conversation about acceptable forms of pizza consumption, and I lost track of time."
 show mercie neutral with dissolve
 Mercie "The next shuttle is leaving in fifteen minutes. I better get going."
@@ -1155,7 +1132,6 @@ else:
 #BELLA ENCOUNTER ONE
 label e_Bella_1:
 $ bella_encounter = True
-stop music fadeout 3.0
 "She has a series of notebooks on the table and her lap. She fans herself while she reads."
 menu:
     "Approach Bella?"
@@ -1200,7 +1176,6 @@ menu:
         Bella "Just don’t trip over yourself trying to sit down."
 scene qquad with Fade(2.0,0,2.0)
 show bella neutral
-stop music fadeout 3.0
 Bella "I’ve gotta go now. It takes a bit to return to my place, and I’d rather go now than later."
 N "Okay, see you later then?"
 Bella "Yeah, see you!"
@@ -1216,7 +1191,6 @@ else:
 #BELLA ENCOUNTER TWO
 label e_Bella_2:
 $ bella_encounter = True
-stop music fadeout 3.0
 "Bella’s sitting on a bench trying to fit a whole bagel into her mouth."
 menu:
     "Approach Bella?"
@@ -1312,7 +1286,6 @@ menu:
 label e_Bella_2end:
 scene qquad with Pause(2.0)
 "After eating, we walked around the quad together for a bit. She eventually had to leave though."
-stop music fadeout 3.0
 show bella neutral with dissolve
 Bella "See you sometime?"
 N "Yeah, see you!"
@@ -1327,7 +1300,6 @@ else:
 #BELLA ENCOUNTER THREE
 label e_Bella_3:
 $ bella_encounter = True
-stop music fadeout 3.0
 "Bella is sitting alone, but staring intently at her laptop."
 menu:
     "Approach her?"
@@ -1456,7 +1428,6 @@ menu:
 label e_Bella_3end:
 "We spent the rest of our time talking about upcoming game releases. She’s got good taste!"
 show bella neutral with dissolve
-stop music fadeout 3.0
 Bella "Well, I better get going. I have class soon."
 N "Alright, see you!"
 Bella "Yeah, see you!"
@@ -1471,7 +1442,6 @@ else:
 #BELLA ENCOUNTER FOUR
 label e_Bella_4:
 $ bella_encounter = True
-stop music fadeout 3.0
 "She’s zipping up her bag when she notices me."
 Bella "Hey, [name]!"
 "She waves me over. Is she inviting me to walk with her?"

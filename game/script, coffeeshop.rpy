@@ -5,14 +5,12 @@ scene coffeeshop with Fade(1.0,0,1.0)
 label e_Berkly_1:
 $ berkly_encounter = True
 #Berkly is sitting with a cup of coffee beside her laptop.
-stop music fadeout 5.0
 "She’s sitting at one of the tables with a couple other students who, like her, are all staring intensely at their screen typing away."
 menu:
     "Approach Berkly?"
     "Yes":
         $ c_Berkly += 1.0
         $ Berkly_LP += 0.5
-        play music "audio/coffee shoppe jazz.mp3" fadein 15.0
         N "Hey, Berkly! How’s your studying going?"
         show berkly neutral with dissolve
         Berkly "Oh! Hey, [name]. It’s going well. Would you like some studying tips?"
@@ -39,7 +37,6 @@ menu:
         Berkly "Well, not just that. I've got other errands to run."
         N "Ah, I see. Catch you later then."
         Berkly "See ya."
-        stop music fadeout 3.0
         #Result: 0
         if AP == 0:
             jump dayendings
@@ -85,7 +82,6 @@ menu:
         $ Berkly_LP -= 1.0
         N "I stopped by for a bit, but your studying seems important."
         show berkly annoyed
-        stop music fadeout 3.0
         "She seemed kind of disappointed that I didn’t sit with her. I really don’t want to bother her though."
         hide berkly annoyed with dissolve
         if AP == 0:
@@ -120,7 +116,6 @@ menu:
         Berkly "Its ok. I’ll ask one of my study buddies. If you have any questions, you can rely on me."
         N "Thanks, Berkly."
         Berkly "No problem."
-        stop music fadeout 3.0
         hide berkly neutral with dissolve
         if AP == 0:
             jump dayendings
@@ -137,7 +132,6 @@ menu:
         Berkly "Well, not just that. I've got other errands to run."
         N "Ah, I see. Catch you later then."
         Berkly "See ya."
-        stop music fadeout 3.0
         hide berkly neutral with dissolve
         if AP == 0:
             jump dayendings
@@ -154,7 +148,6 @@ Berkly "Later."
 menu:
     "Bye":
         hide berkly neutral with dissolve
-        stop music fadeout 3.0
         if AP == 0:
             jump dayendings
         else:
@@ -180,7 +173,6 @@ N "Do you have more classes?"
 show berkly concerned
 Berkly "Well, not just that. I've got other errands to run."
 show berkly neutral
-stop music fadeout 3.0
 Berkly "I’m glad you decided to join us."
 N "I’m glad as well. I got a lot of work done."
 Berkly "Catch you later then."
@@ -199,13 +191,11 @@ else:
 #BERKLY ENCOUNTER TWO
 label e_Berkly_2:
 $ berkly_encounter = True
-stop music fadeout 5.0
 "Berkly's sitting alone this time. She’s typing with one hand and sipping on coffee with the other."
 menu:
     "Approach Berkly?"
     "Yes":
         $ c_Berkly += 1.0
-        play music "audio/Coffee shoppe jazz.mp3"
         N "Is it just you this time?"
         show berkly annoyed with dissolve
         Berkly "You sound like you have a problem with that."
@@ -452,7 +442,6 @@ jump e_Berkly_2_end
 label e_Berkly_2_end:
 show coffeeshop with Fade(1.0,0,1.0)
 show berkly neutral with dissolve
-stop music fadeout 10.0
 Berkly "Thanks for waiting while I pack up."
 N "It's no biggie."
 Berkly "Later."
@@ -469,7 +458,6 @@ else:
 #BERKLY ENCOUNTER THREE
 label e_Berkly_3:
 $ berkly_encounter = True
-stop music fadeout 5.0
 "Berkly is sitting alone again. She’s reading a book and relaxed. Steam rises from the cup of coffee beside her."
 menu:
     "Approach Berkly?"
@@ -479,7 +467,6 @@ menu:
     "No":
         jump menu_areas
 label e_Berkly_3A:
-play music "audio/Coffee shoppe jazz.mp3"
 N "I’m sorry if I come off as rude, but shouldn’t your other friends be here by now?"
 show berkly neutral with dissolve
 Berkly "Did you have the impression that they were here on a daily basis?"
@@ -681,7 +668,6 @@ menu:
 
 Berkly "Are you coming by tomorrow as well?"
 N "If I don’t have any other plans, then sure."
-stop music fadeout 3.0
 Berkly "I see. Well, catch you later?"
 N "Yeah, Later!"
 hide berkly neutral with dissolve
@@ -696,7 +682,6 @@ else:
 #BERKLY ENCOUNTER FOUR
 label e_Berkly_4:
 $ berkly_encounter = True
-stop music fadeout 5.0
 "She's sitting at the same table and same spot. She seems busy."
 "Ah, man. I had nothing to do so I came here. Maybe I shouldn’t have come."
 "Berkly looks up and waves to me. She gestures towards the seat that I usually sit at."
@@ -801,7 +786,6 @@ else:
 #DANY ENCOUNTER ONE
 label e_Dany_1:
 $ dany_encounter = True
-stop music fadeout 5.0
 "She’s sitting next to the window, seemingly staring off into space."
 menu:
     "Approach Dany?"
@@ -817,7 +801,6 @@ $ Dany_LP +=1.0
 #When I walk up to her, Dany doesn’t seem to hear me coming.
 N "Uh...Hello?"
 show dany concerned
-play music "audio/Coffee shoppe jazz.mp3" fadein 10.0
 show dany mouth smile with dissolve
 Dany "O-Oh! Hey, there, [name]!"
 "Oh, it seems like she didn’t hear me."
@@ -863,7 +846,6 @@ menu:
         show dany neutral
         N "Sounds like a dat- I mean plan!"
         hide dany neutral with dissolve
-        stop music fadeout 3.0
         "Did I almost call it a...nevermind."
         if AP == 0:
             jump dayendings
@@ -881,7 +863,6 @@ menu:
         show dany annoy
         Dany "Oh, shoot! I forgot I was supposed to meet up with my friend today!"
         show dany neutral
-        stop music fadeout 3.0
         Dany "Okay, let’s hang out again soon. Next time I see you, I’ll tell you all about it!"
         if AP == 0:
             jump dayendings
@@ -909,7 +890,6 @@ menu:
         show dany neutral
         N "Sounds like a dat- I mean plan!"
         hide dany neutral with dissolve
-        stop music fadeout 3.0
         "Did I almost call it a...nevermind."
         if AP == 0:
             jump dayendings
@@ -926,7 +906,6 @@ menu:
         show dany annoy
         Dany "Oh, shoot! I forgot I was supposed to meet up with my friend today!"
         show dany neutral
-        stop music fadeout 3.0
         Dany "Okay, let’s hang out again soon. Next time I see you, I’ll tell you all about it!"
         if AP == 0:
             jump dayendings
@@ -940,7 +919,6 @@ menu:
 #DANY ENCOUNTER TWO
 label e_Dany_2:
 $ dany_encounter = True
-stop music fadeout 5.0
 "Dany is sitting in the cafe, daydreaming again. She seems pretty into it."
 menu:
     "Approach Dany?"
@@ -952,7 +930,6 @@ menu:
         jump menu_areas
 
 label e_Dany2:
-play music "audio/Coffee shoppe jazz.mp3" fadein 10.0
 N "Hey, Dany."
 show dany laugh with dissolve
 Dany "Hey, there!"
@@ -1010,7 +987,6 @@ menu:
         Dany "Sorry you had to see that! Honestly, I’m still kind of a softie."
         Dany "Sorry, I think I just need some time to myself."
         N "No worries. I'll catch you later."
-        stop music fadeout 3.0
         hide dany neutral with dissolve
         jump e_Dany2end
     "You can get another cow, right?":
@@ -1027,7 +1003,6 @@ menu:
         show dany neutral
         Dany "Sorry, I think I just need some time to myself."
         N "No worries. I’ll catch you later."
-        stop mudic fadeout 3.0
         hide dany neutral with dissolve
         jump e_Dany2end
 
@@ -1051,7 +1026,6 @@ menu:
         show dany neutral
         Dany "Thanks for being so understanding. I think I’ll take the day for myself, if you don’t mind."
         N "No worries. I’ll catch you later."
-        stop music fadeout 3.0
         Dany "See ya!"
         hide dany neutral
         jump e_Dany2end
@@ -1063,7 +1037,6 @@ menu:
         N "Sorry. You just seem like you’re in a bad mood."
         Dany "You’re certainly not helpin’ that."
         Dany "Look. I’m going to take the rest of the day for myself. I’ll catch you another time."
-        stop music fadeout 3.0
         N "Alright."
         hide dany annoy with dissolve
         jump e_Dany2end
@@ -1088,7 +1061,6 @@ menu:
         Dany "Thanks for being so understanding. I think I’ll take the day for myself, if you don’t mind."
         N "No worries. I’ll catch you later."
         Dany "See ya!"
-        stop music fadeout 3.0
         hide dany neutral
         jump e_Dany2end
     "Why so moody?":
@@ -1100,7 +1072,6 @@ menu:
         Dany "You’re certainly not helpin’ that."
         Dany "Look. I’m going to take the rest of the day for myself. I’ll catch you another time."
         N "Alright." 
-        stop music fadeout 3.0
         hide dany annoy
         jump e_Dany2end
 
@@ -1116,7 +1087,6 @@ else:
 #DANY ENCOUNTERS
 #DANY ENCOUNTER THREE
 label e_Dany_3:
-stop music fadeout 5.0
 "Huh."
 "I look around for Dany, but it seems like she isn't here today..."
 menu:
@@ -1131,7 +1101,6 @@ menu:
         jump menu_areas
 
 label e_dany3:
-play music "audio/Coffee shoppe jazz.mp3" fadein 10.0
 "I decide to take a seat at a table and relax for a bit. The last time with Dany was a little weird. Maybe she’s-"
 Dany "[name]! I’ve been lookin’ all over for you."
 show dany concern with dissolve
@@ -1179,7 +1148,6 @@ menu:
         Dany "C’mon. Let’s get some iced coffees."
         N "O-okay..."
         hide dany laugh with dissolve
-        stop music fadeout 3.0
         "Despite my reluctance, we had a lot of fun!"
         "We talked about the animals on her farm, my old friends from back home, and enjoyed iced coffees."
         "It was nice..."
@@ -1199,7 +1167,6 @@ menu:
         "It felt a little weird letting her pay for me, but I vowed that it’s definitely gonna be on me next time."
         N "Alright, then. Lead the way!"
         hide dany neutral with dissolve
-        stop music fadeout 3.0
         "We had a lot of fun! We talked about the animals on her farm, my old friends from back home, and enjoyed some iced coffees."
         "It was...nice."
         jump e_dany3end1
@@ -1243,7 +1210,6 @@ menu:
         show dany neutral
         Dany "Better tell me what you like before I get that caramel latte!"
         hide dany neutral with dissolve
-        stop music fadeout 3.0
         "That doesn’t sound bad, actually..."
         "We had a lot of fun! We talked about the animals on her farm, my old friends from back home, and enjoyed some iced coffees."
         "It was...nice."
@@ -1432,7 +1398,6 @@ Dany "Well, relaxation's over. I gotta head home."
 N "Ah, same here."
 Dany "Thanks for keeping me company. See you later, maybe?"
 N "Yeah, of course!"
-stop music fadeout 3.0
 hide dany neutral with dissolve
 "..."
 jump dayendings
