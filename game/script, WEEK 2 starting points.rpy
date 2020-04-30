@@ -13,7 +13,7 @@ N "Alright, alright."
 play sound "audio/door open.mp3" fadein 8.0
 scene dorm morning with dissolve
 show mio laugh with dissolve
-play music "audio/<loop 16.000>Maintheme.mp3" fadein 20.0
+play music "audio/Maintheme.mp3" fadein 20.0
 Mio "Thanks for letting me in. Check this out!"
 "In shining letters on the screen of his phone was the title {b}UC Girls{/b}."
 show mio neutral
